@@ -105,6 +105,37 @@
   .forecast-container::-webkit-scrollbar-track { background: var(--cream-100); border-radius: 4px;}
   .forecast-container::-webkit-scrollbar-thumb { background: #d3cbb6; border-radius: 4px; }
   .forecast-container::-webkit-scrollbar-thumb:hover { background: var(--gold-500); }
+/* ============================================================
+   PERBAIKAN KONTRAS TEKS (WCAG)
+   Warna Bootstrap text-warning (#ffc107) & text-info (#0dcaf0)
+   di background terang nyaris tak terbaca (menyatu dgn background).
+   Diganti warna lebih gelap. Area berlatar gelap dikecualikan.
+   ============================================================ */
+.text-warning { color: #8a6100 !important; }
+.text-info { color: #055160 !important; }
+.text-success { color: #0f5132 !important; }
+.text-danger { color: #842029 !important; }
+.text-secondary { color: #41464b !important; }
+.bg-orange { background-color: #d97706 !important; }
+.bg-secondary-subtle { background-color: #eceef1 !important; }
+.btn-info { background-color: #055160 !important; border-color: #055160 !important; color: #fff !important; }
+.btn-info:hover, .btn-info:focus { background-color: #05607a !important; border-color: #05607a !important; color: #fff !important; }
+.btn-outline-secondary { color: #41464b !important; border-color: #9aa1ab !important; }
+.btn-outline-secondary:hover, .btn-outline-secondary:focus { color: #fff !important; background-color: #41464b !important; border-color: #41464b !important; }
+/* Pengecualian area gelap: teks tetap terang */
+.modal-header .text-warning, .modal-header-premium .text-warning,
+.notif-panel-header .text-warning, .sidebar .text-warning,
+.site-footer .text-warning, .cta-banner .text-warning,
+.cta-banner-mini .text-warning, .login-page-bg .text-warning { color: var(--gold-300, #e3c360) !important; }
+.modal-header .text-info, .modal-header-premium .text-info,
+.notif-panel-header .text-info, .sidebar .text-info,
+.site-footer .text-info, .cta-banner .text-info,
+.cta-banner-mini .text-info, .login-page-bg .text-info { color: #7fd7f0 !important; }
+.modal-header .text-success, .modal-header-premium .text-success,
+.site-footer .text-success, .cta-banner .text-success { color: #7ee0a3 !important; }
+.modal-header .text-danger, .modal-header-premium .text-danger,
+.site-footer .text-danger, .cta-banner .text-danger { color: #f28b82 !important; }
+
 </style>
 </head>
 <body>
@@ -177,7 +208,7 @@
   <div id="gunungGrid" class="row g-3"></div>
 
   <div id="emptyState" class="empty-state d-none">
-    <i class="fa-solid fa-magnifying-glass-location fa-2x mb-3" style="color: var(--gold-300);"></i>
+    <i class="fa-solid fa-magnifying-glass-location fa-2x mb-3" style="color: var(--gold-600);"></i>
     <div class="fw-semibold text-dark">Tidak ada gunung yang cocok</div>
     <small>Coba ubah kata kunci pencarian atau filter.</small>
   </div>
@@ -384,13 +415,13 @@
   function setUpdateInfo(mode, message) {
     if (mode === "loading") {
       syncStatusText.innerHTML = '<span class="spinner-border spinner-border-sm text-warning me-1"></span>Memuat data cuaca...';
-      syncStatusText.style.color = '#c9a227';
+      syncStatusText.style.color = '#8a6100';
     } else if (mode === "error") {
       syncStatusText.innerHTML = `<i class="fa-solid fa-triangle-exclamation me-1"></i>${message}`;
       syncStatusText.style.color = '#b3462c';
     } else {
       syncStatusText.innerHTML = '<i class="fa-solid fa-circle-check me-1"></i>Sinkronisasi berjalan normal.';
-      syncStatusText.style.color = '#2f7d4f';
+      syncStatusText.style.color = '#1c6b3f';
       syncTimeText.innerHTML = `Terakhir diperbarui: ${formatFullDateIndo(new Date())}`;
     }
   }

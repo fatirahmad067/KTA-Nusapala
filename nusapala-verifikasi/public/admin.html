@@ -456,7 +456,38 @@
       .notif-panel-close { display: flex; }
       .notif-panel-header { padding: 1rem 1.1rem; }
     }
-  </style>
+      /* ============================================================
+       PERBAIKAN KONTRAS TEKS (WCAG)
+       Warna Bootstrap text-warning (#ffc107) & text-info (#0dcaf0)
+       di background terang nyaris tak terbaca (menyatu dgn background).
+       Diganti warna lebih gelap. Area berlatar gelap dikecualikan.
+       ============================================================ */
+    .text-warning { color: #8a6100 !important; }
+    .text-info { color: #055160 !important; }
+    .text-success { color: #0f5132 !important; }
+    .text-danger { color: #842029 !important; }
+    .text-secondary { color: #41464b !important; }
+    .bg-orange { background-color: #d97706 !important; }
+    .bg-secondary-subtle { background-color: #eceef1 !important; }
+    .btn-info { background-color: #055160 !important; border-color: #055160 !important; color: #fff !important; }
+    .btn-info:hover, .btn-info:focus { background-color: #05607a !important; border-color: #05607a !important; color: #fff !important; }
+    .btn-outline-secondary { color: #41464b !important; border-color: #9aa1ab !important; }
+    .btn-outline-secondary:hover, .btn-outline-secondary:focus { color: #fff !important; background-color: #41464b !important; border-color: #41464b !important; }
+    /* Pengecualian area gelap: teks tetap terang */
+    .modal-header .text-warning, .modal-header-premium .text-warning,
+    .notif-panel-header .text-warning, .sidebar .text-warning,
+    .site-footer .text-warning, .cta-banner .text-warning,
+    .cta-banner-mini .text-warning, .login-page-bg .text-warning { color: var(--gold-300, #e3c360) !important; }
+    .modal-header .text-info, .modal-header-premium .text-info,
+    .notif-panel-header .text-info, .sidebar .text-info,
+    .site-footer .text-info, .cta-banner .text-info,
+    .cta-banner-mini .text-info, .login-page-bg .text-info { color: #7fd7f0 !important; }
+    .modal-header .text-success, .modal-header-premium .text-success,
+    .site-footer .text-success, .cta-banner .text-success { color: #7ee0a3 !important; }
+    .modal-header .text-danger, .modal-header-premium .text-danger,
+    .site-footer .text-danger, .cta-banner .text-danger { color: #f28b82 !important; }
+
+</style>
 </head>
 <body>
 
@@ -1466,12 +1497,27 @@
       kategori_pengeluaran: ["Operasional Sekre", "Kegiatan Alam", "Rapat", "Lain-lain"],
       kategori_aset: ["Alat Gunung Hutan", "Alat Rock Climbing", "Alat ORAD (Olahraga Arus Deras)", "Logistik", "Lain-lain"],
       kategori_surat: ["Surat Izin Kegiatan", "Surat Peminjaman Tempat", "Surat Undangan", "Lainnya"],
-      kategori_kepengurusan: ["Ketua Umum", "Wakil Ketua Umum", "Sekretaris", "Bendahara", "MSDM", "Kepala Divisi Gunung Hutan", "Kepala Divisi Rock Climbing", "Kepala Divisi Rafting"],
+      kategori_kepengurusan: ["Ketua Umum", "Wakil Ketua Umum", "Sekretaris", "Bendahara", "MSDM", "Kepala Divisi Gunung Hutan", "Kepala Divisi Rock Climbing", "Kepala Divisi Olahraga Arus Deras"],
       kategori_jenis_kegiatan: ["Pendakian", "Pendidikan Dasar", "Jungle Trekking", "Survival Camp", "Susur Sungai", "Panjat Tebing", "Konservasi", "Penanaman Pohon", "Bersih Gunung", "Latihan SAR", "Ekspedisi", "Bakti Sosial", "Rapat", "Kegiatan Lainnya"],
       daftar_status_kegiatan: ["Perencanaan", "Persiapan", "Berlangsung", "Selesai", "Ditunda", "Dibatalkan", "Darurat"],
       daftar_status_keamanan: ["Aman", "Perlu Perhatian", "Kendala Lapangan", "Darurat"],
-      kategori_divisi: ["Gunung Hutan", "Rock Climbing", "Rafting/Orad"]
+      kategori_divisi: ["Rock Climbing", "Gunung Hutan", "Olahraga Arus Deras"]
     };
+
+    // Divisi utama wajib selalu tersedia di Data Divisi (Kategori Divisi)
+    const DIVISI_UTAMA = ["Rock Climbing", "Gunung Hutan", "Olahraga Arus Deras"];
+    function normalisasiDaftarDivisi(list) {
+      const hasil = [];
+      (list || []).forEach(d => {
+        const nama = String(d || '').trim();
+        if (!nama) return;
+        // Samakan nama lama (Rafting / ORAD / Arus Deras) menjadi "Olahraga Arus Deras"
+        const standar = /rafting|orad|arus\s*deras/i.test(nama) ? 'Olahraga Arus Deras' : nama;
+        if (!hasil.includes(standar)) hasil.push(standar);
+      });
+      DIVISI_UTAMA.forEach(d => { if (!hasil.includes(d)) hasil.push(d); });
+      return hasil;
+    }
 
     // ================== HELPER FUNCTIONS ==================
     const Auth = {
@@ -1788,6 +1834,14 @@
             dbSettings[item.key] = item.value;
           }
         });
+
+        // Data Divisi: pastikan Rock Climbing, Gunung Hutan, Olahraga Arus Deras selalu ada,
+        // dan rapikan nama divisi lama (Rafting/Orad) -> "Olahraga Arus Deras". Simpan bila berubah.
+        const divisiSebelumNormalisasi = JSON.stringify(dbSettings.kategori_divisi || []);
+        dbSettings.kategori_divisi = normalisasiDaftarDivisi(dbSettings.kategori_divisi);
+        if (JSON.stringify(dbSettings.kategori_divisi) !== divisiSebelumNormalisasi) {
+          upsertSetting('kategori_divisi', JSON.stringify(dbSettings.kategori_divisi)).catch(() => {});
+        }
         
         hideFullPageLoading();
         updateCategoryDropdowns();

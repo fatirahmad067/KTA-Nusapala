@@ -225,7 +225,38 @@
       .pw-req-list { grid-template-columns: 1fr; }
       .hero-title { font-size: 1.7rem; }
     }
-  </style>
+      /* ============================================================
+       PERBAIKAN KONTRAS TEKS (WCAG)
+       Warna Bootstrap text-warning (#ffc107) & text-info (#0dcaf0)
+       di background terang nyaris tak terbaca (menyatu dgn background).
+       Diganti warna lebih gelap. Area berlatar gelap dikecualikan.
+       ============================================================ */
+    .text-warning { color: #8a6100 !important; }
+    .text-info { color: #055160 !important; }
+    .text-success { color: #0f5132 !important; }
+    .text-danger { color: #842029 !important; }
+    .text-secondary { color: #41464b !important; }
+    .bg-orange { background-color: #d97706 !important; }
+    .bg-secondary-subtle { background-color: #eceef1 !important; }
+    .btn-info { background-color: #055160 !important; border-color: #055160 !important; color: #fff !important; }
+    .btn-info:hover, .btn-info:focus { background-color: #05607a !important; border-color: #05607a !important; color: #fff !important; }
+    .btn-outline-secondary { color: #41464b !important; border-color: #9aa1ab !important; }
+    .btn-outline-secondary:hover, .btn-outline-secondary:focus { color: #fff !important; background-color: #41464b !important; border-color: #41464b !important; }
+    /* Pengecualian area gelap: teks tetap terang */
+    .modal-header .text-warning, .modal-header-premium .text-warning,
+    .notif-panel-header .text-warning, .sidebar .text-warning,
+    .site-footer .text-warning, .cta-banner .text-warning,
+    .cta-banner-mini .text-warning, .login-page-bg .text-warning { color: var(--gold-300, #e3c360) !important; }
+    .modal-header .text-info, .modal-header-premium .text-info,
+    .notif-panel-header .text-info, .sidebar .text-info,
+    .site-footer .text-info, .cta-banner .text-info,
+    .cta-banner-mini .text-info, .login-page-bg .text-info { color: #7fd7f0 !important; }
+    .modal-header .text-success, .modal-header-premium .text-success,
+    .site-footer .text-success, .cta-banner .text-success { color: #7ee0a3 !important; }
+    .modal-header .text-danger, .modal-header-premium .text-danger,
+    .site-footer .text-danger, .cta-banner .text-danger { color: #f28b82 !important; }
+
+</style>
 </head>
 <body>
 
@@ -745,25 +776,38 @@
     // =======================================================================
 async function loadDivisiOptions() {
   const sel = document.getElementById('reg_divisi');
+  // Divisi utama organisasi — dipakai sebagai fallback & untuk merapikan nama divisi lama
+  const DIVISI_UTAMA = ["Rock Climbing", "Gunung Hutan", "Olahraga Arus Deras"];
+  const normalisasiDivisi = (list) => {
+    const hasil = [];
+    (list || []).forEach(d => {
+      const nama = String(d || '').trim();
+      if (!nama) return;
+      const standar = /rafting|orad|arus\s*deras/i.test(nama) ? 'Olahraga Arus Deras' : nama;
+      if (!hasil.includes(standar)) hasil.push(standar);
+    });
+    DIVISI_UTAMA.forEach(d => { if (!hasil.includes(d)) hasil.push(d); });
+    return hasil;
+  };
   try {
     // Membaca master data dari tabel settings
-    const { data, error } = await db.from('settings').select('value').eq('key', 'kategori_divisi').single();
+    const { data, error } = await db.from('settings').select('value').eq('key', 'kategori_divisi').maybeSingle();
     if (error) throw error;
     
-    // Parse JSON array
-    const divisiArray = JSON.parse(data.value || '[]');
-    
-    if (divisiArray.length === 0) {
-      sel.innerHTML = '<option value="">-- Belum ada data Divisi di sistem --</option>';
-      return;
-    }
+    // Parse JSON array (fallback ke divisi utama bila data kosong / belum tersimpan)
+    let divisiArray = [];
+    try { divisiArray = JSON.parse((data && data.value) || '[]'); } catch (e) { divisiArray = []; }
+    divisiArray = normalisasiDivisi(divisiArray);
     
     // Mapping opsi ke dropdown
     sel.innerHTML = '<option value="">-- Pilih Divisi --</option>' + 
        divisiArray.map(d => `<option value="${escapeHTML(d)}">${escapeHTML(d)}</option>`).join('');
          
   } catch (err) {
-    sel.innerHTML = '<option value="">-- Gagal memuat data Divisi --</option>';
+    // Gagal memuat dari database — tetap tampilkan divisi utama agar pendaftaran tidak terhambat
+    const divisiArray = normalisasiDivisi([]);
+    sel.innerHTML = '<option value="">-- Pilih Divisi --</option>' + 
+       divisiArray.map(d => `<option value="${escapeHTML(d)}">${escapeHTML(d)}</option>`).join('');
   }
   
   sel.addEventListener('change', runValidation);
