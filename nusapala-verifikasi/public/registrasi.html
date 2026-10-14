@@ -7,7 +7,7 @@
 
   <!-- Google Fonts: Fraunces (display) + Inter (UI) + IBM Plex Mono (mono accents) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- FontAwesome 6 -->
@@ -22,32 +22,32 @@
   <style>
     :root {
       /* Palette premium: forest / gold / cream / ink — identik dengan index.html & admin.html */
-      --forest-950: #0a1810;
-      --forest-900: #0f2e1a;
-      --forest-800: #163b23;
-      --forest-700: #1d4a2d;
-      --primary-color: #0f2e1a;
-      --primary-hover: #123821;
-      --gold-600: #a9821c;
-      --gold-500: #c9a227;
-      --gold-300: #e3c360;
-      --secondary-color: #c9a227;
-      --cream-50: #faf8f2;
-      --cream-100: #f4efe3;
-      --paper: #fbf9f4;
-      --light-bg: #f6f3ea;
+      --forest-950: #0b1622;
+      --forest-900: #12212f;
+      --forest-800: #1f3648;
+      --forest-700: #2a475e;
+      --primary-color: #12212f;
+      --primary-hover: #1f3648;
+      --gold-600: #86692f;
+      --gold-500: #b3945a;
+      --gold-300: #dcc79b;
+      --secondary-color: #b3945a;
+      --cream-50: #f8f3e7;
+      --cream-100: #f2ebda;
+      --paper: #fffdf7;
+      --light-bg: #f8f3e7;
       --card-bg: #ffffff;
-      --border-color: #e7e0cf;
-      --line-soft: rgba(15, 46, 26, 0.10);
-      --ink-900: #1b1f1a;
-      --text-main: #3c4238;
-      --text-muted: #746c58;
+      --border-color: #e0d5bd;
+      --line-soft: rgba(18, 33, 47, 0.10);
+      --ink-900: #16202c;
+      --text-main: #33404f;
+      --text-muted: #5d6874;
       --radius-lg: 20px;
       --radius-md: 14px;
       --shadow-soft: 0 10px 30px -12px rgba(15, 30, 20, 0.14);
 
-      --danger-600: #b3462c;
-      --success-600: #2f7d4f;
+      --danger-600: #a94a37;
+      --success-600: #457f51;
     }
 
     * { box-sizing: border-box; }
@@ -59,7 +59,7 @@
       overflow-x: hidden;
       background-image:
         radial-gradient(circle at 100% 0%, rgba(201,162,39,0.07), transparent 40%),
-        radial-gradient(circle at 0% 30%, rgba(15,46,26,0.05), transparent 45%);
+        radial-gradient(circle at 0% 30%, rgba(18,33,47,0.05), transparent 45%);
       background-attachment: fixed;
     }
 
@@ -82,9 +82,9 @@
     .eyebrow::before { content:''; width: 22px; height: 1px; background: var(--gold-500); display: inline-block; }
 
     /* ============ Navbar ============ */
-    .landing-navbar { background: rgba(250, 248, 242, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); transition: all 0.3s ease; }
-    .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(155deg, var(--forest-900), var(--forest-700)); display:flex; align-items:center; justify-content:center; color: var(--gold-300); box-shadow: 0 6px 16px -6px rgba(15,46,26,0.5); position: relative; }
-    .brand-mark::after { content:''; position:absolute; inset:2px; border:1px solid rgba(227,195,96,0.35); border-radius: 9px; }
+    .landing-navbar { background: rgba(248, 243, 231, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); transition: all 0.3s ease; }
+    .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(155deg, var(--forest-900), var(--forest-700)); display:flex; align-items:center; justify-content:center; color: var(--gold-300); box-shadow: 0 6px 16px -6px rgba(18,33,47,0.5); position: relative; }
+    .brand-mark::after { content:''; position:absolute; inset:2px; border:1px solid rgba(220,199,155,0.35); border-radius: 9px; }
     .brand-org-name { font-family:'Fraunces', serif; font-weight:700; font-size:1.05rem; color: var(--ink-900); line-height:1.1; }
     .brand-org-sub { font-size:0.6rem; letter-spacing:0.08em; color: var(--text-muted); text-transform: uppercase; }
 
@@ -94,7 +94,7 @@
     .nav-link-landing:hover::after, .nav-link-landing.active::after { transform: scaleX(1); }
 
     .btn-portal-admin { background: var(--forest-900); color: #fff !important; border-radius: 999px; padding: 0.5rem 1.35rem; font-weight: 600; font-size: 0.85rem; border: 1px solid var(--forest-900); transition: all 0.25s ease; }
-    .btn-portal-admin:hover { background: var(--forest-800); transform: translateY(-1px); box-shadow: 0 8px 18px -8px rgba(15,46,26,0.5); color:#fff; }
+    .btn-portal-admin:hover { background: var(--forest-800); transform: translateY(-1px); box-shadow: 0 8px 18px -8px rgba(18,33,47,0.5); color:#fff; }
 
     /* ============ Hero ============ */
     .hero-wrap { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: var(--paper); border: 1px solid var(--line-soft); }
@@ -130,7 +130,7 @@
       font-size: 0.92rem; transition: all 0.2s ease; background-color: #fff;
     }
     .form-control:focus, .form-select:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(201,162,39,0.15); }
-    .form-control::placeholder { color: #b3ab97; }
+    .form-control::placeholder { color: #7d745f; opacity: 1; }
     .form-control.is-valid-reg { border-color: var(--success-600); background-image: none; }
     .form-control.is-invalid-reg { border-color: var(--danger-600); background-image: none; }
 
@@ -140,6 +140,9 @@
     .reg-feedback { font-size: 0.75rem; margin-top: 0.35rem; display: none; align-items: center; gap: 6px; }
     .reg-feedback.show { display: flex; }
     .reg-feedback.ok { color: var(--success-600); }
+    /* Catatan: beberapa state validasi memakai warna latar krem (validity-panel),
+       jadi warna teksnya dipastikan tetap gelap agar tidak menyatu dengan latar. */
+    .validity-panel { color: var(--text-main); }
     .reg-feedback.bad { color: var(--danger-600); }
 
     /* ============ Searchable Dropdown (Nama Angkatan) ============ */
@@ -171,7 +174,7 @@
 
     .pw-req-list { list-style: none; padding: 0; margin: 0.6rem 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 10px; }
     .pw-req-list li { font-size: 0.72rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; transition: color 0.2s ease; }
-    .pw-req-list li i { font-size: 0.68rem; width: 12px; color: var(--border-color); }
+    .pw-req-list li i { font-size: 0.68rem; width: 12px; color: #a39a83; }
     .pw-req-list li.met { color: var(--success-600); }
     .pw-req-list li.met i { color: var(--success-600); }
 
@@ -193,17 +196,17 @@
 
     /* ============ Success State ============ */
     .success-wrap { text-align: center; padding: 2.5rem 1rem; }
-    .success-icon { width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(155deg, var(--forest-900), var(--forest-700)); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.3rem; color: var(--gold-300); font-size: 2.1rem; box-shadow: 0 14px 30px -10px rgba(15,46,26,0.45); }
+    .success-icon { width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(155deg, var(--forest-900), var(--forest-700)); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.3rem; color: var(--gold-300); font-size: 2.1rem; box-shadow: 0 14px 30px -10px rgba(18,33,47,0.45); }
     .status-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(201,162,39,0.14); color: var(--gold-600); border: 1px solid rgba(201,162,39,0.35); border-radius: 999px; padding: 0.4rem 1rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; }
 
     /* ============ Info Organisasi mini cards ============ */
     .info-mini-card { background: #fff; border: 1px solid var(--line-soft); border-radius: var(--radius-md); padding: 1.1rem; height: 100%; transition: all 0.2s ease; }
-    .info-mini-card:hover { transform: translateY(-3px); box-shadow: 0 14px 28px -16px rgba(15,46,26,0.25); border-color: var(--gold-500); }
+    .info-mini-card:hover { transform: translateY(-3px); box-shadow: 0 14px 28px -16px rgba(18,33,47,0.25); border-color: var(--gold-500); }
     .info-mini-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--cream-100); color: var(--forest-800); display:flex; align-items:center; justify-content:center; font-size: 1.05rem; margin-bottom: 0.8rem; }
 
     /* ============ Footer ============ */
     .site-footer { background: var(--forest-950); color: rgba(255,255,255,0.72); position: relative; overflow: hidden; }
-    .site-footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(227,195,96,0.5), transparent); }
+    .site-footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(220,199,155,0.5), transparent); }
     .site-footer .topo-layer { opacity: 0.06; filter: invert(1); }
     .footer-heading { font-family:'Fraunces', serif; color: #fff; font-weight:600; font-size: 1rem; margin-bottom: 1rem; }
     .footer-link { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; transition: color 0.2s ease; display: block; margin-bottom: 0.55rem; }
@@ -226,6 +229,34 @@
       .hero-title { font-size: 1.7rem; }
     }
   </style>
+  <!-- ===== NUSAPALA DESIGN SYSTEM (dimuat terakhir agar menang atas gaya lama) ===== -->
+  <meta name="theme-color" content="#f8f3e7">
+  <script>
+    /* Pasang tema sebelum halaman digambar supaya tidak ada kedipan warna */
+    (function () {
+      try {
+        var t = localStorage.getItem('np-theme');
+        if (!t) t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        if (t === 'dark') {
+          document.documentElement.setAttribute('data-np-theme', 'dark');
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#0c1420');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/nusapala.css">
+  <script src="/assets/js/nusapala-ui.js" defer></script>
+  <script>
+    /* Jaring pengaman: bila kit UI gagal dimuat, konten tidak boleh tetap tersembunyi */
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        if (window.NusapalaUI) return;
+        document.querySelectorAll('.reveal,.np-reveal,.np-reveal-left,.np-reveal-scale,.np-stagger')
+          .forEach(function (el) { el.classList.add('is-visible'); });
+      }, 1200);
+    });
+  </script>
 </head>
 <body>
 
@@ -241,9 +272,12 @@
           <small class="text-muted brand-org-sub">Mapala Institut Bisnis Nusantara</small>
         </div>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#registrasiNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="d-flex align-items-center gap-2">
+        <button class="np-theme-toggle" type="button" data-np-theme-toggle aria-pressed="false" title="Ganti tema"><i class="fa-solid fa-moon np-icon-moon"></i><i class="fa-solid fa-sun np-icon-sun"></i></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#registrasiNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
       <div class="collapse navbar-collapse" id="registrasiNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3 me-4">
           <li class="nav-item"><a class="nav-link nav-link-landing" href="/">Beranda</a></li>
@@ -260,40 +294,35 @@
   <div class="container pt-5 pb-4">
     <div class="hero-wrap p-4 p-lg-5 mb-5 reveal is-visible">
       <div class="topo-layer"></div>
+      <div class="np-stars" aria-hidden="true"></div>
       <div class="row g-4 align-items-center position-relative">
         <div class="col-12 col-lg-7">
-          <span class="eyebrow mb-3 d-inline-flex">Formulir Keanggotaan Digital</span>
-          <h1 class="hero-title mb-3 mt-3">Bergabung Menjadi Bagian dari Keluarga Besar <span>Mahasiswa Pecinta Alam</span></h1>
-          <p class="text-muted-soft fs-6 mb-0" style="max-width: 540px;">Daftarkan akun Anda untuk mengakses Dashboard Organisasi, Agenda Kegiatan, Informasi Ekspedisi, dan berbagai layanan internal NUSAPALA.</p>
+          <span class="eyebrow mb-3 d-inline-flex np-hero-in" style="--d:.02s">Formulir Keanggotaan Digital</span>
+          <h1 class="hero-title mb-3 mt-3 np-hero-in" style="--d:.10s">Bergabung Menjadi Bagian dari Keluarga Besar <span>Mahasiswa Pecinta Alam</span></h1>
+          <p class="text-muted-soft fs-6 mb-0 np-hero-in" style="max-width: 540px; --d:.18s">Daftarkan akun Anda untuk mengakses Dashboard Organisasi, Agenda Kegiatan, Informasi Ekspedisi, dan berbagai layanan internal NUSAPALA.</p>
         </div>
         <div class="col-12 col-lg-5">
-          <div class="row g-3">
-            <div class="col-6">
-              <div class="info-mini-card">
-                <div class="info-mini-icon"><i class="fa-solid fa-mountain-sun"></i></div>
-                <div class="fw-bold text-dark small mb-1">Ekspedisi Alam</div>
-                <div class="text-muted-soft" style="font-size:0.76rem;">Gunung, hutan, dan konservasi.</div>
-              </div>
+          <div class="np-divisi-panel np-hero-in" style="--d:.24s">
+            <div class="np-label np-label-brass mb-3"><i class="fa-solid fa-people-group me-1"></i> Pilih jalan petualanganmu</div>
+            <div class="d-flex flex-column gap-2" id="regDivisiPreview">
+              <!-- Diisi otomatis oleh loadDivisiOptions() dari master data divisi -->
+              <div class="np-divisi-row"><span class="skeleton" style="width:34px;height:34px;border-radius:11px;"></span><span class="skeleton" style="flex:1;height:14px;"></span></div>
+              <div class="np-divisi-row"><span class="skeleton" style="width:34px;height:34px;border-radius:11px;"></span><span class="skeleton" style="flex:1;height:14px;"></span></div>
+              <div class="np-divisi-row"><span class="skeleton" style="width:34px;height:34px;border-radius:11px;"></span><span class="skeleton" style="flex:1;height:14px;"></span></div>
             </div>
-            <div class="col-6">
-              <div class="info-mini-card">
-                <div class="info-mini-icon"><i class="fa-solid fa-users"></i></div>
-                <div class="fw-bold text-dark small mb-1">Komunitas Solid</div>
-                <div class="text-muted-soft" style="font-size:0.76rem;">Ikatan lintas angkatan.</div>
+            <hr class="my-3" style="border-color: var(--line-soft);">
+            <div class="row g-2">
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="fa-solid fa-shield-halved" style="color:var(--gold-600);"></i>
+                  <small style="color:var(--text-muted); font-size:0.76rem;">Leave No Trace</small>
+                </div>
               </div>
-            </div>
-            <div class="col-6">
-              <div class="info-mini-card">
-                <div class="info-mini-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="fw-bold text-dark small mb-1">Leave No Trace</div>
-                <div class="text-muted-soft" style="font-size:0.76rem;">Petualangan bertanggung jawab.</div>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="info-mini-card">
-                <div class="info-mini-icon"><i class="fa-solid fa-sun"></i></div>
-                <div class="fw-bold text-dark small mb-1">Sunrise Hunter</div>
-                <div class="text-muted-soft" style="font-size:0.76rem;">Momen di atas awan.</div>
+              <div class="col-6">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="fa-solid fa-graduation-cap" style="color:var(--gold-600);"></i>
+                  <small style="color:var(--text-muted); font-size:0.76rem;">Pendidikan Dasar</small>
+                </div>
               </div>
             </div>
           </div>
@@ -338,7 +367,7 @@
           </div>
         </div>
 
-        <div class="cta-banner-mini rounded-4 p-4 position-relative overflow-hidden reveal is-visible" style="background: radial-gradient(circle at 100% 0%, rgba(227,195,96,0.18), transparent 55%), linear-gradient(150deg, var(--forest-950) 0%, var(--forest-800) 100%); border: 1px solid rgba(227,195,96,0.15);">
+        <div class="cta-banner-mini rounded-4 p-4 position-relative overflow-hidden reveal is-visible" style="background: radial-gradient(circle at 100% 0%, rgba(220,199,155,0.18), transparent 55%), linear-gradient(150deg, var(--forest-950) 0%, var(--forest-800) 100%); border: 1px solid rgba(220,199,155,0.15);">
           <div class="topo-layer" style="opacity:0.15;"></div>
           <div class="position-relative">
             <h6 class="fw-bold text-white mb-2 font-display">Butuh Bantuan?</h6>
@@ -413,8 +442,14 @@
                 <div class="col-12 col-md-6">
                     <label class="form-label-reg">Divisi <span class="req">*</span></label>
                     <select class="form-select" id="reg_divisi" required>
-                    <option value="">Memuat data divisi...</option>
+                      <!-- Fallback statis: tiga divisi standar Nusapala.
+                           Akan diperbarui otomatis dari master data Portal Admin (settings.kategori_divisi). -->
+                      <option value="">-- Pilih Divisi --</option>
+                      <option value="Gunung Hutan">Gunung Hutan</option>
+                      <option value="Rock Climbing">Rock Climbing</option>
+                      <option value="Olahraga Arus Deras">Olahraga Arus Deras</option>
                     </select>
+                    <div class="np-combo-hint" id="reg_divisi_hint"><i class="fa-solid fa-compass"></i> Pilih salah satu divisi Nusapala.</div>
                     <div class="reg-feedback" id="fb_divisi"></div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -494,7 +529,7 @@
                     <span class="btn-text"><i class="fa-solid fa-paper-plane me-2"></i>Daftarkan Akun Saya</span>
                   </span>
                 </button>
-                <p class="text-center text-muted-soft mt-3 mb-0" style="font-size:0.8rem;">Sudah punya akun? <a href="/admin" style="color:var(--forest-900); font-weight:700; text-decoration:none;">Login ke Portal Admin</a></p>
+                <p class="text-center text-muted-soft mt-3 mb-0" style="font-size:0.8rem;">Sudah punya akun? <a href="/admin" style="color:var(--pine-ink); font-weight:700; text-decoration:none;">Login ke Portal Admin</a></p>
               </div>
             </form>
           </div>
@@ -740,33 +775,97 @@
         }
 
     // =======================================================================
-    // 4. DROPDOWN DIVISI — Diambil dinamis dari data Divisi yang sudah ada
-    //    di tabel members (bukan hardcode), sesuai master data sistem berjalan.
     // =======================================================================
+    // 4. DROPDOWN DIVISI
+    //    Sumber utama: master data Portal Admin (settings.kategori_divisi).
+    //    Bila barisnya belum ada / gagal dibaca, dipakai tiga divisi standar
+    //    Nusapala supaya pendaftaran TIDAK PERNAH buntu karena masalah data.
+    // =======================================================================
+    const DIVISI_STANDAR = ['Gunung Hutan', 'Rock Climbing', 'Olahraga Arus Deras'];
+    const DIVISI_ALIAS = {
+      'rafting': 'Olahraga Arus Deras', 'orad': 'Olahraga Arus Deras', 'rafting/orad': 'Olahraga Arus Deras',
+      'arus deras': 'Olahraga Arus Deras', 'olahraga arus deras (orad)': 'Olahraga Arus Deras',
+      'rockclimbing': 'Rock Climbing', 'panjat tebing': 'Rock Climbing'
+    };
+
+    // Master data dari Portal Admin adalah sumber kebenaran: nama divisi
+    // ditampilkan APA ADANYA. Alias penulisan lama sengaja TIDAK diterapkan di
+    // sini — sebelumnya divisi baru bernama "Panjat Tebing"/"Rafting"/"ORAD"
+    // otomatis diganti lalu dibuang sebagai duplikat, sehingga hilang dari
+    // dropdown pendaftaran tanpa pesan apa pun.
+    function rapikanDaftarDivisi(list) {
+      const hasil = [];
+      (Array.isArray(list) ? list : []).forEach(item => {
+        const nama = String(item == null ? '' : item).replace(/\s+/g, ' ').trim();
+        if (!nama) return;
+        if (!hasil.some(d => d.toLowerCase() === nama.toLowerCase())) hasil.push(nama);
+      });
+      return hasil.length ? hasil : DIVISI_STANDAR.slice();
+    }
+
+    // Menafsirkan divisi warisan milik anggota lama (mis. "Rafting/Orad") agar
+    // tetap dikenali sebagai divisi resminya.
+    function aliasDivisiLama(nama) {
+      const n = String(nama == null ? '' : nama).replace(/\s+/g, ' ').trim();
+      if (!n) return '';
+      return DIVISI_ALIAS[n.toLowerCase()] || n;
+    }
+
 async function loadDivisiOptions() {
   const sel = document.getElementById('reg_divisi');
+  if (!sel) return;
+
+  let daftar = DIVISI_STANDAR.slice();
   try {
-    // Membaca master data dari tabel settings
-    const { data, error } = await db.from('settings').select('value').eq('key', 'kategori_divisi').single();
+    // .maybeSingle() dipakai agar 0 baris bukan dianggap error (penyebab utama
+    // dropdown sebelumnya menampilkan "Gagal memuat data Divisi").
+    const { data, error } = await db.from('settings').select('value').eq('key', 'kategori_divisi').maybeSingle();
     if (error) throw error;
-    
-    // Parse JSON array
-    const divisiArray = JSON.parse(data.value || '[]');
-    
-    if (divisiArray.length === 0) {
-      sel.innerHTML = '<option value="">-- Belum ada data Divisi di sistem --</option>';
-      return;
-    }
-    
-    // Mapping opsi ke dropdown
-    sel.innerHTML = '<option value="">-- Pilih Divisi --</option>' + 
-       divisiArray.map(d => `<option value="${escapeHTML(d)}">${escapeHTML(d)}</option>`).join('');
-         
+    if (data && data.value) daftar = rapikanDaftarDivisi(JSON.parse(data.value || '[]'));
   } catch (err) {
-    sel.innerHTML = '<option value="">-- Gagal memuat data Divisi --</option>';
+    console.warn('[Nusapala] Master divisi tidak dapat dibaca, memakai divisi standar:', err && err.message);
   }
-  
-  sel.addEventListener('change', runValidation);
+
+  const terpilih = sel.value;
+  sel.innerHTML = '<option value="">-- Pilih Divisi --</option>' +
+    daftar.map(d => `<option value="${escapeHTML(d)}">${escapeHTML(d)}</option>`).join('');
+  if (terpilih) sel.value = terpilih;
+
+
+  // ---- Sentuhan visual Nusapala (sumber data divisi tetap milik logika di atas) ----
+  const updateHint = () => {
+    const hint = document.getElementById('reg_divisi_hint');
+    if (!hint) return;
+    const meta = window.NusapalaUI ? NusapalaUI.normalizeDivisi(sel.value) : null;
+    const sama = !!(meta && String(meta.nama).toLowerCase() === String(sel.value).trim().toLowerCase());
+    hint.innerHTML = sel.value
+      ? `<i class="fa-solid ${sama ? meta.icon : 'fa-compass'}"></i> <b>${escapeHTML(sel.value)}</b> — ${escapeHTML(sama ? meta.tagline : 'Bidang kegiatan Nusapala')}`
+      : '<i class="fa-solid fa-compass"></i> Pilih salah satu divisi Nusapala.';
+  };
+
+  sel.addEventListener('change', function () {
+    updateHint();
+    if (typeof runValidation === 'function') runValidation();
+  });
+  updateHint();
+
+  // Pratinjauan divisi di hero formulir — nama master data ditampilkan apa adanya
+  const preview = document.getElementById('regDivisiPreview');
+  if (preview) {
+    preview.innerHTML = daftar.slice(0, 4).map(d => {
+      const meta = window.NusapalaUI ? NusapalaUI.normalizeDivisi(d) : null;
+      const sama = !!(meta && String(meta.nama).toLowerCase() === String(d).trim().toLowerCase());
+      return `<div class="np-divisi-row">
+        <span class="np-divisi-mini${sama ? ' ' + meta.theme : ''}"><i class="fa-solid ${sama ? meta.icon : 'fa-compass'}"></i></span>
+        <div style="min-width:0;">
+          <div class="np-divisi-nama">${escapeHTML(d)}</div>
+          <div class="np-divisi-desc">${escapeHTML(sama ? meta.tagline : 'Bidang kegiatan yang dikelola pengurus')}</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  if (typeof runValidation === 'function') runValidation();
 }
 
     // =======================================================================
@@ -812,17 +911,19 @@ async function loadDivisiOptions() {
         const pct = pw.length === 0 ? 0 : (metCount / 5) * 100;
         fill.style.width = pct + '%';
 
-        let color = '#b3462c', text = 'Sangat Lemah';
-        if (pw.length === 0) { text = 'Kekuatan Password'; color = '#e7e0cf'; }
-        else if (metCount <= 1) { text = 'Sangat Lemah'; color = '#b3462c'; }
-        else if (metCount === 2) { text = 'Lemah'; color = '#d97706'; }
-        else if (metCount === 3) { text = 'Cukup'; color = '#c9a227'; }
-        else if (metCount === 4) { text = 'Kuat'; color = '#2f7d4f'; }
-        else if (metCount === 5) { text = 'Sangat Kuat'; color = '#16603a'; }
+        // 'bar' = warna batang indikator (boleh terang), 'teks' = warna label
+        // yang sudah memenuhi kontras WCAG AA di atas kertas krem.
+        let bar = '#a4482e', teks = '#8d3a2b', text = 'Sangat Lemah';
+        if (pw.length === 0) { text = 'Kekuatan Password'; bar = '#ddd4bd'; teks = 'var(--text-muted)'; }
+        else if (metCount <= 1) { text = 'Sangat Lemah'; bar = '#bd5a3c'; teks = '#8d3a2b'; }
+        else if (metCount === 2) { text = 'Lemah'; bar = '#86692f'; teks = '#8a5a0e'; }
+        else if (metCount === 3) { text = 'Cukup'; bar = '#b3945a'; teks = '#7d5f14'; }
+        else if (metCount === 4) { text = 'Kuat'; bar = '#3d9160'; teks = '#276241'; }
+        else if (metCount === 5) { text = 'Sangat Kuat'; bar = '#457f51'; teks = '#1d5135'; }
 
-        fill.style.background = color;
+        fill.style.background = bar;
         label.textContent = text;
-        label.style.color = pw.length === 0 ? 'var(--text-muted)' : color;
+        label.style.color = teks;
 
         checkPasswordMatch();
         runValidation();
@@ -932,10 +1033,10 @@ async function loadDivisiOptions() {
       const agree = document.getElementById('reg_agree').checked;
 
       if (!valid) {
-        return Swal.fire({ icon: 'warning', title: 'Formulir Belum Lengkap', text: 'Mohon periksa kembali data pada Status Validasi Formulir di atas.', confirmButtonColor: '#0f2e1a' });
+        return Swal.fire({ icon: 'warning', title: 'Formulir Belum Lengkap', text: 'Mohon periksa kembali data pada Status Validasi Formulir di atas.', confirmButtonColor: '#12212f' });
       }
       if (!agree) {
-        return Swal.fire({ icon: 'warning', title: 'Persetujuan Diperlukan', text: 'Anda perlu menyetujui pernyataan data sebelum mendaftar.', confirmButtonColor: '#0f2e1a' });
+        return Swal.fire({ icon: 'warning', title: 'Persetujuan Diperlukan', text: 'Anda perlu menyetujui pernyataan data sebelum mendaftar.', confirmButtonColor: '#12212f' });
       }
 
       const btn = document.getElementById('btnRegistrasi');
@@ -982,7 +1083,7 @@ async function loadDivisiOptions() {
         document.getElementById('regCardWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
       } catch (err) {
-        Swal.fire({ icon: 'error', title: 'Registrasi Gagal', text: err.message || 'Terjadi kesalahan pada server. Silakan coba lagi.', confirmButtonColor: '#0f2e1a' });
+        Swal.fire({ icon: 'error', title: 'Registrasi Gagal', text: err.message || 'Terjadi kesalahan pada server. Silakan coba lagi.', confirmButtonColor: '#12212f' });
       } finally {
         btn.classList.remove('is-loading'); btn.disabled = false;
         btn.querySelector('.btn-text').innerHTML = '<i class="fa-solid fa-paper-plane me-2"></i>Daftarkan Akun Saya';

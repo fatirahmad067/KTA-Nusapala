@@ -1,9 +1,18 @@
 {
   "name": "nusapala-verifikasi",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
+  "description": "Portal digital organisasi Mahasiswa Pecinta Alam NUSAPALA (Institut Bisnis Nusantara)",
+  "scripts": {
+    "test": "node tests/run-all.js",
+    "test:divisi": "node tests/nama-divisi.test.js && node tests/divisi.test.js",
+    "preview": "node tests/server-preview.js"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
     "papaparse": "^5.4.1"
+  },
+  "devDependencies": {
+    "jsdom": "^25.0.1"
   }
 }

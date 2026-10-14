@@ -7,7 +7,7 @@
 
   <!-- Google Fonts: Fraunces (display) + Inter (UI) + IBM Plex Mono (mono accents) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- FontAwesome 6 -->
@@ -16,9 +16,7 @@
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css" rel="stylesheet">
   <!-- Untuk favicon tab browser -->
 <link rel="icon" type="image/png" href="/Logo Nusapala.png">
-  <!-- Supabase JS Client -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <!-- Supabase JS Client -->
+  <!-- Supabase JS Client (dimuat sekali; sebelumnya ganda dan memperlambat halaman) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <!-- Library QR Scanner Nusapala -->
   <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
@@ -26,25 +24,25 @@
   <style>
     :root {
       /* Palette premium: forest / gold / cream / ink - konsisten dengan index.html */
-      --forest-950: #0a1810;
-      --forest-900: #0f2e1a;
-      --forest-800: #163b23;
-      --forest-700: #1d4a2d;
-      --primary-color: #0f2e1a;
-      --primary-hover: #123821;
-      --gold-600: #a9821c;
-      --gold-500: #c9a227;
-      --gold-300: #e3c360;
-      --secondary-color: #c9a227;
-      --cream-50: #faf8f2;
-      --cream-100: #f4efe3;
-      --light-bg: #f6f3ea;
+      --forest-950: #0b1622;
+      --forest-900: #12212f;
+      --forest-800: #1f3648;
+      --forest-700: #2a475e;
+      --primary-color: #12212f;
+      --primary-hover: #1f3648;
+      --gold-600: #86692f;
+      --gold-500: #b3945a;
+      --gold-300: #dcc79b;
+      --secondary-color: #b3945a;
+      --cream-50: #f8f3e7;
+      --cream-100: #f2ebda;
+      --light-bg: #f8f3e7;
       --card-bg: #ffffff;
-      --border-color: #e7e0cf;
-      --line-soft: rgba(15, 46, 26, 0.10);
-      --ink-900: #1b1f1a;
-      --text-main: #3c4238;
-      --text-muted: #746c58;
+      --border-color: #e0d5bd;
+      --line-soft: rgba(18, 33, 47, 0.10);
+      --ink-900: #16202c;
+      --text-main: #33404f;
+      --text-muted: #5d6874;
       --sidebar-width: 264px;
       --radius-lg: 18px;
       --radius-md: 12px;
@@ -69,10 +67,10 @@
     .stat-card h4 { font-family: 'Fraunces', serif; }
 
     /* Login Style */
-    .login-page-bg { min-height: 100vh; background: radial-gradient(circle at 100% 0%, rgba(227,195,96,0.10), transparent 45%), linear-gradient(150deg, var(--forest-950) 0%, #0a0a0a 100%); position: relative; overflow: hidden; }
-    .login-card { border: none; border-radius: var(--radius-lg); box-shadow: 0 25px 60px -20px rgba(0,0,0,0.5); width: 100%; max-width: 420px; background: rgba(251, 249, 244, 0.98); position: relative; z-index: 1; }
-    .login-brand-mark { width: 64px; height: 64px; border-radius: 16px; background: linear-gradient(155deg, var(--forest-900), var(--forest-700)); display:flex; align-items:center; justify-content:center; margin: 0 auto; box-shadow: 0 10px 24px -8px rgba(15,46,26,0.5); position: relative; }
-    .login-brand-mark::after { content:''; position:absolute; inset:3px; border:1px solid rgba(227,195,96,0.4); border-radius: 12px; }
+    .login-page-bg { min-height: 100vh; background: radial-gradient(circle at 100% 0%, rgba(220,199,155,0.10), transparent 45%), linear-gradient(150deg, var(--forest-950) 0%, #0a0a0a 100%); position: relative; overflow: hidden; }
+    .login-card { border: none; border-radius: var(--radius-lg); box-shadow: 0 25px 60px -20px rgba(0,0,0,0.5); width: 100%; max-width: 420px; background: rgba(248, 243, 231, 0.98); position: relative; z-index: 1; }
+    .login-brand-mark { width: 64px; height: 64px; border-radius: 16px; background: linear-gradient(155deg, var(--forest-900), var(--forest-700)); display:flex; align-items:center; justify-content:center; margin: 0 auto; box-shadow: 0 10px 24px -8px rgba(18,33,47,0.5); position: relative; }
+    .login-brand-mark::after { content:''; position:absolute; inset:3px; border:1px solid rgba(220,199,155,0.4); border-radius: 12px; }
     .login-brand-mark img { width: 34px; height: 34px; object-fit: contain; }
     .login-eyebrow { font-family:'IBM Plex Mono', monospace; font-size:0.65rem; letter-spacing:0.14em; text-transform:uppercase; color: var(--gold-600); }
 
@@ -88,13 +86,13 @@
     .btn-primary:hover { background-color: var(--primary-hover); border-color: var(--primary-hover); }
     .btn-outline-primary { color: var(--primary-color); border-color: var(--primary-color); }
     .btn-outline-primary:hover { background-color: var(--primary-color); color: #fff; }
-    .btn-success { background-color: #2f7d4f; border-color: #2f7d4f; }
-    .btn-danger { background-color: #b3462c; border-color: #b3462c; }
-    .btn-outline-danger { color: #b3462c; border-color: #b3462c; }
-    .btn-outline-danger:hover { background-color: #b3462c; }
+    .btn-success { background-color: #457f51; border-color: #457f51; }
+    .btn-danger { background-color: #a94a37; border-color: #a94a37; }
+    .btn-outline-danger { color: #a94a37; border-color: #a94a37; }
+    .btn-outline-danger:hover { background-color: #a94a37; }
     .text-primary { color: var(--primary-color) !important; }
     .bg-primary { background-color: var(--primary-color) !important; }
-    .bg-primary-subtle { background-color: rgba(15, 46, 26, 0.08) !important; }
+    .bg-primary-subtle { background-color: rgba(18, 33, 47, 0.08) !important; }
 
     /* Card / Table / Badge / Tabs — dipakai di seluruh page-view & modal */
     .card { border-radius: var(--radius-lg) !important; }
@@ -110,7 +108,7 @@
     /* Sidebar Layout */
     .sidebar { width: var(--sidebar-width); height: 100vh; position: fixed; top: 0; left: 0; background: linear-gradient(190deg, var(--forest-950), var(--forest-900)); z-index: 1000; transition: all 0.3s ease; display: flex; flex-direction: column; }
     .sidebar-brand { padding: 1.5rem 1.4rem; color: var(--secondary-color); font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 12px; position: relative; }
-    .sidebar-brand-mark { width: 38px; height: 38px; border-radius: 10px; background: rgba(227,195,96,0.12); display:flex; align-items:center; justify-content:center; border: 1px solid rgba(227,195,96,0.3); flex-shrink: 0; }
+    .sidebar-brand-mark { width: 38px; height: 38px; border-radius: 10px; background: rgba(220,199,155,0.12); display:flex; align-items:center; justify-content:center; border: 1px solid rgba(220,199,155,0.3); flex-shrink: 0; }
     .sidebar-brand-text { line-height: 1.15; }
     .sidebar-brand-text .name { font-family:'Fraunces', serif; font-size: 0.95rem; color: #fff; }
     .sidebar-brand-text .sub { font-family:'IBM Plex Mono', monospace; font-size: 0.55rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); text-transform: uppercase; }
@@ -120,7 +118,7 @@
     .nav-item-custom { padding: 0.68rem 1rem; color: #cbd5c9; display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 500; font-size: 0.88rem; transition: all 0.2s; border-left: 3px solid transparent; cursor: pointer; border-radius: 10px; margin-bottom: 2px; }
     .nav-item-custom i { width: 18px; text-align: center; opacity: 0.85; }
     .nav-item-custom:hover { background-color: rgba(255,255,255,0.05); color: #fff; }
-    .nav-item-custom.active { background: rgba(227,195,96,0.12); color: #fff; border-left-color: var(--gold-500); }
+    .nav-item-custom.active { background: rgba(220,199,155,0.12); color: #fff; border-left-color: var(--gold-500); }
 
     .menu-disabled {
       filter: blur(2px);
@@ -130,7 +128,7 @@
     }
 
     .main-content { margin-left: var(--sidebar-width); min-height: 100vh; transition: all 0.3s ease; }
-    .main-header { background-color: rgba(251,249,244,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); padding: 1rem 1.75rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 99; }
+    .main-header { background-color: rgba(248,243,231,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); padding: 1rem 1.75rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 99; }
     #headerTitle { font-family: 'Fraunces', serif; font-weight: 600; }
 
     .content-body { padding: 1.75rem; }
@@ -147,7 +145,7 @@
     .cursor-pointer { cursor: pointer; }
 
     .ceklist-checkbox { width: 24px; height: 24px; cursor: pointer; appearance: none; border: 2px solid #cbd5e1; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; position: relative; background-color: #fff; }
-    .ceklist-checkbox:checked { background-color: #2f7d4f; border-color: #2f7d4f; }
+    .ceklist-checkbox:checked { background-color: #457f51; border-color: #457f51; }
     .ceklist-checkbox:checked::after { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: #fff; font-size: 11px; position: absolute; }
 
     /* Modal — berlaku global untuk seluruh modal di sistem */
@@ -214,7 +212,7 @@
       background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.75); display: flex; align-items: center; justify-content: center;
       cursor: pointer; flex-shrink: 0; margin-left: auto; transition: all .2s var(--ease-smooth);
     }
-    .sidebar-collapse-btn:hover { background: rgba(227,195,96,0.18); color: var(--gold-300); }
+    .sidebar-collapse-btn:hover { background: rgba(220,199,155,0.18); color: var(--gold-300); }
     .sidebar-collapse-btn i { transition: transform .3s var(--ease-smooth); }
 
     .sidebar-mobile-close { display: none; width: 30px; height: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.75); align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
@@ -226,10 +224,10 @@
     .main-header-collapse-btn:hover { background: var(--cream-100); border-color: var(--gold-500); color: var(--forest-900); }
 
     .header-logout-btn {
-      width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(179,70,44,0.25); background: rgba(179,70,44,0.08);
-      color: #b3462c; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;
+      width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(169,74,55,0.25); background: rgba(169,74,55,0.08);
+      color: #a94a37; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;
     }
-    .header-logout-btn:hover { background: #b3462c; color: #fff; border-color: #b3462c; transform: translateY(-1px); }
+    .header-logout-btn:hover { background: #a94a37; color: #fff; border-color: #a94a37; transform: translateY(-1px); }
     .header-logout-btn:active { transform: translateY(0) scale(0.96); }
 
     @media (min-width: 992px) {
@@ -366,8 +364,8 @@
     }
     .notif-badge {
       position: absolute; top: -4px; right: -4px; min-width: 18px; height: 18px; padding: 0 4px;
-      border-radius: 999px; background: #b3462c; color: #fff; font-size: 0.62rem; font-weight: 700;
-      display: flex; align-items: center; justify-content: center; border: 2px solid var(--cream-50, #faf8f2);
+      border-radius: 999px; background: #a94a37; color: #fff; font-size: 0.62rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; border: 2px solid var(--cream-50, #f8f3e7);
       font-family: 'IBM Plex Mono', monospace;
     }
     .notif-overlay {
@@ -378,7 +376,7 @@
     .notif-panel {
       position: absolute; top: calc(100% + 12px); right: 0; width: 380px; max-width: 92vw;
       background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius-md, 14px);
-      box-shadow: 0 20px 45px -14px rgba(15,46,26,0.35); z-index: 1999; overflow: hidden;
+      box-shadow: 0 20px 45px -14px rgba(18,33,47,0.35); z-index: 1999; overflow: hidden;
       display: flex; flex-direction: column; max-height: 70vh;
       animation: notifPanelPop .18s var(--ease-smooth, ease);
       transform-origin: top right;
@@ -406,7 +404,7 @@
     .notif-filter-tabs { display: flex; gap: 0.3rem; background: #fff; border-radius: 999px; padding: 3px; border: 1px solid var(--border-color); }
     .notif-tab {
       border: none; background: none; font-size: 0.72rem; font-weight: 600; padding: 0.32rem 0.7rem; border-radius: 999px;
-      color: var(--text-muted, #6b7a70); cursor: pointer; transition: all .15s ease; white-space: nowrap;
+      color: var(--text-muted, #5d6874); cursor: pointer; transition: all .15s ease; white-space: nowrap;
     }
     .notif-tab.active { background: var(--forest-900); color: #fff; }
     .notif-category-select { font-size: 0.72rem !important; padding: 0.3rem 0.5rem !important; border-radius: 999px !important; max-width: 130px; }
@@ -428,9 +426,9 @@
     .notif-content { min-width: 0; flex: 1 1 auto; }
     .notif-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
     .notif-item-title { font-weight: 700; font-size: 0.82rem; color: var(--forest-900); margin: 0; line-height: 1.3; }
-    .notif-item-msg { font-size: 0.76rem; color: var(--text-muted, #6b7a70); margin: 0.15rem 0 0.35rem; line-height: 1.4; }
+    .notif-item-msg { font-size: 0.76rem; color: var(--text-muted, #5d6874); margin: 0.15rem 0 0.35rem; line-height: 1.4; }
     .notif-item-meta { display: flex; align-items: center; gap: 0.5rem; }
-    .notif-item-time { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: #9aa79e; }
+    .notif-item-time { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: #9aa3ad; }
     .notif-category-badge {
       font-size: 0.6rem; font-weight: 700; padding: 0.14rem 0.5rem; border-radius: 999px; text-transform: uppercase;
       letter-spacing: 0.03em;
@@ -440,8 +438,8 @@
       transition: opacity .12s ease, color .12s ease; cursor: pointer; font-size: 0.78rem;
     }
     .notif-item:hover .notif-delete-btn { opacity: 1; }
-    .notif-delete-btn:hover { color: #b3462c; }
-    .notif-empty-state { padding: 2.6rem 1.2rem; text-align: center; color: #9aa79e; }
+    .notif-delete-btn:hover { color: #a94a37; }
+    .notif-empty-state { padding: 2.6rem 1.2rem; text-align: center; color: #9aa3ad; }
     .notif-empty-state i { font-size: 1.9rem; margin-bottom: 0.6rem; display: block; opacity: 0.5; }
     .notif-empty-state p { font-size: 0.8rem; margin: 0; }
     .notif-skeleton-row { display: flex; gap: 0.7rem; padding: 0.85rem 1.1rem; border-bottom: 1px solid var(--cream-100); }
@@ -456,19 +454,156 @@
       .notif-panel-close { display: flex; }
       .notif-panel-header { padding: 1rem 1.1rem; }
     }
+
+    /* ======================================================================
+       LAPISAN KONTRAS & MICRO-INTERACTION  (revisi v2.1)
+       ----------------------------------------------------------------------
+       Menyelesaikan keluhan "banyak teks menyatu dengan background":
+       badge/bg-*-subtle, label kategori, timestamp notifikasi, judul seksi
+       sidebar, dan label form kini memakai tinta (ink) yang lebih gelap
+       sehingga lolos rasio kontras WCAG 2.1 AA (>= 4.5:1 teks normal).
+       ====================================================================== */
+
+    /* ---- 1) Teks di atas latar TERANG (mayoritas UI admin) ---- */
+    .text-warning { color: var(--warning-ink) !important; }
+    .text-info    { color: var(--info-ink) !important; }
+    .text-success { color: var(--success-ink) !important; }
+    .text-secondary { color: #5b6470 !important; }
+    .text-gold    { color: var(--gold-ink) !important; }
+    .text-muted   { color: var(--text-muted) !important; }
+
+    /* Latar subtle dipertegas sedikit agar badge/chip tidak "tenggelam" */
+    .bg-warning-subtle   { background-color: #fdf1d3 !important; }
+    .bg-info-subtle      { background-color: #dcedf2 !important; }
+    .bg-success-subtle   { background-color: #dcefe2 !important; }
+    .bg-secondary-subtle { background-color: #e9eaec !important; }
+    .badge.bg-warning-subtle, .badge.bg-info-subtle, .badge.bg-success-subtle,
+    .badge.bg-danger-subtle, .badge.bg-secondary-subtle, .badge.bg-primary-subtle {
+      border-color: rgba(0,0,0,0.12) !important;
+    }
+    .badge.bg-secondary, .badge.bg-dark { color: #fff !important; }
+
+    /* ---- 2) Pengecualian: teks di atas latar GELAP tetap terang ---- */
+    .modal-header .text-warning, .notif-panel-header .text-warning,
+    .login-page-bg .text-warning, .cta-banner .text-warning,
+    .bg-dark .text-warning, .text-bg-dark .text-warning { color: #f0d27a !important; }
+    .modal-header .text-info, .notif-panel-header .text-info,
+    .login-page-bg .text-info, .cta-banner .text-info,
+    .bg-dark .text-info, .text-bg-dark .text-info { color: #8fd8e6 !important; }
+    .modal-header .text-success, .notif-panel-header .text-success,
+    .login-page-bg .text-success, .cta-banner .text-success,
+    .bg-dark .text-success, .text-bg-dark .text-success { color: #8ed6a6 !important; }
+    .modal-header .text-secondary, .bg-dark .text-secondary { color: #cdd6d0 !important; }
+
+    /* ---- 3) Label kategori di halaman Pengaturan tetap berwarna sesuai konteks ---- */
+    .form-label.text-success { color: var(--success-ink) !important; }
+    .form-label.text-danger  { color: #a8402a !important; }
+    .form-label.text-warning { color: var(--warning-ink) !important; }
+    .form-label.text-info    { color: var(--info-ink) !important; }
+    .form-label.text-primary { color: var(--primary-color) !important; }
+
+    /* ---- 4) Detail kecil yang tadinya terlalu pudar ---- */
+    .notif-item-time { color: #6a7268; }
+    .notif-item-msg, .notif-empty-state { color: #5f675c; }
+    .notif-item-title { color: var(--forest-900); }
+    .sidebar-menu-label { color: rgba(255,255,255,0.46); }
+    .table > tbody > tr > td .text-muted { color: var(--text-muted) !important; }
+    .form-control::placeholder, .form-select::placeholder { color: #857d67; opacity: 1; }
+
+    /* Chip & daftar Data Divisi (halaman Pengaturan) */
+    .divisi-list-item {
+      display: flex; align-items: center; justify-content: space-between; gap: .6rem;
+      padding: .55rem .75rem; margin-bottom: .4rem; background: #fff;
+      border: 1px solid var(--border-color); border-radius: 12px;
+      transition: border-color .2s var(--ease-smooth), box-shadow .2s var(--ease-smooth), transform .2s var(--ease-smooth);
+    }
+    .divisi-list-item:hover { border-color: var(--gold-500); box-shadow: 0 10px 22px -16px rgba(15,30,20,.45); transform: translateY(-1px); }
+    .divisi-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(0,0,0,0.05); }
+    /* Sorotan halus pada divisi yang baru saja ditambahkan */
+    @keyframes divisiBaruFlash {
+      0%   { box-shadow: 0 0 0 0 rgba(201,162,39,.55); background-color: rgba(201,162,39,.18); }
+      55%  { box-shadow: 0 0 0 7px rgba(201,162,39,0);  background-color: rgba(201,162,39,.08); }
+      100% { box-shadow: none; background-color: #fff; }
+    }
+    .divisi-list-item.divisi-baru { border-color: var(--gold-500); animation: divisiBaruFlash 2.4s var(--ease-smooth) both; }
+    @media (prefers-reduced-motion: reduce) {
+      .divisi-list-item.divisi-baru { animation: none; border-color: var(--gold-500); background-color: rgba(201,162,39,.12); }
+    }
+    /* Penanda divisi yang namanya juga merupakan penulisan lama divisi lain */
+    .divisi-list-item .badge-nama-lama { font-size: .62rem; letter-spacing: .02em; }
+    .progress { background-color: var(--cream-100); border-radius: 999px; }
+    .progress-bar { transition: width .6s var(--ease-smooth); }
+
+    /* Empty state */
+    .empty-state { text-align: center; padding: 2.4rem 1rem; color: var(--text-muted); }
+    .empty-state i { display: block; font-size: 1.7rem; opacity: .45; margin-bottom: .55rem; }
+
+    /* ---- 5) Micro-animation ---- */
+    @keyframes nusaPageEnter { from { opacity: 0; transform: translateY(10px) scale(.996); } to { opacity: 1; transform: none; } }
+    .page-view:not(.d-none) { animation: nusaPageEnter .34s var(--ease-smooth) both; }
+
+    @keyframes nusaCardRise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    #page-dashboard .stat-card { animation: nusaCardRise .5s var(--ease-smooth) both; }
+    #page-dashboard .row.g-3 > div:nth-child(1) .stat-card { animation-delay: .04s; }
+    #page-dashboard .row.g-3 > div:nth-child(2) .stat-card { animation-delay: .10s; }
+    #page-dashboard .row.g-3 > div:nth-child(3) .stat-card { animation-delay: .16s; }
+    #page-dashboard .row.g-3 > div:nth-child(4) .stat-card { animation-delay: .22s; }
+    #page-dashboard .row.g-3 > div:nth-child(5) .stat-card { animation-delay: .28s; }
+
+    @keyframes nusaRowFade { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+    .table-responsive tbody tr { animation: nusaRowFade .26s var(--ease-smooth) both; }
+    .stat-card h4 { font-variant-numeric: tabular-nums; }
+
+    /* Hormati preferensi aksesibilitas pengguna */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important; scroll-behavior: auto !important;
+      }
+    }
   </style>
+  <!-- ===== NUSAPALA DESIGN SYSTEM (dimuat terakhir agar menang atas gaya lama) ===== -->
+  <meta name="theme-color" content="#f8f3e7">
+  <script>
+    /* Pasang tema sebelum halaman digambar supaya tidak ada kedipan warna */
+    (function () {
+      try {
+        var t = localStorage.getItem('np-theme');
+        if (!t) t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        if (t === 'dark') {
+          document.documentElement.setAttribute('data-np-theme', 'dark');
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#0c1420');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/nusapala.css">
+  <script src="/assets/js/nusapala-ui.js" defer></script>
+  <script>
+    /* Jaring pengaman: bila kit UI gagal dimuat, konten tidak boleh tetap tersembunyi */
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        if (window.NusapalaUI) return;
+        document.querySelectorAll('.reveal,.np-reveal,.np-reveal-left,.np-reveal-scale,.np-stagger')
+          .forEach(function (el) { el.classList.add('is-visible'); });
+      }, 1200);
+    });
+  </script>
 </head>
 <body>
 
   <!-- Full Page Loader -->
-  <div id="fullPageLoader" style="display:none; position:fixed; inset:0; background:rgba(251,249,244,0.92); z-index:9999; justify-content:center; align-items:center; flex-direction:column; backdrop-filter:blur(4px);">
-    <div class="spinner-border" role="status" style="width: 3rem; height: 3rem; color: var(--forest-900);"></div>
-    <p class="mt-3 fw-semibold" style="letter-spacing: 0.05em; color: var(--forest-900); font-size: 0.8rem; text-transform: uppercase;">Memproses Data...</p>
+  <div id="fullPageLoader" style="display:none; position:fixed; inset:0; background:var(--glass-strong); z-index:9999; justify-content:center; align-items:center; flex-direction:column; backdrop-filter:blur(4px);">
+    <div class="spinner-border" role="status" style="width: 3rem; height: 3rem; color: var(--pine-ink);"></div>
+    <p class="mt-3 fw-semibold" style="letter-spacing: 0.05em; color: var(--pine-ink); font-size: 0.8rem; text-transform: uppercase;">Memproses Data...</p>
   </div>
 
   <!-- LOGIN PAGE -->
   <div id="loginPage" class="login-page-bg d-flex align-items-center justify-content-center">
     <div class="topo-layer"></div>
+    <div class="np-stars" aria-hidden="true"></div>
+    <button class="np-theme-toggle np-theme-toggle-login" type="button" data-np-theme-toggle aria-pressed="false" title="Ganti tema"><i class="fa-solid fa-moon np-icon-moon"></i><i class="fa-solid fa-sun np-icon-sun"></i></button>
     <div class="login-card p-4 p-md-5 mx-3">
       <div class="text-center mb-4">
         <div class="login-brand-mark mb-3">
@@ -499,14 +634,17 @@
         <!-- Tombol Scan QR Baru -->
         <div class="position-relative mt-4 mb-3 text-center">
           <hr class="text-muted opacity-25">
-          <span class="position-absolute top-50 start-50 translate-middle px-2 small fw-bold" style="background: rgba(251, 249, 244, 0.98); color: var(--primary-color);">ATAU METODE LAIN</span>
+          <span class="np-divider-label position-absolute top-50 start-50 translate-middle px-2 small fw-bold">ATAU METODE LAIN</span>
         </div>
-        <button type="button" onclick="openScanner('login')" class="btn w-100 py-2.5 fw-bold mb-3 d-flex align-items-center justify-content-center gap-2" style="background-color: #0a0a0a; color:#fff;">
+        <button type="button" onclick="openScanner('login')" class="btn np-btn-qr w-100 py-2.5 fw-bold mb-3 d-flex align-items-center justify-content-center gap-2">
           <i class="fa-solid fa-qrcode"></i> Login via Scan QR KTA
         </button>
 
         <a href="/" class="btn btn-outline-secondary w-100 py-2.5 fw-medium">Kembali ke Beranda</a>
-        <p class="text-center text-muted small mt-3 mb-0">Belum punya akun? <a href="/registrasi" style="color: var(--primary-color); font-weight:700; text-decoration:none;">Daftar di sini</a></p>
+        <p class="text-center text-muted small mt-3 mb-0">Belum punya akun? <a href="/registrasi" class="np-login-link">Daftar di sini</a></p>
+        <p class="text-center small mt-2 mb-0" style="color: var(--text-muted); font-size:0.72rem;">
+          <i class="fa-solid fa-circle-info me-1"></i>Lupa password? Ajukan reset ke pengurus (Super Admin) melalui menu <b>Daftar Pengurus</b>.
+        </p>
       </form>
     </div>
   </div>
@@ -570,6 +708,7 @@
           <h5 class="fw-bold mb-0 text-dark text-truncate" id="headerTitle" style="min-width:0;">Dashboard Utama</h5>
         </div>
         <div class="d-flex align-items-center gap-2" style="flex-shrink:0;">
+          <button class="np-theme-toggle" type="button" data-np-theme-toggle aria-pressed="false" title="Ganti tema"><i class="fa-solid fa-moon np-icon-moon"></i><i class="fa-solid fa-sun np-icon-sun"></i></button>
           <div class="notif-wrapper">
             <button class="notif-bell-btn" id="notifBellBtn" onclick="toggleNotifPanel()" aria-label="Notifikasi" title="Notifikasi">
               <i class="fa-solid fa-bell"></i>
@@ -664,6 +803,11 @@
                     <span class="input-group-text bg-white text-muted border-end-0"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="text" class="form-control border-start-0" id="searchAnggota" placeholder="Cari NPA atau Nama..." oninput="renderAnggotaTable()">
                   </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3">
+                  <select class="form-select" id="filterDivisiAnggota" onchange="renderAnggotaTable()" aria-label="Filter berdasarkan divisi">
+                    <option value="">Semua Divisi</option>
+                  </select>
                 </div>
                 <div class="col-12 col-md-auto ms-auto d-flex gap-2">
                   <button class="btn btn-primary d-flex align-items-center gap-2" onclick="openAnggotaModal()"><i class="fa-solid fa-user-plus"></i> Tambah Anggota</button>
@@ -1085,19 +1229,42 @@
                       <button class="btn btn-outline-primary" type="button" onclick="addKategoriItem('surat')"><i class="fa-solid fa-plus"></i> Tambah</button>
                     </div>
                     <div class="border rounded bg-light-subtle p-2" style="max-height: 150px; overflow-y: auto;" id="settingsKategoriSuratList"></div>
-                    <!-- Kategori Divisi -->
-                    <div class="mb-4 mt-4">
-                      <label class="form-label small fw-semibold text-info"><i class="fa-solid fa-layer-group"></i> Kategori Divisi</label>
-                      <div class="input-group mb-2">
-                        <input type="text" class="form-control" id="addKategoriDivisiInput" placeholder="Ketik divisi baru...">
-                        <button class="btn btn-outline-info" type="button" onclick="addKategoriItem('divisi')"><i class="fa-solid fa-plus"></i> Tambah</button>
-                      </div>
-                      <div class="border rounded bg-light-subtle p-2" style="max-height: 150px; overflow-y: auto;" id="settingsKategoriDivisiList"></div>
-                    </div>
                   </div>
 
+                  <!-- Slot panel Kategori Kepengurusan (diisi otomatis oleh JS untuk Super Admin) -->
+                  <div id="settingsKategoriKepengurusanSlot"></div>
+
+                  <!-- DATA DIVISI
+                       Catatan revisi: sebelumnya blok ini berada DI DALAM <div> Kategori Surat
+                       (HTML tidak valid) sehingga tombol "Tambah" divisi tidak bereaksi.
+                       Kini dipisah menjadi blok tersendiri dan selalu bisa dipakai. -->
+                  <div class="mb-2 pt-4 mt-4 border-top" id="blokDataDivisi">
+                    <label class="form-label small fw-semibold text-info" for="addKategoriDivisiInput">
+                      <i class="fa-solid fa-layer-group"></i> Data Divisi Organisasi
+                    </label>
+                    <p class="text-muted small mb-2" style="font-size:0.74rem;line-height:1.55;">
+                      Divisi di sini tampil di <b>Database Anggota</b>, <b>halaman Registrasi</b>, <b>Agenda</b>, dan
+                      <b>Operasional Lapangan</b>. Tekan <b>Enter</b> atau klik <b>Tambah</b> untuk langsung menyimpan ke database.
+                    </p>
+                    <div class="input-group mb-2">
+                      <input type="text" class="form-control" id="addKategoriDivisiInput" placeholder="Contoh: Rock Climbing" autocomplete="off">
+                      <button class="btn btn-outline-info" type="button" onclick="addKategoriItem('divisi')"><i class="fa-solid fa-plus"></i> Tambah</button>
+                    </div>
+                    <div class="alert alert-light border d-none mt-0 mb-2 py-2 px-3 small" id="divisiAksesNote" role="note" style="font-size:0.76rem;line-height:1.5;">
+                      <i class="fa-solid fa-circle-info me-1 text-warning"></i><span id="divisiAksesNoteText"></span>
+                    </div>
+                    <div class="border rounded bg-light-subtle p-2" style="max-height: 210px; overflow-y: auto;" id="settingsKategoriDivisiList"></div>
+                    <div class="d-flex flex-wrap align-items-center gap-2 mt-2">
+                      <button class="btn btn-sm btn-outline-secondary" type="button" onclick="syncDivisiMaster(true)">
+                        <i class="fa-solid fa-arrows-rotate"></i> Muat ulang divisi standar
+                      </button>
+                      <span class="badge bg-white text-dark border" id="divisiCounter">0 divisi</span>
+                      <span class="text-muted" style="font-size:0.7rem;">Standar: Gunung Hutan · Rock Climbing · Olahraga Arus Deras</span>
+                    </div>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
 
@@ -1131,6 +1298,10 @@
       </main>
     </div>
   </div>
+
+  <!-- Daftar divisi master: dipakai kolom Divisi/Lokasi pada Agenda & Galeri
+       agar pengurus tidak perlu mengetik manual (mencegah salah tulis nama). -->
+  <datalist id="daftarDivisiMaster"></datalist>
 
   <!-- SEMUA MODALS UI -->
   
@@ -1396,9 +1567,9 @@
   <div class="modal fade" id="actionModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title fw-bold">Update Status</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><form id="actionForm"><input type="hidden" id="action_id"><input type="hidden" id="action_table"><div class="modal-body"><label class="form-label">Status Baru</label><select class="form-select" id="action_status"><option value="Pending">Pending</option><option value="Disetujui">Disetujui / Diproses</option><option value="Selesai">Selesai / Dikembalikan</option><option value="Ditolak">Ditolak</option></select></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button><button type="submit" class="btn btn-primary">Simpan</button></div></form></div></div></div>
 
   <!-- Modal Agenda & Postingan -->
-  <div class="modal fade" id="kegiatanModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title fw-bold" id="kegiatanModalTitle">Form Agenda</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><form id="kegiatanForm"><input type="hidden" id="kegiatan_id"><div class="modal-body"><div class="mb-3"><label class="form-label small">Judul Kegiatan</label><input type="text" class="form-control" id="keg_judul" required></div><div class="mb-3"><label class="form-label small">Tanggal</label><input type="date" class="form-control" id="keg_tgl" required></div><div class="mb-3"><label class="form-label small">Divisi / Lokasi</label><input type="text" class="form-control" id="keg_divisi"></div><div class="mb-3"><label class="form-label small">Deskripsi</label><textarea class="form-control" id="keg_desc"></textarea></div></div><div class="modal-footer"><button type="submit" class="btn btn-primary">Simpan</button></div></form></div></div></div>
+  <div class="modal fade" id="kegiatanModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title fw-bold" id="kegiatanModalTitle">Form Agenda</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><form id="kegiatanForm"><input type="hidden" id="kegiatan_id"><div class="modal-body"><div class="mb-3"><label class="form-label small">Judul Kegiatan</label><input type="text" class="form-control" id="keg_judul" required></div><div class="mb-3"><label class="form-label small">Tanggal</label><input type="date" class="form-control" id="keg_tgl" required></div><div class="mb-3"><label class="form-label small">Divisi / Lokasi</label><input type="text" class="form-control" id="keg_divisi" list="daftarDivisiMaster" autocomplete="off" placeholder="Pilih atau ketik divisi / lokasi"></div><div class="mb-3"><label class="form-label small">Deskripsi</label><textarea class="form-control" id="keg_desc"></textarea></div></div><div class="modal-footer"><button type="submit" class="btn btn-primary">Simpan</button></div></form></div></div></div>
   
-  <div class="modal fade" id="postModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title fw-bold" id="postModalTitle">Form Galeri</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><form id="postForm"><input type="hidden" id="post_id"><div class="modal-body"><div class="mb-3"><label class="form-label small">Judul Post</label><input type="text" class="form-control" id="post_judul" required></div><div class="mb-3"><label class="form-label small">URL Foto</label><input type="text" class="form-control" id="post_url"></div><div class="mb-3"><label class="form-label small">Kategori / Divisi</label><input type="text" class="form-control" id="post_kategori"></div><div class="mb-3"><label class="form-label small">Deskripsi</label><textarea class="form-control" id="post_desc"></textarea></div></div><div class="modal-footer"><button type="submit" class="btn btn-primary">Simpan</button></div></form></div></div></div>
+  <div class="modal fade" id="postModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title fw-bold" id="postModalTitle">Form Galeri</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><form id="postForm"><input type="hidden" id="post_id"><div class="modal-body"><div class="mb-3"><label class="form-label small">Judul Post</label><input type="text" class="form-control" id="post_judul" required></div><div class="mb-3"><label class="form-label small">URL Foto</label><input type="text" class="form-control" id="post_url"></div><div class="mb-3"><label class="form-label small">Kategori / Divisi</label><input type="text" class="form-control" id="post_kategori" list="daftarDivisiMaster" autocomplete="off" placeholder="Pilih atau ketik divisi"></div><div class="mb-3"><label class="form-label small">Deskripsi</label><textarea class="form-control" id="post_desc"></textarea></div></div><div class="modal-footer"><button type="submit" class="btn btn-primary">Simpan</button></div></form></div></div></div>
 
   <!-- ========================================================================= -->
   <!-- JAVASCRIPT HYBRID: SUPABASE REALTIME DB + UI LOGIC (FINAL VER. NUSAPALA)  -->
@@ -1426,10 +1597,10 @@
     let notifLoaded = false;
 
     const NOTIF_CATEGORIES = {
-      'Registrasi':    { icon: 'fa-user-plus',      color: '#2f7d4f' },
-      'Data Anggota':  { icon: 'fa-id-card-clip',   color: '#1d4a2d' },
-      'Kepengurusan':  { icon: 'fa-sitemap',        color: '#a9821c' },
-      'Hak Akses':     { icon: 'fa-user-shield',    color: '#b3462c' },
+      'Registrasi':    { icon: 'fa-user-plus',      color: '#457f51' },
+      'Data Anggota':  { icon: 'fa-id-card-clip',   color: '#2a475e' },
+      'Kepengurusan':  { icon: 'fa-sitemap',        color: '#8a6a12' },
+      'Hak Akses':     { icon: 'fa-user-shield',    color: '#a94a37' },
       'Informasi':     { icon: 'fa-circle-info',    color: '#2b6cb0' },
       'Agenda':        { icon: 'fa-calendar-days',  color: '#6b46c1' },
       'Sistem':        { icon: 'fa-gears',          color: '#4a5568' },
@@ -1466,11 +1637,208 @@
       kategori_pengeluaran: ["Operasional Sekre", "Kegiatan Alam", "Rapat", "Lain-lain"],
       kategori_aset: ["Alat Gunung Hutan", "Alat Rock Climbing", "Alat ORAD (Olahraga Arus Deras)", "Logistik", "Lain-lain"],
       kategori_surat: ["Surat Izin Kegiatan", "Surat Peminjaman Tempat", "Surat Undangan", "Lainnya"],
-      kategori_kepengurusan: ["Ketua Umum", "Wakil Ketua Umum", "Sekretaris", "Bendahara", "MSDM", "Kepala Divisi Gunung Hutan", "Kepala Divisi Rock Climbing", "Kepala Divisi Rafting"],
+      kategori_kepengurusan: ["Ketua Umum", "Wakil Ketua Umum", "Sekretaris", "Bendahara", "MSDM", "Kepala Divisi Gunung Hutan", "Kepala Divisi Rock Climbing", "Kepala Divisi Olahraga Arus Deras"],
       kategori_jenis_kegiatan: ["Pendakian", "Pendidikan Dasar", "Jungle Trekking", "Survival Camp", "Susur Sungai", "Panjat Tebing", "Konservasi", "Penanaman Pohon", "Bersih Gunung", "Latihan SAR", "Ekspedisi", "Bakti Sosial", "Rapat", "Kegiatan Lainnya"],
       daftar_status_kegiatan: ["Perencanaan", "Persiapan", "Berlangsung", "Selesai", "Ditunda", "Dibatalkan", "Darurat"],
       daftar_status_keamanan: ["Aman", "Perlu Perhatian", "Kendala Lapangan", "Darurat"],
-      kategori_divisi: ["Gunung Hutan", "Rock Climbing", "Rafting/Orad"]
+      kategori_divisi: ["Gunung Hutan", "Rock Climbing", "Olahraga Arus Deras"]
+    };
+
+    // ================== MASTER DATA DIVISI NUSAPALA ==================
+    // Tiga divisi resmi Nusapala beserta ikon & warna visualnya.
+    // Dipakai untuk: halaman Pengaturan, filter Database Anggota, halaman
+    // Registrasi, Agenda, dan Operasional Lapangan.
+    const DIVISI_SCHEMA_VERSION = 3;
+    const NUSAPALA_DIVISI = [
+      { nama: 'Gunung Hutan',        icon: 'fa-mountain',     warna: '#1f6b41' },
+      { nama: 'Rock Climbing',       icon: 'fa-mountain-sun', warna: '#8a5a00' },
+      { nama: 'Olahraga Arus Deras', icon: 'fa-water',        warna: '#0b5566' }
+    ];
+    const DEFAULT_KATEGORI_DIVISI = NUSAPALA_DIVISI.map(d => d.nama);
+    // Penulisan lama / varian -> penulisan resmi saat ini
+    const DIVISI_ALIAS = {
+      'rafting': 'Olahraga Arus Deras',
+      'orad': 'Olahraga Arus Deras',
+      'rafting/orad': 'Olahraga Arus Deras',
+      'rafting / orad': 'Olahraga Arus Deras',
+      'olahraga arus deras (orad)': 'Olahraga Arus Deras',
+      'arus deras': 'Olahraga Arus Deras',
+      'rockclimbing': 'Rock Climbing',
+      'panjat tebing': 'Rock Climbing'
+    };
+    const DIVISI_PALET = ['#1f6b41', '#8a5a00', '#0b5566', '#6b3f8a', '#a8402a', '#2c5f8a', '#5c6b1f'];
+
+    // -------------------------------------------------------------------
+    // PEMBERSIHAN NAMA DIVISI
+    //
+    // PERBAIKAN BUG "GAGAL MENAMBAH DIVISI":
+    // Sebelumnya alias penulisan lama (DIVISI_ALIAS) diterapkan pada MASTER
+    // DATA setiap kali daftar dibersihkan. Nama seperti "Panjat Tebing",
+    // "Rafting", "ORAD", atau "Arus Deras" otomatis diganti menjadi nama
+    // divisi standar lalu dibuang sebagai duplikat -- dan itu terjadi SETELAH
+    // popup "Tersimpan" muncul. Hasilnya divisi baru hilang tanpa penjelasan.
+    //
+    // Sekarang alias hanya dipakai untuk:
+    //   (a) migrasi sekali jalan  -> migrasikanAliasDivisi()  (versi skema), dan
+    //   (b) menafsirkan data lama -> aliasDivisiLama()        (baris members).
+    // Master data selalu menyimpan PERSIS nama yang diketik pengurus.
+    // -------------------------------------------------------------------
+    function rapikanNamaDivisi(nama) {
+      return String(nama == null ? '' : nama)
+        .replace(/\s+/g, ' ')
+        .replace(/^["'`\s]+/, '')
+        .replace(/["'`\s]+$/, '')
+        .trim();
+    }
+
+    // Rapikan daftar divisi: normalisasi spasi + buang duplikat.
+    // Tidak pernah mengubah nama dan tidak pernah menambahkan apa pun.
+    function bersihkanDivisi(list) {
+      const sumber = Array.isArray(list) ? list : String(list == null ? '' : list).split(',');
+      const hasil = [];
+      sumber.forEach(item => {
+        const nama = rapikanNamaDivisi(item);
+        if (!nama) return;
+        if (!hasil.some(d => d.toLowerCase() === nama.toLowerCase())) hasil.push(nama);
+      });
+      return hasil;
+    }
+    // Alias lama (dipakai beberapa bagian kode) — tanpa penambahan otomatis.
+    function normalisasiDaftarDivisi(list) { return bersihkanDivisi(list); }
+
+    // MIGRASI SEKALI JALAN: menyatukan penulisan warisan ("Rafting/Orad" dsb.)
+    // ke nama resmi. Hanya dipanggil syncDivisiMaster() ketika versi skema di
+    // database masih di bawah DIVISI_SCHEMA_VERSION, sehingga divisi baru
+    // buatan pengurus tidak akan pernah ikut diubah/dibuang.
+    function migrasikanAliasDivisi(list) {
+      const sumber = Array.isArray(list) ? list : String(list == null ? '' : list).split(',');
+      const hasil = [];
+      sumber.forEach(item => {
+        let nama = rapikanNamaDivisi(item);
+        if (!nama) return;
+        nama = DIVISI_ALIAS[nama.toLowerCase()] || nama;
+        if (!hasil.some(d => d.toLowerCase() === nama.toLowerCase())) hasil.push(nama);
+      });
+      return hasil;
+    }
+
+    // Menafsirkan nilai divisi pada DATA ANGGOTA. Baris lama yang masih berisi
+    // "Rafting/Orad" tetap terhitung pada divisi resminya, tetapi nama yang
+    // memang terdaftar sebagai divisi tersendiri TIDAK pernah dialihkan.
+    function aliasDivisiLama(nama) {
+      const n = rapikanNamaDivisi(nama);
+      if (!n) return '';
+      const master = bersihkanDivisi((typeof dbSettings !== 'undefined' && dbSettings.kategori_divisi) || []);
+      if (master.some(d => d.toLowerCase() === n.toLowerCase())) return n;
+      const resmi = DIVISI_ALIAS[n.toLowerCase()];
+      if (!resmi) return n;
+      // Alihkan hanya bila nama resminya memang ada di master data.
+      return master.some(d => d.toLowerCase() === resmi.toLowerCase()) ? resmi : n;
+    }
+
+    // Jumlah anggota pada sebuah divisi (termasuk penulisan lama).
+    function jumlahAnggotaDivisi(namaDivisi) {
+      const target = String(namaDivisi || '').toLowerCase();
+      return (dbAnggota || []).filter(a => String(aliasDivisiLama(a.divisi) || '').toLowerCase() === target).length;
+    }
+
+    // escapeHTML() memakai innerText sehingga tidak aman untuk atribut; ini
+    // versi ringan khusus untuk dipakai di dalam tanda kutip atribut HTML.
+    function escapeHtmlAttr(str) {
+      return String(str == null ? '' : str).replace(/&/g, '&amp;').replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // Daftar yang dipakai formulir: bila master data kosong, pakai tiga divisi
+    // standar supaya tidak ada formulir (registrasi/edit anggota) yang buntu.
+    function daftarDivisiEfektif(list) {
+      const bersih = bersihkanDivisi(list);
+      return bersih.length ? bersih : DEFAULT_KATEGORI_DIVISI.slice();
+    }
+
+    // Metadata visual sebuah divisi (ikon + warna), termasuk divisi buatan pengurus.
+    function divisiMeta(nama) {
+      const n = String(aliasDivisiLama(nama) || nama || '').toLowerCase().trim();
+      const resmi = NUSAPALA_DIVISI.find(d => d.nama.toLowerCase() === n);
+      if (resmi) return resmi;
+      let hash = 0;
+      for (let i = 0; i < n.length; i++) hash = (hash * 31 + n.charCodeAt(i)) % 9973;
+      return { nama: nama || 'Umum', icon: 'fa-layer-group', warna: DIVISI_PALET[hash % DIVISI_PALET.length] };
+    }
+
+    // Badge divisi siap pakai untuk tabel (warna mengikuti divisi).
+    function divisiBadge(nama) {
+      if (!nama) return '<span class="badge bg-light text-muted border">Belum diisi</span>';
+      const m = divisiMeta(nama);
+      return `<span class="badge border" style="color:${m.warna};background:${m.warna}14;border-color:${m.warna}33;"><i class="fa-solid ${m.icon} me-1"></i>${escapeHTML(m.nama)}</span>`;
+    }
+
+    // Sinkronkan master divisi ke database.
+    //  - Dipanggil otomatis sekali saat pemuatan data (migrasi v2) agar tiga
+    //    divisi standar SELALU ada di tabel settings.
+    //  - Bisa dipanggil manual (tombol "Muat ulang divisi standar") untuk
+    //    menggabungkan kembali daftar standar bila terhapus.
+    //  - Tidak pernah menulis bila datanya sudah sama (idempoten & hemat kuota).
+    let divisiGagalLapor = false;
+    window.syncDivisiMaster = async function(paksa) {
+      const versiDB = parseInt(dbSettings.divisi_schema_version || 0, 10) || 0;
+      const perluMigrasi = versiDB < DIVISI_SCHEMA_VERSION;
+      const sebelum = bersihkanDivisi(dbSettings.kategori_divisi || []);
+
+      // Migrasi nama lama HANYA saat versi skema belum terbaru. Setelah itu
+      // daftar divisi cuma dirapikan (spasi & duplikat), tidak pernah dialihkan
+      // — inilah yang dulu membuat divisi baru hilang setelah "Tersimpan".
+      const sumber = perluMigrasi
+        ? migrasikanAliasDivisi(dbSettings.kategori_divisi || [])
+        : sebelum;
+
+      // Gabung: divisi standar lebih dulu, lalu divisi tambahan buatan pengurus.
+      const gabungan = DEFAULT_KATEGORI_DIVISI.concat(
+        sumber.filter(d => !DEFAULT_KATEGORI_DIVISI.some(x => x.toLowerCase() === d.toLowerCase()))
+      );
+      dbSettings.kategori_divisi = gabungan;
+
+      // Izin tulis mengikuti aturan yang sama dengan tombol Tambah divisi,
+      // supaya migrasi tidak di-skip diam-diam untuk pengurus yang berhak.
+      const bolehTulis = (typeof bolehKelolaKategori === 'function')
+        ? bolehKelolaKategori('kategori_divisi')
+        : ['Admin', 'Super Admin'].includes(((Auth.getUser() || {}).role || ''));
+      const berubah = JSON.stringify(gabungan) !== JSON.stringify(sebelum);
+      const perluTulis = paksa || perluMigrasi || berubah;
+
+      const perbaruiCounter = () => {
+        const counter = document.getElementById('divisiCounter');
+        if (counter) counter.innerText = `${gabungan.length} divisi`;
+      };
+
+      if (!perluTulis) { perbaruiCounter(); return gabungan; }
+
+      if (!bolehTulis) {
+        if (paksa) Swal.fire('Akses Ditolak', 'Hanya Admin / Super Admin yang dapat menyinkronkan master data divisi.', 'error');
+        perbaruiCounter();
+        return gabungan;
+      }
+
+      try {
+        await upsertSetting('kategori_divisi', JSON.stringify(gabungan));
+        await upsertSetting('divisi_schema_version', String(DIVISI_SCHEMA_VERSION));
+        dbSettings.divisi_schema_version = String(DIVISI_SCHEMA_VERSION);
+        divisiGagalLapor = false;
+        perbaruiCounter();
+        if (paksa) {
+          Swal.fire('Divisi Disinkronkan', `Master data divisi kini berisi ${gabungan.length} divisi: ${gabungan.join(', ')}.`, 'success');
+        }
+      } catch (err) {
+        perbaruiCounter();
+        console.error('[Nusapala] syncDivisiMaster gagal:', err);
+        if (paksa || !divisiGagalLapor) {
+          divisiGagalLapor = true;
+          Swal.fire('Gagal Sinkronisasi Divisi',
+            (err && err.message) ? `Pesan sistem: ${err.message}` : 'Periksa koneksi internet & izin tulis tabel `settings`.',
+            'error');
+        }
+      }
+      return gabungan;
     };
 
     // ================== HELPER FUNCTIONS ==================
@@ -1501,10 +1869,29 @@
       const m = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nov','Des'];
       return `${d.getDate()} ${m[d.getMonth()]} ${d.getFullYear()}`;
     }
+    // Animasi angka (count-up) untuk kartu statistik dashboard.
+    // Menghormati preferensi "reduce motion" pengguna.
+    function animasiAngka(el, target, format) {
+      if (!el) return;
+      const nilaiTarget = Number(target) || 0;
+      const awal = Number(el.dataset.nilai || 0) || 0;
+      el.dataset.nilai = String(nilaiTarget);
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || awal === nilaiTarget) { el.innerText = format(nilaiTarget); return; }
+      const mulai = performance.now(), durasi = 620;
+      function langkah(t) {
+        const p = Math.min(1, (t - mulai) / durasi);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.innerText = format(Math.round(awal + (nilaiTarget - awal) * eased));
+        if (p < 1) requestAnimationFrame(langkah);
+      }
+      requestAnimationFrame(langkah);
+    }
 
     // Security Check: Mencegah eksekusi backend oleh Alumni
     window.checkAlumni = function() {
-        if (Auth.getUser().status_anggota === 'Alumni') {
+        const userSekarang = Auth.getUser() || {};
+        if (userSekarang.status_anggota === 'Alumni') {
             Swal.fire('Akses Dibatasi', 'Sebagai Alumni, Anda hanya dapat melihat data (Read-Only).', 'error');
             return true;
         }
@@ -1632,6 +2019,33 @@
         hideFullPageLoading();
         
         if (error || !data) return Swal.fire('Gagal', 'ID Angkatan / Username tidak ditemukan.', 'error');
+
+        /* ================= VERIFIKASI PASSWORD =================
+           Catatan revisi: kode sebelumnya mengambil nilai password dari input
+           tetapi TIDAK PERNAH membandingkannya, sehingga siapa pun yang tahu
+           Nomor Angkatan bisa masuk ke Portal Admin. Sekarang password wajib
+           cocok. Akun lama yang belum punya password di database tetap bisa
+           masuk sekali (agar tidak terkunci), disertai peringatan untuk segera
+           mengatur password melalui menu Daftar Pengurus. */
+        const pwTersimpan = (data.password == null ? '' : String(data.password));
+        if (pwTersimpan.trim() !== '') {
+          const cocok = (pwTersimpan === p) || (pwTersimpan.trim() === p.trim());
+          if (!cocok) {
+            document.getElementById('password').value = '';
+            return Swal.fire({
+              icon: 'error',
+              title: 'Password Salah',
+              html: 'Password tidak sesuai dengan data akun.<br><br><small class="text-muted">Jika Anda pengurus dan lupa password, minta Super Admin memperbarui kolom <b>password</b> pada tabel <b>members</b> (dashboard Supabase), lalu coba login kembali.</small>'
+            });
+          }
+        } else {
+          await Swal.fire({
+            icon: 'warning',
+            title: 'Akun Belum Berpassword',
+            html: 'Akun ini belum memiliki password pada database sehingga verifikasi password dilewati.<br><br><b>Segera atur password</b> melalui menu <b>Daftar Pengurus → Edit Akun</b> agar akun tidak bisa dipakai orang lain.',
+            confirmButtonText: 'Mengerti'
+          });
+        }
         
         // Pengecekan Login: Super Admin, Admin, Pengurus, Alumni, atau Anggota hasil approval registrasi mandiri (role = 'Anggota') boleh masuk.
         const isRegistrasiApproved = data.role === 'Member' && data.status_anggota === 'Aktif';
@@ -1709,7 +2123,10 @@
       if (navEl) navEl.classList.add('active');
       else {
         document.querySelectorAll('.nav-item-custom').forEach(n => {
-          if (n.querySelector('span')?.innerText.toLowerCase().replace(/\s/g,'').includes(pageName.replace('-',''))) n.classList.add('active');
+          // Gunakan textContent + fallback string agar tidak error saat elemen
+          // belum ter-render sempurna (mis. label tersembunyi / di luar viewport).
+          const label = ((n.querySelector('span') || {}).textContent || '').toLowerCase().replace(/\s/g, '');
+          if (label && label.includes(pageName.replace('-', ''))) n.classList.add('active');
         });
       }
       
@@ -1788,10 +2205,15 @@
             dbSettings[item.key] = item.value;
           }
         });
+
+        // Migrasi master data divisi: pastikan Gunung Hutan, Rock Climbing, dan
+        // Olahraga Arus Deras tersedia (versi skema diperiksa, jadi hanya sekali).
+        await syncDivisiMaster();
+        dbSettings.kategori_divisi = daftarDivisiEfektif(dbSettings.kategori_divisi);
         
         hideFullPageLoading();
         updateCategoryDropdowns();
-        
+
         if (page === 'dashboard') calculateAndRenderDashboard();
         else if (page === 'anggota') { renderAnggotaTable(); renderPengurusTable(); }
         else if (page === 'registrasi') renderRegistrasiTable();
@@ -1805,16 +2227,110 @@
         
         setTimeout(() => { applyAlumniRestrictions(); }, 150);
       } catch (err) {
-        hideFullPageLoading(); 
-        Swal.fire('Terjadi Kesalahan', 'Gagal menyinkronkan data utama.', 'error');
+        hideFullPageLoading();
+        // Tampilkan detail ke console agar pengurus bisa melaporkan penyebabnya.
+        console.error('[Nusapala] Gagal sinkronisasi data:', err);
+        Swal.fire('Terjadi Kesalahan', 'Gagal menyinkronkan data utama. ' + ((err && err.message) ? `(${err.message})` : ''), 'error');
       }
     }
 
     // ================= PENGATURAN (SETTINGS) LOGIC =================
+    // Simpan satu baris settings. Bila upsert(onConflict) gagal (mis. tabel
+    // tidak punya unique constraint pada kolom `key`), otomatis mencoba jalur
+    // update-by-key lalu insert — sehingga penyimpanan tidak langsung buntu.
     async function upsertSetting(key, value) {
-      const { error } = await db.from('settings').upsert({ key: key, value: String(value) }, { onConflict: 'key' });
-      if (error) throw error;
+      const payload = { key: key, value: String(value) };
+      const { error } = await db.from('settings').upsert(payload, { onConflict: 'key' });
+      if (!error) return;
+
+      console.warn('[Nusapala] upsert settings gagal, mencoba jalur cadangan:', error.message);
+      try {
+        const probe = await db.from('settings').select('key').eq('key', key).limit(1);
+        const ada = !probe.error && Array.isArray(probe.data) && probe.data.length > 0;
+        if (ada) {
+          const upd = await db.from('settings').update({ value: String(value) }).eq('key', key);
+          if (!upd.error) return;
+          console.error('[Nusapala] update settings gagal:', upd.error.message);
+        } else {
+          const ins = await db.from('settings').insert(payload);
+          if (!ins.error) return;
+          console.error('[Nusapala] insert settings gagal:', ins.error.message);
+        }
+      } catch (e) {
+        console.error('[Nusapala] jalur cadangan settings gagal:', e && e.message);
+      }
+      throw error; // lempar error asli agar pesan di UI tetap akurat
     }
+
+    // Render khusus daftar Data Divisi: menampilkan ikon, warna divisi, dan
+    // jumlah anggota per divisi supaya pengurus tahu dampak sebelum mengubahnya.
+    window.renderDivisiList = function(elementId) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+
+      // Hanya rapikan spasi/duplikat — nama tidak pernah diubah di sini.
+      const list = bersihkanDivisi(dbSettings.kategori_divisi || []);
+      dbSettings.kategori_divisi = list; // samakan urutan & indeks dengan tombol aksi
+      const userSekarang = Auth.getUser() || {};
+      const boleh = bolehKelolaKategori('kategori_divisi') && userSekarang.status_anggota !== 'Alumni';
+
+      const counter = document.getElementById('divisiCounter');
+      if (counter) counter.innerText = `${list.length} divisi`;
+
+      // Konsistensi UI: bila pengguna tidak berhak mengelola divisi, kolom isian
+      // dan tombol Tambah dinonaktifkan SEKARANG juga. (Sebelumnya kolom tetap
+      // terlihat aktif lalu ditolak saat diklik — pengurus mengira fiturnya rusak.)
+      const inputDivisi = document.getElementById('addKategoriDivisiInput');
+      const tombolTambah = inputDivisi && inputDivisi.parentElement ? inputDivisi.parentElement.querySelector('button') : null;
+      const tombolSinkron = document.querySelector('#blokDataDivisi button[onclick*="syncDivisiMaster"]');
+      const catatanAkses = document.getElementById('divisiAksesNote');
+      const teksAkses = document.getElementById('divisiAksesNoteText');
+      if (inputDivisi) {
+        inputDivisi.disabled = !boleh;
+        if (!boleh) inputDivisi.placeholder = 'Hanya Admin / Super Admin / akun dengan akses Pengaturan';
+      } else if (document.getElementById('blokDataDivisi')) {
+        // Jalur cadangan: kolom belum ter-render → sediakan dialog agar tidak buntu.
+        if (tombolTambah) tombolTambah.setAttribute('data-fallback-dialog', '1');
+      }
+      if (tombolTambah) tombolTambah.disabled = !boleh;
+      if (tombolSinkron) tombolSinkron.disabled = !boleh;
+      if (catatanAkses && teksAkses) {
+        if (boleh) catatanAkses.classList.add('d-none');
+        else { catatanAkses.classList.remove('d-none'); teksAkses.innerHTML = pesanTolakKelola('kategori_divisi'); }
+      }
+
+      if (!list.length) {
+        el.innerHTML = '<div class="small text-muted p-2">Belum ada divisi. Tambahkan minimal satu divisi agar formulir registrasi dapat diisi.</div>';
+        return;
+      }
+
+      el.innerHTML = list.map((c, i) => {
+        const m = divisiMeta(c);
+        const jumlah = jumlahAnggotaDivisi(c);
+        // Penulisan lama yang ikut terhitung pada divisi ini. Hanya ditampilkan
+        // bila penulisan lama itu sendiri TIDAK terdaftar sebagai divisi tersendiri,
+        // supaya pengurus paham dari mana angka "N anggota" berasal.
+        const warisan = Object.keys(DIVISI_ALIAS).filter(k =>
+          DIVISI_ALIAS[k].toLowerCase() === String(c).toLowerCase() &&
+          !list.some(d => d.toLowerCase() === k));
+        const chipLama = warisan.length
+          ? `<span class="badge bg-white text-muted border badge-nama-lama ms-1" title="Anggota dengan penulisan lama ini ikut terhitung pada divisi ${escapeHtmlAttr(c)}">termasuk: ${escapeHTML(warisan.join(', '))}</span>`
+          : '';
+        const aksi = boleh
+          ? `<button type="button" class="btn btn-sm btn-link text-primary p-0 me-2" title="Ubah nama divisi" onclick="editKategoriItem('kategori_divisi', ${i})"><i class="fa-solid fa-pen"></i></button>
+             <button type="button" class="btn btn-sm btn-link text-danger p-0" title="Hapus divisi" onclick="removeKategoriItem('kategori_divisi', ${i})"><i class="fa-solid fa-trash"></i></button>`
+          : '<span class="badge bg-white text-muted border">hanya lihat</span>';
+        return `<div class="divisi-list-item">
+            <div class="d-flex align-items-center gap-2" style="min-width:0;">
+              <span class="divisi-dot" style="background:${m.warna};"></span>
+              <span class="fw-semibold text-truncate" style="color:${m.warna};">${escapeHTML(c)}</span>
+              ${chipLama}
+              <span class="badge bg-white text-dark border ms-1" title="Jumlah anggota pada divisi ini">${jumlah} anggota</span>
+            </div>
+            <div class="d-flex align-items-center flex-shrink-0">${aksi}</div>
+          </div>`;
+      }).join('');
+    };
 
     window.renderSettings = function() {
       const elNominal = document.getElementById('settingsNominalIuran');
@@ -1834,8 +2350,9 @@
         if (!el) return;
         el.innerHTML = '';
         (dbSettings[key] || []).forEach((c, i) => { 
-           const btnEdit = Auth.getUser().role === 'Super Admin' ? `<button type="button" class="btn btn-sm btn-link text-primary p-0 me-2" onclick="editKategoriItem('${key}', ${i})"><i class="fa-solid fa-pen"></i></button>` : '';
-           const btnDelete = Auth.getUser().role === 'Super Admin' ? `<button type="button" class="btn btn-sm btn-link text-danger p-0" onclick="removeKategoriItem('${key}', ${i})"><i class="fa-solid fa-trash"></i></button>` : '';
+           const roleSekarang = ((Auth.getUser() || {}).role || '');
+           const btnEdit = roleSekarang === 'Super Admin' ? `<button type="button" class="btn btn-sm btn-link text-primary p-0 me-2" onclick="editKategoriItem('${key}', ${i})"><i class="fa-solid fa-pen"></i></button>` : '';
+           const btnDelete = roleSekarang === 'Super Admin' ? `<button type="button" class="btn btn-sm btn-link text-danger p-0" onclick="removeKategoriItem('${key}', ${i})"><i class="fa-solid fa-trash"></i></button>` : '';
            el.innerHTML += `<div class="d-flex justify-content-between p-2 mb-1 border rounded bg-white"><span>${escapeHTML(c)}</span><div>${btnEdit}${btnDelete}</div></div>`; 
          });
       };
@@ -1844,9 +2361,9 @@
       renderList('kategori_pengeluaran', 'settingsKategoriPengeluaranList');
       renderList('kategori_aset', 'settingsKategoriAsetList');
       renderList('kategori_surat', 'settingsKategoriSuratList');
-      renderList('kategori_divisi', 'settingsKategoriDivisiList');
+      renderDivisiList('settingsKategoriDivisiList');
 
-      if (Auth.getUser().role === 'Super Admin') {
+      if (((Auth.getUser() || {}).role || '') === 'Super Admin') {
           let panelContainer = document.getElementById('settingsKategoriKepengurusanList');
           if (!panelContainer) {
               const divKategori = document.createElement('div');
@@ -1859,79 +2376,323 @@
                 </div>
                 <div class="border rounded bg-light-subtle p-2" style="max-height: 150px; overflow-y: auto;" id="settingsKategoriKepengurusanList"></div>
               `;
+              const slot = document.getElementById('settingsKategoriKepengurusanSlot');
               const targetInsert = document.getElementById('settingsKategoriSuratList');
-              if(targetInsert) targetInsert.parentElement.parentElement.appendChild(divKategori);
+              if (slot) slot.appendChild(divKategori);
+              else if (targetInsert) targetInsert.parentElement.parentElement.appendChild(divKategori);
           }
           renderList('kategori_kepengurusan', 'settingsKategoriKepengurusanList');
       }
+      pasangEnterKategori();
       applyAlumniRestrictions();
     };
 
-    window.addKategoriItem = async function(type) { 
-      if (Auth.getUser().role !== 'Super Admin') return Swal.fire('Ditolak', 'Hanya Super Admin yang bisa menambah kategori.', 'error');
-      if (checkAlumni()) return;
-      
-      let inputId = '', key = '';
-      if(type === 'pemasukan') { inputId = 'addKategoriPemasukanInput'; key = 'kategori_pemasukan'; }
-      else if(type === 'pengeluaran') { inputId = 'addKategoriPengeluaranInput'; key = 'kategori_pengeluaran'; }
-      else if(type === 'aset') { inputId = 'addKategoriAsetInput'; key = 'kategori_aset'; }
-      else if(type === 'surat') { inputId = 'addKategoriSuratInput'; key = 'kategori_surat'; }
-      else if(type === 'kepengurusan') { inputId = 'addKategoriKepengurusanInput'; key = 'kategori_kepengurusan'; }
-      else if(type === 'divisi') { inputId = 'addKategoriDivisiInput'; key = 'kategori_divisi'; }
-      
-      const v = document.getElementById(inputId)?.value.trim(); 
-      if(v) { 
-         if(!dbSettings[key]) dbSettings[key] = []; 
-         dbSettings[key].push(v); 
-         document.getElementById(inputId).value = ''; 
-         
-         // Langsung simpan ke database (Sesuai Revisi Poin 2)
-         showFullPageLoading("Menyimpan ke Database...");
-         await upsertSetting(key, JSON.stringify(dbSettings[key]));
-         hideFullPageLoading();
-         renderSettings(); 
-       } 
-     };
+    // ---- Izin kelola kategori ----
+    // Kategori kas/alat/surat/jabatan: Super Admin saja.
+    // Data Divisi: Super Admin, Admin, atau akun non-Admin yang secara eksplisit
+    // diberi akses halaman Pengaturan oleh Super Admin (gerbang kepercayaan =
+    // halaman Pengaturan itu sendiri). Akun Alumni tetap read-only (checkAlumni).
+    window.bolehKelolaKategori = function(key) {
+      const user = Auth.getUser() || {};
+      const role = user.role || '';
+      if (user.status_anggota === 'Alumni') return false; // Alumni selalu read-only
+      if (role === 'Super Admin') return true;
+      if (key !== 'kategori_divisi') return false;
+      if (role === 'Admin') return true;
+      return Array.isArray(user.permissions) && user.permissions.includes('settings');
+    };
 
-    window.editKategoriItem = function(key, index) {
-      if (Auth.getUser().role !== 'Super Admin') return;
-      if (checkAlumni()) return;
+    // Pesan penolakan yang menjelaskan role pengguna saat ini + cara memperbaikinya
+    // (sebelumnya hanya "Akses Ditolak" tanpa keterangan, pengurus bingung).
+    function pesanTolakKelola(key) {
+      const user = Auth.getUser() || {};
+      const role = user.role || 'Tamu';
+      if (user.status_anggota === 'Alumni') {
+        return 'Akun Alumni bersifat <b>read-only</b> (hanya dapat melihat data).';
+      }
+      if (key === 'kategori_divisi') {
+        return `Anda login dengan role <b>${escapeHTML(role)}</b>. Menambah/mengubah/menghapus divisi hanya bisa dilakukan <b>Super Admin</b>, <b>Admin</b>, atau akun yang diberi akses halaman <b>Pengaturan</b>. Bila Anda pengurus utama, minta Super Admin membuka menu <b>Daftar Pengurus → Edit Akun</b> untuk memperbarui role Anda, atau minta akun Super Admin menambahkan divisi.`;
+      }
+      return `Anda login dengan role <b>${escapeHTML(role)}</b>. Hanya <b>Super Admin</b> yang dapat mengubah master data ini.`;
+    }
 
-      const oldValue = dbSettings[key][index];
-      Swal.fire({
-          title: 'Edit Kategori',
-          input: 'text',
-          inputValue: oldValue,
-          showCancelButton: true,
-          confirmButtonText: 'Simpan Perubahan',
-          cancelButtonText: 'Batal'
-      }).then(async (res) => {
-          if(res.isConfirmed && res.value.trim() !== '') {
-              dbSettings[key][index] = res.value.trim();
-              
-              // Langsung simpan ke database
-              showFullPageLoading("Menyimpan Perubahan...");
-              await upsertSetting(key, JSON.stringify(dbSettings[key]));
-              hideFullPageLoading();
-              renderSettings();
-          }
+    // `label`  : nama santai untuk kalimat pesan ("Tulis nama divisi terlebih dahulu...").
+    // `judul`  : nama resmi berkapital untuk judul dialog ("Tambah Divisi").
+    // `labelInput`: label kolom isian pada dialog ("Nama Divisi").
+    const KATEGORI_META = {
+      pemasukan:    { input: 'addKategoriPemasukanInput',    key: 'kategori_pemasukan',    label: 'kategori pemasukan',    judul: 'Kategori Pemasukan',    labelInput: 'Nama Kategori' },
+      pengeluaran:  { input: 'addKategoriPengeluaranInput',  key: 'kategori_pengeluaran',  label: 'kategori pengeluaran',  judul: 'Kategori Pengeluaran',  labelInput: 'Nama Kategori' },
+      aset:         { input: 'addKategoriAsetInput',         key: 'kategori_aset',         label: 'kategori alat',         judul: 'Kategori Alat',         labelInput: 'Nama Kategori' },
+      surat:        { input: 'addKategoriSuratInput',        key: 'kategori_surat',        label: 'kategori surat',        judul: 'Kategori Surat',        labelInput: 'Nama Kategori' },
+      kepengurusan: { input: 'addKategoriKepengurusanInput', key: 'kategori_kepengurusan', label: 'kategori kepengurusan', judul: 'Kategori Kepengurusan', labelInput: 'Nama Jabatan' },
+      divisi:       { input: 'addKategoriDivisiInput',       key: 'kategori_divisi',       label: 'divisi',                judul: 'Divisi',                labelInput: 'Nama Divisi' }
+    };
+
+    // Tekan Enter pada kolom kategori = tombol Tambah (mempercepat kerja pengurus).
+    window.pasangEnterKategori = function() {
+      Object.entries(KATEGORI_META).forEach(([type, meta]) => {
+        const el = document.getElementById(meta.input);
+        if (!el || el.dataset.enterBound === '1') return;
+        el.dataset.enterBound = '1';
+        el.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') { e.preventDefault(); addKategoriItem(type); }
+        });
       });
     };
 
-    window.removeKategoriItem = async function(key, index) { 
-      if (Auth.getUser().role !== 'Super Admin') return;
+    // Sorot & gulir ke divisi yang baru ditambahkan agar pengurus langsung
+    // melihatnya (daftar panjang & area scroll sering membuat pengguna mengira
+    // penyimpanan gagal karena baris baru berada di paling bawah).
+    function sorotItemDivisi(nama) {
+      try {
+        const wrap = document.getElementById('settingsKategoriDivisiList');
+        if (!wrap) return;
+        const items = Array.from(wrap.querySelectorAll('.divisi-list-item'));
+        const target = items.slice().reverse().find(el =>
+          (el.textContent || '').toLowerCase().includes(String(nama || '').toLowerCase())
+        );
+        if (!target) return;
+        target.classList.add('divisi-baru');
+        wrap.scrollTop = Math.max(0, target.offsetTop - wrap.offsetTop - 6);
+        if (typeof target.scrollIntoView === 'function') target.scrollIntoView({ block: 'nearest' });
+        setTimeout(() => target.classList.remove('divisi-baru'), 2600);
+      } catch (e) { /* non-fatal */ }
+    }
+
+    // Kunci anti-klik-ganda: hanya aktif selama penulisan ke database, supaya
+    // tombol tidak pernah "macet" bila sebuah dialog dibiarkan terbuka.
+    let kategoriSedangDisimpan = false;
+
+    window.addKategoriItem = async function(type) {
+      const meta = KATEGORI_META[type];
+      if (!meta) return;
+      const key = meta.key;
+      const role = (Auth.getUser() || {}).role || '';
+
+      if (!bolehKelolaKategori(key)) {
+        if (role === 'Admin' && key !== 'kategori_divisi') {
+          return Swal.fire('Akses Ditolak', 'Admin hanya dapat mengelola Data Divisi. Kategori kas, alat, surat, dan jabatan hanya bisa diubah Super Admin.', 'error');
+        }
+        return Swal.fire({ icon: 'error', title: 'Akses Ditolak', html: pesanTolakKelola(key) });
+      }
+      if (checkAlumni()) return;
+      if (kategoriSedangDisimpan) return;
+
+      const inputEl = document.getElementById(meta.input);
+      if (inputEl && inputEl.disabled) return;
+
+      // Nama divisi dirapikan TANPA alias supaya tersimpan apa adanya.
+      const rapikan = (teks) => key === 'kategori_divisi'
+        ? rapikanNamaDivisi(teks)
+        : String(teks == null ? '' : teks).replace(/\s+/g, ' ').trim();
+
+      let v = rapikan(inputEl ? inputEl.value : '');
+
+      // Jalur cadangan: jika kolom input tidak ditemukan (mis. panel belum ter-render),
+      // pengurus tetap bisa menambah lewat dialog agar prosesnya tidak buntu.
+      // Tampilan dialog disamakan dengan yang familiar bagi pengurus:
+      // judul "Tambah Divisi", label "Nama Divisi", tombol Simpan / Batal.
+      if (!inputEl) {
+        const res = await Swal.fire({
+          title: `Tambah ${meta.judul || meta.label}`,
+          input: 'text',
+          inputLabel: meta.labelInput || `Nama ${meta.judul || meta.label}`,
+          inputPlaceholder: 'Ketik di sini...',
+          showCancelButton: true,
+          confirmButtonText: 'Simpan',
+          cancelButtonText: 'Batal',
+          // Validasi langsung di dalam dialog: tombol Simpan tidak menutup
+          // dialog saat isian kosong, agar tidak terasa "gagal tanpa sebab".
+          preConfirm: (nilai) => {
+            const bersih = String(nilai || '').replace(/\s+/g, ' ').trim();
+            if (!bersih) { Swal.showValidationMessage('Nama tidak boleh kosong.'); return false; }
+            return bersih;
+          }
+        });
+        if (!res.isConfirmed) return;
+        v = rapikan(res.value);
+      }
+
+      if (!v) {
+        return Swal.fire('Belum Ada Isi', `Tulis nama ${meta.label} terlebih dahulu, lalu tekan Enter atau klik tombol Tambah.`, 'warning');
+      }
+      if (v.length > 60) {
+        return Swal.fire('Terlalu Panjang', 'Maksimal 60 karakter agar tetap rapi di dropdown dan kartu divisi.', 'warning');
+      }
+
+      if (!Array.isArray(dbSettings[key])) dbSettings[key] = [];
+      const daftar = key === 'kategori_divisi'
+        ? bersihkanDivisi(dbSettings[key])
+        : dbSettings[key].map(x => String(x).trim()).filter(Boolean);
+      dbSettings[key] = daftar;
+
+      const sudahAda = daftar.find(c => String(c).toLowerCase() === v.toLowerCase());
+      if (sudahAda) {
+        return Swal.fire('Sudah Terdaftar', `"${sudahAda}" sudah ada di daftar ${meta.label}.`, 'info');
+      }
+
+      // Nama yang identik dengan penulisan lama divisi standar tetap BOLEH
+      // disimpan sebagai divisi tersendiri, tetapi pengurus diberi tahu lebih
+      // dulu supaya tidak tanpa sengaja membuat dua divisi yang sama.
+      if (key === 'kategori_divisi') {
+        const resmi = DIVISI_ALIAS[v.toLowerCase()];
+        if (resmi && daftar.some(d => d.toLowerCase() === resmi.toLowerCase())) {
+          const tanya = await Swal.fire({
+            icon: 'question',
+            title: 'Nama Ini Mirip Divisi Lama',
+            html: `"<b>${escapeHTML(v)}</b>" adalah penulisan lama dari divisi <b>${escapeHTML(resmi)}</b> yang sudah terdaftar.` +
+                  `<br><br>Tetap tambahkan sebagai divisi baru yang terpisah?`,
+            showCancelButton: true,
+            confirmButtonText: 'Ya, tambahkan', cancelButtonText: 'Batal'
+          });
+          if (!tanya.isConfirmed) return;
+        }
+      }
+
+      // ===== Bagian kritis: tulis ke database, render ulang, lalu VERIFIKASI =====
+      const nilaiLama = dbSettings[key].slice();
+      let tersimpan = false;
+      let errSimpan = null;
+
+      kategoriSedangDisimpan = true;
+      try {
+        dbSettings[key] = daftar.concat([v]);
+        if (inputEl) inputEl.value = '';
+
+        showFullPageLoading(`Menyimpan ${meta.label}...`);
+        try {
+          await upsertSetting(key, JSON.stringify(dbSettings[key]));
+        } catch (err) {
+          errSimpan = err;
+        }
+
+        if (!errSimpan) {
+          hideFullPageLoading();
+          updateCategoryDropdowns();
+          renderSettings();
+          if (key === 'kategori_divisi') sorotItemDivisi(v);
+
+          // Verifikasi: pastikan namanya benar-benar bertahan setelah daftar
+          // dibersihkan & dirender ulang. Tanpa langkah ini, kegagalan senyap
+          // (nama terbuang saat pembersihan) tetap terlihat "berhasil".
+          tersimpan = key === 'kategori_divisi'
+            ? bersihkanDivisi(dbSettings[key]).some(d => d.toLowerCase() === v.toLowerCase())
+            : dbSettings[key].some(d => String(d).toLowerCase() === v.toLowerCase());
+        }
+      } finally {
+        hideFullPageLoading();
+        kategoriSedangDisimpan = false;
+      }
+
+      if (errSimpan || !tersimpan) {
+        dbSettings[key] = nilaiLama;              // batalkan agar tampilan tidak menipu
+        if (inputEl && !inputEl.value) inputEl.value = v; // kembalikan teks pengguna
+        updateCategoryDropdowns();
+        renderSettings();
+        console.error('[Nusapala] Gagal menyimpan', key, errSimpan || 'nama hilang setelah render ulang', v);
+
+        if (errSimpan) {
+          return Swal.fire({
+            icon: 'error',
+            title: 'Gagal Menyimpan',
+            html: `${escapeHTML((errSimpan && errSimpan.message) || 'Tidak ada detail kesalahan.')}<hr class="my-2"><small class="text-muted">Periksa koneksi internet Anda. Bila terus gagal, buka dashboard Supabase &rarr; tabel <b>settings</b> dan pastikan baris dengan kolom <b>key</b> = ${escapeHTML(key)} boleh di-update (izinkan UPDATE/INSERT, mis. pada kebijakan RLS), lalu muat ulang halaman.</small>`
+          });
+        }
+        return Swal.fire({
+          icon: 'error',
+          title: 'Tidak Bisa Disimpan',
+          html: `"<b>${escapeHTML(v)}</b>" tidak dapat ditambahkan ke daftar ${meta.label}.<hr class="my-2"><small class="text-muted">Silakan muat ulang halaman lalu coba lagi. Bila masih gagal, laporkan nama yang dipakai agar kami perbaiki — sebelumnya sistem pernah menampilkan "Tersimpan" padahal datanya dibuang.</small>`
+        });
+      }
+
+      if (inputEl) inputEl.focus();
+      Swal.fire({ icon: 'success', title: 'Tersimpan', text: `"${v}" berhasil ditambahkan ke ${meta.label}.`, timer: 2400, showConfirmButton: false });
+    };
+
+    window.editKategoriItem = async function(key, index) {
+      if (!bolehKelolaKategori(key)) return Swal.fire({ icon: 'error', title: 'Akses Ditolak', html: pesanTolakKelola(key) });
       if (checkAlumni()) return;
 
-      if(key === 'kategori_pemasukan' && dbSettings[key][index] === 'Uang Kas Bulanan') {
+      const oldValue = dbSettings[key][index];
+      const pesanDivisi = key === 'kategori_divisi'
+        ? 'Anggota yang masih memakai nama divisi lama akan ikut diperbarui otomatis.'
+        : 'Perubahan langsung tersimpan ke database.';
+      const res = await Swal.fire({
+        title: 'Edit Kategori',
+        html: `<p class="text-muted small mb-2">${pesanDivisi}</p>`,
+        input: 'text', inputValue: oldValue,
+        showCancelButton: true, confirmButtonText: 'Simpan Perubahan', cancelButtonText: 'Batal'
+      });
+      if (!res.isConfirmed) return;
+
+      const baru = (res.value || '').replace(/\s+/g, ' ').trim();
+      if (!baru) return Swal.fire('Tidak Valid', 'Nama kategori tidak boleh kosong.', 'warning');
+      if (baru.toLowerCase() === String(oldValue).toLowerCase()) return;
+
+      const nilaiLama = dbSettings[key].slice();
+      dbSettings[key][index] = baru;
+
+      showFullPageLoading('Menyimpan Perubahan...');
+      try {
+        await upsertSetting(key, JSON.stringify(dbSettings[key]));
+        if (key === 'kategori_divisi') {
+          // Ikut rapikan data anggota agar tidak ada divisi "yatim" setelah rename.
+          // Dua arah: nilai persis lama, dan penulisan warisan yang setara.
+          try { await db.from('members').update({ 'Divisi': baru }).eq('Divisi', oldValue); } catch (e) { /* non-fatal */ }
+          const warisan = Object.keys(DIVISI_ALIAS).filter(k => DIVISI_ALIAS[k] === String(oldValue));
+          for (const w of warisan) {
+            try { await db.from('members').update({ 'Divisi': baru }).eq('Divisi', w); } catch (e) { /* non-fatal */ }
+          }
+        }
+        hideFullPageLoading();
+        updateCategoryDropdowns();
+        renderSettings();
+        Swal.fire({ icon: 'success', title: 'Tersimpan', timer: 1400, showConfirmButton: false });
+      } catch (err) {
+        dbSettings[key] = nilaiLama;
+        hideFullPageLoading();
+        Swal.fire('Gagal Menyimpan', (err && err.message) ? err.message : 'Terjadi kesalahan saat menyimpan.', 'error');
+      }
+    };
+
+    window.removeKategoriItem = async function(key, index) {
+      if (!bolehKelolaKategori(key)) return Swal.fire({ icon: 'error', title: 'Akses Ditolak', html: pesanTolakKelola(key) });
+      if (checkAlumni()) return;
+
+      const nama = dbSettings[key][index];
+      if (key === 'kategori_pemasukan' && nama === 'Uang Kas Bulanan') {
         return Swal.fire('Peringatan', 'Kategori "Uang Kas Bulanan" adalah bawaan sistem dan tidak dapat dihapus.', 'warning');
       }
-      dbSettings[key].splice(index, 1); 
-      
-      // Langsung simpan ke database
-      showFullPageLoading("Menghapus Kategori...");
-      await upsertSetting(key, JSON.stringify(dbSettings[key]));
-      hideFullPageLoading();
-      renderSettings(); 
+      if (key === 'kategori_divisi') {
+        const dipakai = jumlahAnggotaDivisi(nama);
+        if (dipakai > 0) {
+          return Swal.fire('Divisi Masih Digunakan', `Ada ${dipakai} anggota dengan divisi "${nama}". Pindahkan anggota tersebut ke divisi lain terlebih dahulu.`, 'warning');
+        }
+        if ((dbSettings.kategori_divisi || []).length <= 1) {
+          return Swal.fire('Minimal Satu Divisi', 'Sistem memerlukan minimal satu divisi agar formulir registrasi anggota dapat diisi.', 'warning');
+        }
+        const konfirmasi = await Swal.fire({
+          title: 'Hapus Divisi?', text: `"${nama}" akan dihapus dari master data divisi.`,
+          icon: 'warning', showCancelButton: true, confirmButtonText: 'Hapus', confirmButtonColor: '#b3462c', cancelButtonText: 'Batal'
+        });
+        if (!konfirmasi.isConfirmed) return;
+      }
+
+      const nilaiLama = dbSettings[key].slice();
+      dbSettings[key].splice(index, 1);
+
+      showFullPageLoading('Menghapus Kategori...');
+      try {
+        await upsertSetting(key, JSON.stringify(dbSettings[key]));
+        hideFullPageLoading();
+        updateCategoryDropdowns();
+        renderSettings();
+        Swal.fire({ icon: 'success', title: 'Terhapus', timer: 1300, showConfirmButton: false });
+      } catch (err) {
+        dbSettings[key] = nilaiLama;
+        hideFullPageLoading();
+        Swal.fire('Gagal Menghapus', (err && err.message) ? err.message : 'Terjadi kesalahan saat menghapus.', 'error');
+      }
     };
 
     window.saveSystemSettings = async function() { 
@@ -2066,10 +2827,13 @@
       const tIn = dbIuran.reduce((acc, i) => acc + parseInt(i.jumlah||0), 0);
       const tOut = dbKasKeluar.reduce((acc, k) => acc + parseInt(k.jumlah||0), 0);
       
-      const elW = document.getElementById('dashanggota'); if(elW) elW.innerText = dbAnggota.length + ' Orang';
-      const elP = document.getElementById('dashPemasukan'); if(elP) elP.innerText = formatRupiah(tIn);
-      const elK = document.getElementById('dashPengeluaran'); if(elK) elK.innerText = formatRupiah(tOut);
-      const elS = document.getElementById('dashSaldo'); if(elS) elS.innerText = formatRupiah(tIn - tOut);
+      // Catatan: id di HTML adalah "dashAnggota". Sebelumnya ditulis "dashanggota"
+      // (huruf kecil semua) sehingga kartu Total Anggota tidak pernah ter-update.
+      const elW = document.getElementById('dashAnggota');
+      if (elW) { elW.dataset.nilai = dbAnggota.length; elW.innerText = dbAnggota.length + ' Orang'; }
+      animasiAngka(document.getElementById('dashPemasukan'), tIn, formatRupiah);
+      animasiAngka(document.getElementById('dashPengeluaran'), tOut, formatRupiah);
+      animasiAngka(document.getElementById('dashSaldo'), tIn - tOut, formatRupiah);
       
       const c = document.getElementById('viewContainer');
       if(!c) return;
@@ -2096,19 +2860,95 @@
         html += `<div class="p-3 border rounded-3 mb-2 bg-light-subtle"><div class="d-flex justify-content-between"><b>${escapeHTML(p.nama_pengadu)}</b><span class="badge bg-danger">${p.status}</span></div><p class="small mb-1 text-muted">${escapeHTML(p.detail_pengaduan)}</p></div>`;
       });
       html += `</div></div></div></div></div>`;
+
+      // ---- Kartu tambahan: sebaran anggota per divisi ----
+      const divisiList = daftarDivisiEfektif(dbSettings.kategori_divisi || []);
+      const totalAnggota = dbAnggota.length;
+      const tanpaDivisi = dbAnggota.filter(a => !String(a.divisi || '').trim()).length;
+      let barisDivisi = '';
+      divisiList.forEach(d => {
+        const jumlah = jumlahAnggotaDivisi(d);
+        const persen = totalAnggota ? Math.round(jumlah / totalAnggota * 100) : 0;
+        const m = divisiMeta(d);
+        barisDivisi += `<div class="mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-1 gap-2">
+              <span class="small fw-semibold text-truncate" style="color:${m.warna};"><i class="fa-solid ${m.icon} me-1"></i>${escapeHTML(d)}</span>
+              <span class="small text-muted flex-shrink-0">${jumlah} anggota · ${persen}%</span>
+            </div>
+            <div class="progress" style="height:8px;" role="progressbar" aria-label="Sebaran divisi ${escapeHTML(d)}" aria-valuenow="${persen}" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width:${persen}%;background:${m.warna};"></div>
+            </div>
+          </div>`;
+      });
+
+      html += `<div class="card shadow-sm border-0 mt-4">
+        <div class="card-header bg-white pt-4 px-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
+          <h6 class="fw-bold mb-0"><i class="fa-solid fa-people-group me-2 text-primary"></i>Sebaran Divisi Anggota</h6>
+          <button class="btn btn-sm btn-outline-primary" onclick="showPage('settings')"><i class="fa-solid fa-sliders me-1"></i>Kelola Divisi</button>
+        </div>
+        <div class="card-body px-4 pb-4"><div class="row g-4">
+          <div class="col-12 col-lg-7">${barisDivisi || '<div class="text-muted small">Belum ada divisi pada master data.</div>'}</div>
+          <div class="col-12 col-lg-5">
+            <div class="p-3 rounded-3 h-100" style="background:var(--cream-100);border:1px solid var(--border-color);">
+              <div class="small fw-semibold text-dark mb-2"><i class="fa-solid fa-circle-info me-1" style="color:var(--gold-600);"></i>Catatan data divisi</div>
+              <ul class="small text-muted mb-0 ps-3" style="line-height:1.75;">
+                <li>Total anggota terdata: <b class="text-dark">${totalAnggota} orang</b></li>
+                <li>Anggota belum berdivisi: <b class="text-dark">${tanpaDivisi} orang</b></li>
+                <li>Divisi aktif: <b class="text-dark">${divisiList.length}</b></li>
+                <li>Master data dikelola dari menu <b>Pengaturan → Data Divisi</b>.</li>
+              </ul>
+            </div>
+          </div>
+        </div></div>
+      </div>`;
       c.innerHTML = html;
+      if (window.NusapalaUI) NusapalaUI.scan(c);
     }
+
+    // Lompat ke Database Anggota dengan filter divisi tertentu.
+    // Nilainya dititipkan dulu, lalu dipasang saat tabel dirender ulang
+    // (karena showPage memicu pemuatan data async dari Supabase).
+    let pendingDivisiFilter = null;
+    function pasangNilaiFilterDivisi(namaDivisi) {
+      const sel = document.getElementById('filterDivisiAnggota');
+      if (!sel || !namaDivisi) return;
+      const ada = Array.from(sel.options).some(o => o.value.toLowerCase() === String(namaDivisi).toLowerCase());
+      if (!ada) sel.appendChild(new Option(namaDivisi, namaDivisi));
+      sel.value = namaDivisi;
+    }
+    window.filterAnggotaByDivisi = function(namaDivisi) {
+      pendingDivisiFilter = namaDivisi;
+      pasangNilaiFilterDivisi(namaDivisi);
+      showPage('anggota');
+    };
 
     // ================== RENDER KESELURUHAN & PENGURUS ==================
     window.renderAnggotaTable = function() {
+      // Terapkan filter divisi yang diminta dari Dashboard (bila ada)
+      if (pendingDivisiFilter !== null) {
+        pasangNilaiFilterDivisi(pendingDivisiFilter);
+        pendingDivisiFilter = null;
+      }
       const elSearch = document.getElementById('searchAnggota');
       const q = elSearch ? elSearch.value.toLowerCase() : '';
-      const filtered = dbAnggota.filter(i => (i.nama||'').toLowerCase().includes(q) || (i.id_angkatan||'').toLowerCase().includes(q));
+      const elFilterDivisi = document.getElementById('filterDivisiAnggota');
+      const fDiv = elFilterDivisi ? elFilterDivisi.value : '';
+      const filtered = dbAnggota.filter(i => {
+        const cocokCari = (i.nama||'').toLowerCase().includes(q) || (i.id_angkatan||'').toLowerCase().includes(q);
+        const cocokDivisi = !fDiv || String(i.divisi||'').toLowerCase() === fDiv.toLowerCase();
+        return cocokCari && cocokDivisi;
+      });
       const isSuperAdmin = Auth.getUser().role === 'Super Admin';
-      
-      let h = `<div class="table-responsive bg-white shadow-sm"><table class="table align-middle"><thead><tr><th>No</th><th>ID Angkatan</th><th>Nama</th><th>Angkatan</th><th>Status</th><th>Aksi</th></tr></thead><tbody>`;
+      const labelFilter = fDiv ? ` · Divisi ${escapeHTML(fDiv)}` : '';
+
+      let h = `<div class="table-responsive bg-white shadow-sm"><div class="d-flex flex-wrap justify-content-between align-items-center gap-2 px-3 pt-3">
+          <span class="small text-muted">${filtered.length} anggota ditampilkan${labelFilter}</span>
+        </div><table class="table align-middle"><thead><tr><th>No</th><th>ID Angkatan</th><th>Nama</th><th>Angkatan</th><th>Divisi</th><th>Status</th><th>Aksi</th></tr></thead><tbody>`;
+      if (!filtered.length) {
+        h += `<tr><td colspan="7"><div class="empty-state"><i class="fa-solid fa-users-slash"></i>Tidak ada anggota yang cocok dengan pencarian / filter divisi.</div></td></tr>`;
+      }
       filtered.forEach((x, idx) => {
-        h += `<tr><td>${idx+1}</td><td><span class="text-muted small fw-mono">${escapeHTML(x.id_angkatan)}</span></td><td class="fw-bold">${escapeHTML(x.nama)}</td><td>${escapeHTML(x.nama_angkatan)}</td><td><span class="badge border text-dark">${escapeHTML(x.status_anggota)}</span></td>
+        h += `<tr><td>${idx+1}</td><td><span class="text-muted small fw-mono">${escapeHTML(x.id_angkatan)}</span></td><td class="fw-bold">${escapeHTML(x.nama)}</td><td>${escapeHTML(x.nama_angkatan)}</td><td>${divisiBadge(x.divisi)}</td><td><span class="badge border text-dark">${escapeHTML(x.status_anggota)}</span></td>
               <td>
                 <button class="btn btn-sm btn-outline-primary" onclick="openAnggotaModal('${x.id_anggota}')"><i class="fa-solid fa-pen"></i></button> 
                 <button class="btn btn-sm btn-outline-danger" onclick="deleteAnggota('${x.id_anggota}')"><i class="fa-solid fa-trash"></i></button>
@@ -2120,7 +2960,6 @@
       if(c) c.innerHTML = h;
       applyAlumniRestrictions();
     };
-
     window.renderPengurusTable = function() {
       const c = document.getElementById('pengurusContainer');
       if(!c) return;
@@ -2463,7 +3302,7 @@
         title: statusBaru === 'Aktif' ? 'Setujui Registrasi?' : 'Tolak Registrasi?',
         text: statusBaru === 'Aktif' ? 'Akun akan diaktifkan dan pengguna dapat login ke sistem.' : 'Pengguna akan diminta memperbaiki data lalu mengirim ulang.',
         icon: 'question', showCancelButton: true, confirmButtonText: 'Ya, Lanjutkan', cancelButtonText: 'Batal',
-        confirmButtonColor: statusBaru === 'Aktif' ? '#2f7d4f' : '#b3462c'
+        confirmButtonColor: statusBaru === 'Aktif' ? '#457f51' : '#a94a37'
       });
       if (!konfirmasi.isConfirmed) return;
 
@@ -2546,7 +3385,7 @@
             showCancelButton: true,
             confirmButtonText: '<i class="fa-solid fa-floppy-disk me-1"></i> Simpan',
             cancelButtonText: 'Batal',
-            confirmButtonColor: '#0f2e1a',
+            confirmButtonColor: '#12212f',
             width: '600px',
             preConfirm: () => {
                 const role = document.getElementById('swalRole').value;
@@ -2574,6 +3413,20 @@
         });
     };
 
+    // Pastikan divisi anggota lama (mis. "Rafting/Orad") tetap tersedia sebagai
+    // opsi saat mengedit, sehingga data divisi tidak terhapus saat form disimpan.
+    function pasangOpsiDivisiAnggota(nilai) {
+      const sel = document.getElementById('anggota_divisi');
+      if (!sel) return;
+      const target = String(nilai || '').trim();
+      Array.from(sel.querySelectorAll('option[data-divisi-luar]')).forEach(o => o.remove());
+      if (target && !Array.from(sel.options).some(o => o.value.toLowerCase() === target.toLowerCase())) {
+        sel.insertAdjacentHTML('beforeend', `<option value="${escapeHTML(target)}" data-divisi-luar="1">${escapeHTML(target)} (di luar master data)</option>`);
+      }
+      sel.value = target;
+      if (sel.value !== target) sel.selectedIndex = 0;
+    }
+
     window.openAnggotaModal = function(id) {
       const f = document.getElementById('anggotaForm'); if(f) f.reset();
       if(id) {
@@ -2584,13 +3437,14 @@
           if(document.getElementById('anggota_nik')) document.getElementById('anggota_nik').value = d.id_angkatan; 
           if(document.getElementById('anggota_nama')) document.getElementById('anggota_nama').value = d.nama;
           if(document.getElementById('anggota_no_rumah')) document.getElementById('anggota_no_rumah').value = d.nama_angkatan; 
-          if(document.getElementById('anggota_divisi')) document.getElementById('anggota_divisi').value = d.divisi;
+          pasangOpsiDivisiAnggota(d.divisi);
           if(document.getElementById('anggota_tanggal_lahir')) document.getElementById('anggota_tanggal_lahir').value = d.tanggal_lahir || '';
           if(document.getElementById('anggota_status_anggota')) document.getElementById('anggota_status_anggota').value = d.status_anggota || 'Aktif';
         }
       } else { 
          if(document.getElementById('anggota_id')) document.getElementById('anggota_id').value = ''; 
          if(document.getElementById('anggota_isEdit')) document.getElementById('anggota_isEdit').value = 'false'; 
+         pasangOpsiDivisiAnggota('');
        }
       const m = document.getElementById('anggotaModal');
       if(m) new bootstrap.Modal(m).show();
@@ -2695,10 +3549,29 @@
         const sel = document.getElementById(id); if(!sel) return; sel.innerHTML = '';
         dbSettings.kategori_aset.forEach(c => sel.innerHTML += `<option value="${c}">${c}</option>`);
       });
+      // ===== Dropdown Divisi (form anggota + filter Database Anggota) =====
+      const daftarDivisi = daftarDivisiEfektif(dbSettings.kategori_divisi || []);
+
       ['anggota_divisi'].forEach(id => {
-        const sel = document.getElementById(id); if(!sel) return; sel.innerHTML = '';
-        (dbSettings.kategori_divisi || []).forEach(c => sel.innerHTML += `<option value="${c}">${c}</option>`);
+        const sel = document.getElementById(id); if(!sel) return;
+        const terpilih = sel.value;
+        sel.innerHTML = '<option value="">-- Belum ditentukan --</option>';
+        daftarDivisi.forEach(c => sel.innerHTML += `<option value="${escapeHTML(c)}">${escapeHTML(c)}</option>`);
+        if (terpilih) sel.value = terpilih;
       });
+
+      ['filterDivisiAnggota'].forEach(id => {
+        const sel = document.getElementById(id); if(!sel) return;
+        const terpilih = sel.value;
+        sel.innerHTML = '<option value="">Semua Divisi</option>';
+        daftarDivisi.forEach(c => sel.innerHTML += `<option value="${escapeHTML(c)}">${escapeHTML(c)}</option>`);
+        sel.value = terpilih;
+        if (!sel.value) sel.selectedIndex = 0;
+      });
+
+      // ===== Datalist divisi (Agenda & Galeri) =====
+      const dl = document.getElementById('daftarDivisiMaster');
+      if (dl) dl.innerHTML = daftarDivisi.map(c => `<option value="${escapeHTML(c)}"></option>`).join('');
 
       // ===== Dropdown modul Operasional Lapangan =====
       const selJenis = document.getElementById('ops_jenis_kegiatan');
@@ -3082,7 +3955,7 @@
     }
     function opsBadgeKeamanan(status) {
       const cls = OPS_STATUS_KEAMANAN_BADGE[status] || 'bg-secondary-subtle text-secondary border';
-      const style = status === 'Kendala Lapangan' ? ' style="background-color:#d97706;"' : '';
+      const style = status === 'Kendala Lapangan' ? ' style="background-color:#96721c;"' : '';
       return `<span class="badge ${cls}"${style}>${escapeHTML(status || '-')}</span>`;
     }
 
@@ -3118,9 +3991,9 @@
       perBulan.forEach((v, i) => {
         const h = Math.round((v / maxVal) * chartH);
         const x = i * (barW + gap);
-        svg += `<rect x="${x}" y="${chartH - h}" width="${barW}" height="${Math.max(h,1)}" rx="4" fill="${v>0 ? '#2f7d4f' : '#e7e0cf'}"></rect>`;
-        svg += `<text x="${x + barW/2}" y="${chartH + 15}" text-anchor="middle" font-size="9" fill="#746c58">${namaBulan[i]}</text>`;
-        if (v > 0) svg += `<text x="${x + barW/2}" y="${chartH - h - 4}" text-anchor="middle" font-size="9" font-weight="700" fill="#0f2e1a">${v}</text>`;
+        svg += `<rect x="${x}" y="${chartH - h}" width="${barW}" height="${Math.max(h,1)}" rx="4" style="fill:${v>0 ? 'var(--gold-500)' : 'var(--paper-200)'}"></rect>`;
+        svg += `<text x="${x + barW/2}" y="${chartH + 15}" text-anchor="middle" font-size="9" style="fill:var(--text-muted)">${namaBulan[i]}</text>`;
+        if (v > 0) svg += `<text x="${x + barW/2}" y="${chartH - h - 4}" text-anchor="middle" font-size="9" font-weight="700" style="fill:var(--ink-900)">${v}</text>`;
       });
       svg += `</svg>`;
       const chartEl = document.getElementById('opsChartBulanan');
@@ -3486,7 +4359,7 @@
            if(document.getElementById('kegiatan_id')) document.getElementById('kegiatan_id').value = id;
            if(document.getElementById('keg_judul')) document.getElementById('keg_judul').value = a.judul;
            if(document.getElementById('keg_tgl')) document.getElementById('keg_tgl').value = a.tanggal_kegiatan;
-           if(document.getElementById('keg_divisi')) document.getElementById('keg_divisi').value = a.divisi;
+           if(document.getElementById('keg_divisi')) document.getElementById('keg_divisi').value = a.divisi || '';
            if(document.getElementById('keg_desc')) document.getElementById('keg_desc').value = a.deskripsi;
          } 
        } else { if(document.getElementById('kegiatan_id')) document.getElementById('kegiatan_id').value = ''; }

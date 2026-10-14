@@ -7,7 +7,7 @@
 
   <!-- Google Fonts: Fraunces (display) + Inter (UI) + IBM Plex Mono (mono accents) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- FontAwesome 6 -->
@@ -22,26 +22,26 @@
   <style>
     :root {
       /* Palette premium: forest / gold / cream / ink */
-      --forest-950: #0a1810;
-      --forest-900: #0f2e1a;
-      --forest-800: #163b23;
-      --forest-700: #1d4a2d;
-      --primary-color: #0f2e1a;
-      --primary-hover: #123821;
-      --gold-600: #a9821c;
-      --gold-500: #c9a227;
-      --gold-300: #e3c360;
-      --secondary-color: #c9a227;
-      --cream-50: #faf8f2;
-      --cream-100: #f4efe3;
-      --paper: #fbf9f4;
-      --light-bg: #f6f3ea;
+      --forest-950: #0b1622;
+      --forest-900: #12212f;
+      --forest-800: #1f3648;
+      --forest-700: #2a475e;
+      --primary-color: #12212f;
+      --primary-hover: #1f3648;
+      --gold-600: #86692f;
+      --gold-500: #b3945a;
+      --gold-300: #dcc79b;
+      --secondary-color: #b3945a;
+      --cream-50: #f8f3e7;
+      --cream-100: #f2ebda;
+      --paper: #fffdf7;
+      --light-bg: #f8f3e7;
       --card-bg: #ffffff;
-      --border-color: #e7e0cf;
-      --line-soft: rgba(15, 46, 26, 0.10);
-      --ink-900: #1b1f1a;
-      --text-main: #3c4238;
-      --text-muted: #746c58;
+      --border-color: #e0d5bd;
+      --line-soft: rgba(18, 33, 47, 0.10);
+      --ink-900: #16202c;
+      --text-main: #33404f;
+      --text-muted: #5d6874;
       --radius-lg: 20px;
       --radius-md: 14px;
       --shadow-soft: 0 10px 30px -12px rgba(15, 30, 20, 0.14);
@@ -56,7 +56,7 @@
       overflow-x: hidden;
       background-image:
         radial-gradient(circle at 100% 0%, rgba(201,162,39,0.07), transparent 40%),
-        radial-gradient(circle at 0% 30%, rgba(15,46,26,0.05), transparent 45%);
+        radial-gradient(circle at 0% 30%, rgba(18,33,47,0.05), transparent 45%);
       background-attachment: fixed;
     }
 
@@ -79,9 +79,9 @@
     .eyebrow::before { content:''; width: 22px; height: 1px; background: var(--gold-500); display: inline-block; }
 
     /* ============ Navbar ============ */
-    .landing-navbar { background: rgba(250, 248, 242, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); transition: all 0.3s ease; }
-    .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(155deg, var(--forest-900), var(--forest-700)); display:flex; align-items:center; justify-content:center; color: var(--gold-300); box-shadow: 0 6px 16px -6px rgba(15,46,26,0.5); position: relative; }
-    .brand-mark::after { content:''; position:absolute; inset:2px; border:1px solid rgba(227,195,96,0.35); border-radius: 9px; }
+    .landing-navbar { background: rgba(248, 243, 231, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); transition: all 0.3s ease; }
+    .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(155deg, var(--forest-900), var(--forest-700)); display:flex; align-items:center; justify-content:center; color: var(--gold-300); box-shadow: 0 6px 16px -6px rgba(18,33,47,0.5); position: relative; }
+    .brand-mark::after { content:''; position:absolute; inset:2px; border:1px solid rgba(220,199,155,0.35); border-radius: 9px; }
     .brand-org-name { font-family:'Fraunces', serif; font-weight:700; font-size:1.05rem; color: var(--ink-900); line-height:1.1; }
     .brand-org-sub { font-size:0.6rem; letter-spacing:0.08em; color: var(--text-muted); text-transform: uppercase; }
 
@@ -91,7 +91,7 @@
     .nav-link-landing:hover::after, .nav-link-landing.active::after { transform: scaleX(1); }
 
     .btn-portal-admin { background: var(--forest-900); color: #fff !important; border-radius: 999px; padding: 0.5rem 1.35rem; font-weight: 600; font-size: 0.85rem; border: 1px solid var(--forest-900); transition: all 0.25s ease; }
-    .btn-portal-admin:hover { background: var(--forest-800); transform: translateY(-1px); box-shadow: 0 8px 18px -8px rgba(15,46,26,0.5); }
+    .btn-portal-admin:hover { background: var(--forest-800); transform: translateY(-1px); box-shadow: 0 8px 18px -8px rgba(18,33,47,0.5); }
 
     /* ============ Hero ============ */
     .hero-wrap { position: relative; border-radius: var(--radius-lg); overflow: hidden; background: var(--paper); border: 1px solid var(--line-soft); }
@@ -115,11 +115,11 @@
     .stat-figure { font-family:'Fraunces', serif; }
 
     .service-grid-btn { background: var(--cream-100); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.1rem 0.75rem; text-align: center; transition: all 0.22s cubic-bezier(.4,0,.2,1); cursor: pointer; }
-    .service-grid-btn:hover { background: #ffffff; box-shadow: 0 12px 24px -14px rgba(15,46,26,0.28); border-color: var(--gold-500); transform: translateY(-3px); }
+    .service-grid-btn:hover { background: #ffffff; box-shadow: 0 12px 24px -14px rgba(18,33,47,0.28); border-color: var(--gold-500); transform: translateY(-3px); }
     .service-grid-btn i { transition: transform 0.25s ease; }
     .service-grid-btn:hover i { transform: scale(1.12) translateY(-1px); }
 
-    .cta-banner { background: radial-gradient(circle at 100% 0%, rgba(227,195,96,0.18), transparent 55%), linear-gradient(150deg, var(--forest-950) 0%, var(--forest-800) 100%); border-radius: var(--radius-lg); color: #ffffff; overflow: hidden; position: relative; border: 1px solid rgba(227,195,96,0.15); }
+    .cta-banner { background: radial-gradient(circle at 100% 0%, rgba(220,199,155,0.18), transparent 55%), linear-gradient(150deg, var(--forest-950) 0%, var(--forest-800) 100%); border-radius: var(--radius-lg); color: #ffffff; overflow: hidden; position: relative; border: 1px solid rgba(220,199,155,0.15); }
 
     .hover-bg-light { transition: background-color 0.2s ease; border-radius: 10px; }
     .hover-bg-light:hover { background-color: var(--cream-100); }
@@ -135,9 +135,9 @@
 
     /* Widget Status Operasional — live, sumber data: Panel Admin (kegiatan_operasional) */
     #widgetOperasional.is-live { border-style: solid; }
-    #widgetOperasional.status-berlangsung { border-color: rgba(47,125,79,0.45); background: linear-gradient(180deg, #f4fbf6, var(--cream-100)); }
-    #widgetOperasional.status-darurat { border-color: rgba(179,70,44,0.5); background: linear-gradient(180deg, #fdf3f0, var(--cream-100)); animation: opsPulseBorder 2.2s ease-in-out infinite; }
-    @keyframes opsPulseBorder { 0%,100% { box-shadow: 0 0 0 0 rgba(179,70,44,0.0); } 50% { box-shadow: 0 0 0 4px rgba(179,70,44,0.10); } }
+    #widgetOperasional.status-berlangsung { border-color: rgba(69,127,81,0.45); background: linear-gradient(180deg, #f2f7f0, var(--cream-100)); }
+    #widgetOperasional.status-darurat { border-color: rgba(169,74,55,0.5); background: linear-gradient(180deg, #fbf2ee, var(--cream-100)); animation: opsPulseBorder 2.2s ease-in-out infinite; }
+    @keyframes opsPulseBorder { 0%,100% { box-shadow: 0 0 0 0 rgba(169,74,55,0.0); } 50% { box-shadow: 0 0 0 4px rgba(169,74,55,0.10); } }
     .ops-widget-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0.35rem 1rem; margin-top: 0.55rem; }
     .ops-widget-grid .ops-label { font-size: 0.62rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted-soft, #8a8168); display: block; }
     .ops-widget-grid .ops-value { font-size: 0.82rem; font-weight: 600; color: #26301f; }
@@ -148,7 +148,7 @@
 
     /* ============ Footer ============ */
     .site-footer { background: var(--forest-950); color: rgba(255,255,255,0.72); position: relative; overflow: hidden; }
-    .site-footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(227,195,96,0.5), transparent); }
+    .site-footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(220,199,155,0.5), transparent); }
     .site-footer .topo-layer { opacity: 0.06; filter: invert(1); }
     .footer-heading { font-family:'Fraunces', serif; color: #fff; font-weight:600; font-size: 1rem; margin-bottom: 1rem; }
     .footer-link { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; transition: color 0.2s ease; display: block; margin-bottom: 0.55rem; }
@@ -166,6 +166,19 @@
     .modal .form-control, .modal .form-select { border-radius: 10px; border:1px solid var(--border-color); padding: 0.6rem 0.85rem; }
     .modal .form-control:focus, .modal .form-select:focus { border-color: var(--gold-500); box-shadow: 0 0 0 3px rgba(201,162,39,0.15); }
 
+    @keyframes nusaFadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+    }
+
+    /* ============ Divisi cards (baru) ============ */
+    .divisi-card { background: var(--card-bg); border: 1px solid var(--line-soft); border-radius: var(--radius-lg); padding: 1.4rem 1.35rem; height: 100%; position: relative; overflow: hidden; transition: transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s ease, border-color .25s ease; }
+    .divisi-card:hover { transform: translateY(-4px); box-shadow: 0 18px 34px -20px rgba(15,46,26,0.35); border-color: var(--gold-500); }
+    .divisi-card .divisi-icon { width: 46px; height: 46px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; color: #fff; margin-bottom: .9rem; }
+    .divisi-card .divisi-nama { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.05rem; color: var(--ink-900); }
+    .divisi-card .divisi-ket { font-size: 0.83rem; color: var(--text-main); line-height: 1.55; margin-bottom: .85rem; }
+    .divisi-card .divisi-stat { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: .04em; text-transform: uppercase; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: .7rem; }
+
     /* ============ Scroll reveal ============ */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -177,6 +190,35 @@
     .text-primary { color: var(--primary-color) !important; }
     .bg-primary { background-color: var(--primary-color) !important; }
   </style>
+
+  <!-- ===== NUSAPALA DESIGN SYSTEM (dimuat terakhir agar menang atas gaya lama) ===== -->
+  <meta name="theme-color" content="#f8f3e7">
+  <script>
+    /* Pasang tema sebelum halaman digambar supaya tidak ada kedipan warna */
+    (function () {
+      try {
+        var t = localStorage.getItem('np-theme');
+        if (!t) t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        if (t === 'dark') {
+          document.documentElement.setAttribute('data-np-theme', 'dark');
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#0c1420');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/nusapala.css">
+  <script src="/assets/js/nusapala-ui.js" defer></script>
+  <script>
+    /* Jaring pengaman: bila kit UI gagal dimuat, konten tidak boleh tetap tersembunyi */
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        if (window.NusapalaUI) return;
+        document.querySelectorAll('.reveal,.np-reveal,.np-reveal-left,.np-reveal-scale,.np-stagger')
+          .forEach(function (el) { el.classList.add('is-visible'); });
+      }, 1200);
+    });
+  </script>
 </head>
 <body>
 
@@ -189,16 +231,20 @@
           <img src="/Logo Nusapala.png" alt="Logo Nusapala" style="width: 38px; height: 38px; object-fit: contain;">
         </span>
         <div>
-          <div class="fw-bold text-dark lh-1 brand-org-name"></div>
+          <div class="fw-bold text-dark lh-1 brand-org-name">NUSAPALA</div>
           <small class="text-muted brand-org-sub">Mapala Institut Bisnis Nusantara</small>
         </div>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#landingNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="d-flex align-items-center gap-2">
+        <button class="np-theme-toggle" type="button" data-np-theme-toggle aria-pressed="false" title="Ganti tema"><i class="fa-solid fa-moon np-icon-moon"></i><i class="fa-solid fa-sun np-icon-sun"></i></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#landingNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
       <div class="collapse navbar-collapse" id="landingNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3 me-4">
           <li class="nav-item"><a class="nav-link nav-link-landing active" href="#landingPage">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-landing" href="#section-divisi">Divisi</a></li>
           <li class="nav-item"><a class="nav-link nav-link-landing" href="#section-jadwal">Agenda</a></li>
           <li class="nav-item"><a class="nav-link nav-link-landing" href="#section-pengumuman">Galeri</a></li>
           <li class="nav-item"><a class="nav-link nav-link-landing" href="/cuaca-gunung">Cuaca Gunung</a></li>
@@ -211,61 +257,83 @@
   </nav>
 
   <!-- Hero Section & Grid Content -->
-  <div class="container py-5">
+  <div class="container py-4 py-lg-5">
 
-    <div class="hero-wrap p-4 p-lg-5 mb-5">
-      <div class="topo-layer"></div>
-      <div class="row g-4 align-items-stretch position-relative">
+    <!-- Ticker agenda berjalan (diisi dari tabel kegiatan) -->
+    <div class="np-ticker mb-4 np-reveal" id="agendaTicker" style="display:none;"></div>
+
+    <div class="hero-wrap p-4 p-lg-5 mb-5 np-grain">
+      <div class="topo-layer topo-layer-ink"></div>
+      <div class="np-stars" aria-hidden="true"></div>
+
+      <!-- Siluet punggungan gunung -->
+      <div class="np-hero-ridge" aria-hidden="true">
+        <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 150 L0 104 L118 62 L214 96 L330 34 L452 100 L566 58 L690 112 L806 70 L934 118 L1052 66 L1180 108 L1296 52 L1440 110 L1440 150 Z" fill="#1f3648" fill-opacity="0.10"/>
+          <path d="M0 150 L0 126 L142 96 L268 128 L402 84 L520 130 L660 98 L796 136 L920 104 L1064 140 L1206 100 L1330 134 L1440 116 L1440 150 Z" fill="#0b1622" fill-opacity="0.16"/>
+        </svg>
+      </div>
+
+      <div class="row g-4 g-lg-5 align-items-stretch position-relative">
         <!-- Left Hero Area -->
         <div class="col-12 col-lg-7 d-flex flex-column justify-content-center">
-          <div class="mb-4">
-            <span class="eyebrow mb-3 d-inline-flex">Dashboard Mahasiswa Pecinta Alam</span>
-            <h1 class="hero-title mb-3 mt-3" id="heroTitle"></h1>
-            <p class="text-muted-soft fs-6 mb-4" id="heroSubtitle" style="max-width: 520px;"></p>
-            <div class="d-flex flex-wrap gap-2 mb-2">
-              <a href="#section-pengumuman" class="btn btn-forest px-4 py-2 d-flex align-items-center gap-2"><i class="fa-solid fa-camera-retro"></i> Lihat Galeri</a>
-              <button onclick="openPublicSuratModal()" class="btn btn-outline-gold px-4 py-2 d-flex align-items-center gap-2"><i class="fa-solid fa-file-signature"></i> Administrasi</button>
+          <div class="mb-2">
+            <span class="eyebrow mb-3 d-inline-flex np-hero-in" style="--d:.02s">Mahasiswa Pecinta Alam · IBN</span>
+            <h1 class="hero-title mb-3 mt-3 np-hero-in" id="heroTitle" style="--d:.10s">Tumbuh di Alam,<br><span>Bertanggung Jawab</span> atas Jejak.</h1>
+            <p class="hero-sub text-muted-soft fs-6 mb-4 np-hero-in" id="heroSubtitle" style="max-width: 540px; --d:.18s">Pusat informasi kegiatan, transparansi kas, inventaris alat, dan peminjaman logistik Nusapala — satu pintu untuk seluruh anggota.</p>
+
+            <!-- Chip tiga divisi -->
+            <div class="d-flex flex-wrap gap-2 mb-4 np-hero-in" id="heroDivisiChips" style="--d:.26s">
+              <span class="np-chip"><i class="fa-solid fa-mountain"></i> Gunung Hutan</span>
+              <span class="np-chip"><i class="fa-solid fa-person-hiking"></i> Rock Climbing</span>
+              <span class="np-chip"><i class="fa-solid fa-water"></i> Olahraga Arus Deras</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2 mb-2 np-hero-in" style="--d:.34s">
+              <a href="#section-divisi" class="btn btn-forest px-4 py-2 d-flex align-items-center gap-2"><i class="fa-solid fa-compass"></i> Jelajahi Divisi</a>
+              <a href="#section-jadwal" class="btn btn-outline-gold px-4 py-2 d-flex align-items-center gap-2"><i class="fa-solid fa-calendar-day"></i> Agenda Kegiatan</a>
+              <button onclick="openPublicPeminjamanModal()" class="btn btn-brass px-4 py-2 d-flex align-items-center gap-2"><i class="fa-solid fa-boxes-packing"></i> Pinjam Alat</button>
             </div>
           </div>
         </div>
 
         <!-- Right Stats Area -->
         <div class="col-12 col-lg-5 d-flex flex-column justify-content-between">
-          <div class="stat-panel p-4 h-100 mb-0 d-flex flex-column justify-content-between">
+          <div class="stat-panel p-4 h-100 mb-0 d-flex flex-column justify-content-between np-hero-in" style="--d:.22s">
             <div>
-              <div class="fw-bold text-dark mb-3 d-flex align-items-center gap-2"><i class="fa-solid fa-users text-primary"></i>Keanggotaan Nusapala</div>
+              <div class="fw-bold text-dark mb-3 d-flex align-items-center gap-2 font-display"><i class="fa-solid fa-users text-primary"></i>Keanggotaan Nusapala</div>
               <div class="row g-3">
                 <div class="col-6 col-sm-6 border-end">
-                  <small class="text-muted-soft d-block mb-1">Total Anggota Terdaftar</small>
-                  <span id="pub_anggota_total" class="fw-bold text-dark stat-figure fs-3">...</span> <small class="text-muted-soft">Orang</small>
+                  <small class="np-label d-block mb-1">Anggota Terdaftar</small>
+                  <span id="pub_anggota_total" class="fw-bold text-dark stat-figure fs-3">…</span> <small class="text-muted">Orang</small>
                 </div>
                 <div class="col-6 col-sm-6">
-                  <small class="text-muted-soft d-block mb-1">Pengurus (Admin)</small>
-                  <span id="pub_anggota_admin" class="fw-bold stat-figure fs-3" style="color:var(--gold-600);">...</span> <small class="text-muted-soft">Orang</small>
+                  <small class="np-label d-block mb-1">Pengurus Aktif</small>
+                  <span id="pub_anggota_admin" class="fw-bold stat-figure fs-3" style="color:var(--gold-600);">…</span> <small class="text-muted">Orang</small>
                 </div>
               </div>
             </div>
 
             <div>
               <hr class="my-3" style="border-color: var(--line-soft);">
-              <div class="fw-semibold text-dark mb-3" style="font-size:0.85rem;"><i class="fa-solid fa-bolt me-2" style="color:var(--gold-500);"></i>Layanan Cepat</div>
+              <div class="fw-semibold text-dark mb-3 font-display" style="font-size:0.92rem;"><i class="fa-solid fa-bolt me-2" style="color:var(--gold-500);"></i>Layanan Cepat</div>
               <div class="row g-2">
-                <div class="col-4" onclick="openPublicSuratModal()">
+                <div class="col-4" onclick="openPublicSuratModal()" role="button" tabindex="0" aria-label="Ajukan persuratan">
                   <div class="service-grid-btn">
-                    <i class="fa-solid fa-file-invoice fa-lg text-primary d-block mb-2"></i>
-                    <span style="font-size: 0.7rem;" class="fw-medium text-dark d-block text-truncate">Persuratan</span>
+                    <i class="fa-solid fa-file-signature fa-lg d-block mb-2"></i>
+                    <span style="font-size: 0.72rem;" class="fw-medium text-dark d-block text-truncate">Persuratan</span>
                   </div>
                 </div>
-                <div class="col-4" onclick="openPublicPengaduanModal()">
+                <div class="col-4" onclick="openPublicPengaduanModal()" role="button" tabindex="0" aria-label="Buat laporan">
                   <div class="service-grid-btn">
-                    <i class="fa-solid fa-headset fa-lg text-success d-block mb-2"></i>
-                    <span style="font-size: 0.7rem;" class="fw-medium text-dark d-block text-truncate">Laporan</span>
+                    <i class="fa-solid fa-headset fa-lg d-block mb-2"></i>
+                    <span style="font-size: 0.72rem;" class="fw-medium text-dark d-block text-truncate">Laporan</span>
                   </div>
                 </div>
-                <div class="col-4" onclick="openPublicPeminjamanModal()">
+                <div class="col-4" onclick="openPublicPeminjamanModal()" role="button" tabindex="0" aria-label="Pinjam alat">
                   <div class="service-grid-btn">
-                    <i class="fa-solid fa-boxes-packing fa-lg text-primary d-block mb-2"></i>
-                    <span style="font-size: 0.7rem;" class="fw-medium text-dark d-block text-truncate">Pinjam Alat</span>
+                    <i class="fa-solid fa-boxes-packing fa-lg d-block mb-2"></i>
+                    <span style="font-size: 0.72rem;" class="fw-medium text-dark d-block text-truncate">Pinjam Alat</span>
                   </div>
                 </div>
               </div>
@@ -339,6 +407,66 @@
       </div>
     </div>
 
+    <!-- ============ SEKSI DIVISI (Gunung Hutan · Rock Climbing · ORAD) ============ -->
+    <div id="section-divisi" class="np-section reveal">
+      <div class="np-section-head text-center">
+        <span class="eyebrow justify-content-center d-inline-flex mb-2">Bidang Kegiatan</span>
+        <h2 class="np-section-title mb-2">Tiga Divisi, Satu Semangat Jelajah</h2>
+        <p class="np-section-sub mx-auto">Setiap anggota Nusapala menempuh pendidikan dasar lalu mendalami salah satu divisi. Data jumlah anggota di bawah ini diambil langsung dari database keanggotaan.</p>
+      </div>
+      <!-- Kartu divisi dirender oleh fetchDivisiPublik() dari master data Portal Admin -->
+      <div class="row g-4" id="publicDivisiContainer">
+        <div class="col-12 text-center text-muted-soft py-4"><span class="spinner-border spinner-border-sm me-2"></span>Memuat data divisi...</div>
+      </div>
+    </div>
+
+    <!-- ============ SEKSI ALUR PEMINJAMAN ALAT ============ -->
+    <div id="section-peminjaman" class="np-section reveal">
+      <div class="row g-4 align-items-center">
+        <div class="col-12 col-lg-4">
+          <span class="eyebrow mb-2 d-inline-flex">Inventaris Logistik</span>
+          <h2 class="np-section-title mb-2">Alur Peminjaman Alat</h2>
+          <p class="np-section-sub">Empat langkah sederhana. Permohonan masuk ke Panel Admin dan diverifikasi oleh pengurus bidang logistik.</p>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <button onclick="openPublicPeminjamanModal()" class="btn btn-forest d-flex align-items-center gap-2"><i class="fa-solid fa-boxes-packing"></i> Ajukan Peminjaman</button>
+            <a href="#section-transparansi" class="btn btn-outline-gold d-flex align-items-center gap-2"><i class="fa-solid fa-boxes-stacked"></i> Lihat Inventaris</a>
+          </div>
+        </div>
+        <div class="col-12 col-lg-8">
+          <div class="row g-3 np-stagger">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="np-step">
+                <div class="np-step-num">1</div>
+                <h6>Ajukan</h6>
+                <p>Isi formulir "Pinjam Alat", pilih alat dari daftar inventaris beserta jumlahnya.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="np-step">
+                <div class="np-step-num">2</div>
+                <h6>Verifikasi</h6>
+                <p>Pengurus mengecek ketersediaan stok dan kelengkapan syarat kegiatan.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="np-step">
+                <div class="np-step-num">3</div>
+                <h6>Ambil</h6>
+                <p>Alat diambil di sekretariat dengan berita acara serah terima kondisi alat.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="np-step">
+                <div class="np-step-num">4</div>
+                <h6>Kembali</h6>
+                <p>Alat dikembalikan, dicek ulang, lalu status peminjaman ditutup di sistem.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Transparansi Keuangan & Aset Section -->
     <div id="section-transparansi" class="mt-5 pt-3 reveal">
       <div class="text-center mb-4">
@@ -372,7 +500,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr><td colspan="2" class="text-center py-4 text-muted-soft">Akses inventaris penuh melalui <a href="/admin" style="color:var(--forest-900); font-weight:600;">Portal Admin</a></td></tr>
+                    <tr><td colspan="2" class="text-center py-4 text-muted-soft">Akses inventaris penuh melalui <a href="/admin" style="color:var(--pine-ink); font-weight:600;">Portal Admin</a></td></tr>
                   </tbody>
                 </table>
               </div>
@@ -389,6 +517,7 @@
   <!-- Footer Section -->
   <footer class="site-footer pt-5 pb-4 mt-5">
     <div class="topo-layer"></div>
+    <div class="np-stars" aria-hidden="true"></div>
     <div class="container position-relative">
       <div class="row g-4 mb-4">
         <div class="col-12 col-lg-4">
@@ -412,6 +541,7 @@
         <div class="col-6 col-lg-2">
           <div class="footer-heading">Navigasi</div>
           <a href="#landingPage" class="footer-link">Beranda</a>
+          <a href="#section-divisi" class="footer-link">Divisi</a>
           <a href="#section-jadwal" class="footer-link">Agenda</a>
           <a href="#section-pengumuman" class="footer-link">Galeri</a>
           <a href="/registrasi" class="footer-link">Daftar Akun</a>
@@ -423,6 +553,7 @@
           <a href="javascript:void(0)" onclick="openPublicSuratModal()" class="footer-link">Persuratan</a>
           <a href="javascript:void(0)" onclick="openPublicPeminjamanModal()" class="footer-link">Pinjam Alat</a>
           <a href="javascript:void(0)" onclick="openPublicPengaduanModal()" class="footer-link">Laporan</a>
+          <a href="/cuaca-gunung" class="footer-link">Cuaca Gunung</a>
         </div>
 
         <div class="col-12 col-lg-4">
@@ -436,7 +567,7 @@
       <div class="footer-bottom pt-3 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
         <p class="text-white-50 mb-0 small" id="footerCopyright"></p>
         <div class="d-flex align-items-center gap-2">
-          <span class="footer-badge font-mono">v2.0 — Light Premium</span>
+          <span class="footer-badge font-mono">v4.0 — Parchment &amp; Teyvat</span>
           <span class="text-white-50 small">· Dirancang oleh N 3126 - 008 AM</span>
         </div>
       </div>
@@ -638,13 +769,54 @@
     window.onload = function() {
       fetchSupabaseSettings(); // Tarik pengaturan dinamis terlebih dahulu
       fetchSupabaseStats();
+      fetchSupabaseDivisi();   // Sebaran anggota per divisi (Gunung Hutan / Rock Climbing / ORAD)
       fetchSupabaseKegiatan();
       fetchSupabasePosts();
+      fetchDivisiPublik();
       initScrollReveal();
       loadWidgetCuacaGunung();
       fetchWidgetOperasional();
       subscribeWidgetOperasionalRealtime();
     };
+
+    // ============ Animasi angka (dipakai statistik keanggotaan) ============
+    function animateNumber(el, target) {
+      if (!el) return;
+      const n = parseInt(target, 10) || 0;
+      if (!window.NusapalaUI || window.NusapalaUI.reducedMotion) { el.innerText = n; return; }
+      const dur = 900; let start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        const p = Math.min(1, (ts - start) / dur);
+        el.innerText = Math.round(n * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step); else el.innerText = n;
+      }
+      requestAnimationFrame(step);
+    }
+
+    // =======================================================================
+    // CHIP DIVISI DI HERO — mengikuti master data Portal Admin (nama apa adanya).
+    // Kartu divisi pada #section-divisi dirender oleh fetchDivisiPublik(); fungsi
+    // ini hanya mengurus hiasan chip di hero, bukan logika data keanggotaan.
+    // =======================================================================
+    async function fetchSupabaseDivisi() {
+      const chips = document.getElementById('heroDivisiChips');
+      if (!chips) return;
+
+      let daftar = DIVISI_STANDAR.map(d => d.nama);
+      try {
+        const { data } = await db.from('settings').select('value').eq('key', 'kategori_divisi').maybeSingle();
+        if (data && data.value) {
+          const parsed = JSON.parse(data.value);
+          if (Array.isArray(parsed) && parsed.length) daftar = parsed.map(d => String(d).trim()).filter(Boolean);
+        }
+      } catch (e) { /* pakai tiga divisi standar */ }
+
+      chips.innerHTML = daftar.slice(0, 5).map(d => {
+        const meta = metaDivisiPublik(d);
+        return `<a href="#section-divisi" class="np-chip text-decoration-none"><i class="fa-solid ${meta.icon}"></i> ${escapeHTML(meta.nama)}</a>`;
+      }).join('');
+    }
 
     // ============ Widget Cuaca Gunung (live, Open-Meteo) ============
     const WIDGET_GUNUNG_ID = 'gede'; // gunung yang ditonjolkan di beranda
@@ -698,7 +870,7 @@
     // seluruh isi widget mengikuti apa yang diinput/diubah Admin secara real-time.
     // =======================================================================
     const OPS_STATUS_KEAMANAN_COLOR = {
-      'Aman': '#2f7d4f', 'Perlu Perhatian': '#c9a227', 'Kendala Lapangan': '#d97706', 'Darurat': '#b3462c'
+      'Aman': '#276241', 'Perlu Perhatian': '#96721c', 'Kendala Lapangan': '#a45a12', 'Darurat': '#a4482e'
     };
 
     async function fetchWidgetOperasional() {
@@ -736,7 +908,7 @@
         if (aktif.status_kegiatan === 'Darurat') box.classList.add('status-darurat');
         else if (aktif.status_kegiatan === 'Berlangsung') box.classList.add('status-berlangsung');
 
-        const warnaKeamanan = OPS_STATUS_KEAMANAN_COLOR[aktif.status_keamanan] || '#746c58';
+        const warnaKeamanan = OPS_STATUS_KEAMANAN_COLOR[aktif.status_keamanan] || '#5d6874';
         const jumlahAnggota = Array.isArray(aktif.anggota_tim) ? aktif.anggota_tim.length : (aktif.jumlah_anggota || 0);
 
         box.innerHTML = `
@@ -836,8 +1008,8 @@
         if (error) throw error;
         let totalAdmin = 0;
         data.forEach(m => { if(m.role === 'Admin' || m.role === 'Super Admin') totalAdmin++; });
-        document.getElementById('pub_anggota_total').innerText = data.length;
-        document.getElementById('pub_anggota_admin').innerText = totalAdmin;
+        animateNumber(document.getElementById('pub_anggota_total'), data.length);
+        animateNumber(document.getElementById('pub_anggota_admin'), totalAdmin);
       } catch (err) {}
     }
 
@@ -867,6 +1039,15 @@
             </div>`;
         });
         container.innerHTML = html;
+
+        // Ticker agenda berjalan di bagian atas beranda
+        if (window.NusapalaUI) {
+          window.NusapalaUI.buildTicker(document.getElementById('agendaTicker'), data.slice(0, 8).map(item => ({
+            icon: 'calendar-day',
+            title: item.judul,
+            meta: (item.tanggal_kegiatan || '-') + ' · ' + (item.divisi || 'Umum')
+          })));
+        }
       } catch (err) { container.innerHTML = '<div class="text-danger text-center py-3 small">Gagal memuat jadwal.</div>'; }
     }
 
@@ -1046,6 +1227,91 @@
         this.reset(); bootstrap.Modal.getInstance(document.getElementById('publicPengaduanModal')).hide();
       } catch (err) { Swal.fire('Gagal', err.message, 'error'); } finally { btn.disabled = false; btn.innerText = 'Kirim Laporan'; }
     });
+
+    // =======================================================================
+    // 4b. SEKSI DIVISI NUSAPALA (Gunung Hutan / Rock Climbing / Olahraga Arus Deras)
+    //     Sumber data: tabel settings (kategori_divisi) + jumlah anggota per divisi
+    //     dari tabel members. Bila master data belum ada, tampil 3 divisi standar.
+    // =======================================================================
+    const DIVISI_STANDAR = [
+      { nama: 'Gunung Hutan',        icon: 'fa-mountain',     warna: '#1f6b41', ket: 'Pendakian, navigasi darat, survival, dan konservasi gunung.' },
+      { nama: 'Rock Climbing',       icon: 'fa-mountain-sun', warna: '#8a5a00', ket: 'Panjat tebing, bouldering, dan pengamanan jalur.' },
+      { nama: 'Olahraga Arus Deras', icon: 'fa-water',        warna: '#0b5566', ket: 'Arung jeram, susur sungai, dan penyelamatan air.' }
+    ];
+    const DIVISI_ALIAS_PUBLIK = {
+      'rafting': 'olahraga arus deras', 'orad': 'olahraga arus deras', 'rafting/orad': 'olahraga arus deras',
+      'arus deras': 'olahraga arus deras', 'olahraga arus deras (orad)': 'olahraga arus deras',
+      'rockclimbing': 'rock climbing', 'panjat tebing': 'rock climbing'
+    };
+    let hitungSementara = {};
+
+    // Jumlah anggota sebuah divisi: nama persis + penulisan lama yang setara
+    // (hanya bila penulisan lama itu sendiri tidak terdaftar sebagai divisi).
+    function jumlahDivisiPublik(nama, daftarMaster) {
+      const target = String(nama || '').toLowerCase();
+      const terdaftar = (daftarMaster || []).map(d => String(d).toLowerCase());
+      return Object.keys(hitungSementara).reduce((total, kunci) => {
+        if (kunci === target) return total + hitungSementara[kunci];
+        const alias = DIVISI_ALIAS_PUBLIK[kunci];
+        if (alias === target && !terdaftar.includes(kunci)) return total + hitungSementara[kunci];
+        return total;
+      }, 0);
+    }
+    function metaDivisiPublik(nama) {
+      const n = String(nama || '').toLowerCase().trim();
+      const std = DIVISI_STANDAR.find(d => d.nama.toLowerCase() === n);
+      if (std) return std;
+      return { nama: nama || 'Divisi', icon: 'fa-layer-group', warna: '#2c5f8a', ket: 'Divisi tambahan yang dikelola pengurus melalui Portal Admin.' };
+    }
+    async function fetchDivisiPublik() {
+      const box = document.getElementById('publicDivisiContainer');
+      if (!box) return;
+
+      let daftar = DIVISI_STANDAR.map(d => d.nama);
+      const hitung = {};
+      try {
+        const [setRes, memRes] = await Promise.all([
+          db.from('settings').select('value').eq('key', 'kategori_divisi').maybeSingle(),
+          db.from('members').select('*')
+        ]);
+        if (setRes && setRes.data && setRes.data.value) {
+          const parsed = JSON.parse(setRes.data.value || '[]');
+          if (Array.isArray(parsed) && parsed.length) daftar = parsed.map(d => String(d).trim()).filter(Boolean);
+        }
+        if (memRes && Array.isArray(memRes.data)) {
+          // Hitung apa adanya berdasarkan nama yang tertulis pada data anggota.
+          // Penulisan lama baru dialihkan saat ditampilkan (lihat jumlahDivisi),
+          // supaya divisi tambahan pengurus tidak "dicuri" jumlahnya.
+          memRes.data.forEach(m => {
+            const d = String(m['Divisi'] || '').replace(/\s+/g, ' ').trim();
+            if (!d) return;
+            const kunci = d.toLowerCase();
+            hitung[kunci] = (hitung[kunci] || 0) + 1;
+          });
+        }
+      } catch (e) { /* fallback: tampilkan tiga divisi standar */ }
+
+      hitungSementara = hitung;
+      const totalAnggota = Object.values(hitung).reduce((a, b) => a + b, 0);
+      box.innerHTML = daftar.map((nama, i) => {
+        const meta = metaDivisiPublik(nama);
+        const jumlah = jumlahDivisiPublik(nama, daftar);
+        const persen = totalAnggota ? Math.round(jumlah / totalAnggota * 100) : 0;
+        return `<div class="col-12 col-md-4" style="animation: nusaFadeUp .5s ease both; animation-delay: ${i * 90}ms;">
+            <div class="divisi-card">
+              <div class="topo-layer"></div>
+              <div class="position-relative">
+                <div class="divisi-icon" style="background: linear-gradient(150deg, ${meta.warna}, ${meta.warna}cc);">
+                  <i class="fa-solid ${meta.icon}"></i>
+                </div>
+                <div class="divisi-nama mb-1">${escapeHTML(meta.nama)}</div>
+                <p class="divisi-ket">${escapeHTML(meta.ket)}</p>
+                <div class="divisi-stat">${jumlah} anggota · ${persen}%</div>
+              </div>
+            </div>
+          </div>`;
+      }).join('') || '<div class="col-12 text-center text-muted-soft py-4">Data divisi belum tersedia.</div>';
+    }
 
     // =======================================================================
     // 5. SCROLL REVEAL (murni animasi visual, tidak menyentuh logika data)

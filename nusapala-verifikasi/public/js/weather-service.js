@@ -49,12 +49,12 @@
 
   // WMO Weather interpretation codes
   const WMO_CODE_MAP = {
-    0: { label: "Cerah", icon: "fa-sun", warna: "#e3a53d" },
-    1: { label: "Cerah Sebagian", icon: "fa-cloud-sun", warna: "#e3a53d" },
-    2: { label: "Berawan Sebagian", icon: "fa-cloud-sun", warna: "#8b9a8f" },
+    0: { label: "Cerah", icon: "fa-sun", warna: "#a36f17" },
+    1: { label: "Cerah Sebagian", icon: "fa-cloud-sun", warna: "#a36f17" },
+    2: { label: "Berawan Sebagian", icon: "fa-cloud-sun", warna: "#6c7c70" },
     3: { label: "Berawan Tebal", icon: "fa-cloud", warna: "#6b7a70" },
-    45: { label: "Berkabut", icon: "fa-smog", warna: "#9aa39c" },
-    48: { label: "Kabut Es", icon: "fa-smog", warna: "#9aa39c" },
+    45: { label: "Berkabut", icon: "fa-smog", warna: "#707b73" },
+    48: { label: "Kabut Es", icon: "fa-smog", warna: "#707b73" },
     51: { label: "Gerimis Ringan", icon: "fa-cloud-rain", warna: "#4f7ea8" },
     53: { label: "Gerimis Sedang", icon: "fa-cloud-rain", warna: "#4f7ea8" },
     55: { label: "Gerimis Lebat", icon: "fa-cloud-rain", warna: "#3f6f9a" },
@@ -65,15 +65,15 @@
     65: { label: "Hujan Lebat", icon: "fa-cloud-showers-heavy", warna: "#284d73" },
     66: { label: "Hujan Beku Ringan", icon: "fa-cloud-showers-heavy", warna: "#345f88" },
     67: { label: "Hujan Beku Lebat", icon: "fa-cloud-showers-heavy", warna: "#284d73" },
-    71: { label: "Salju Ringan", icon: "fa-snowflake", warna: "#7fa8c9" },
-    73: { label: "Salju Sedang", icon: "fa-snowflake", warna: "#6f98ba" },
-    75: { label: "Salju Lebat", icon: "fa-snowflake", warna: "#5f88aa" },
-    77: { label: "Butiran Salju", icon: "fa-snowflake", warna: "#7fa8c9" },
+    71: { label: "Salju Ringan", icon: "fa-snowflake", warna: "#487eaa" },
+    73: { label: "Salju Sedang", icon: "fa-snowflake", warna: "#4e7ca3" },
+    75: { label: "Salju Lebat", icon: "fa-snowflake", warna: "#557ea0" },
+    77: { label: "Butiran Salju", icon: "fa-snowflake", warna: "#487eaa" },
     80: { label: "Hujan Lokal Ringan", icon: "fa-cloud-showers-heavy", warna: "#3f6f9a" },
     81: { label: "Hujan Lokal Sedang", icon: "fa-cloud-showers-heavy", warna: "#345f88" },
     82: { label: "Hujan Sangat Lebat", icon: "fa-cloud-showers-heavy", warna: "#1f3d5c" },
-    85: { label: "Salju Lokal Ringan", icon: "fa-snowflake", warna: "#7fa8c9" },
-    86: { label: "Salju Lokal Lebat", icon: "fa-snowflake", warna: "#5f88aa" },
+    85: { label: "Salju Lokal Ringan", icon: "fa-snowflake", warna: "#487eaa" },
+    86: { label: "Salju Lokal Lebat", icon: "fa-snowflake", warna: "#557ea0" },
     95: { label: "Badai Petir", icon: "fa-bolt", warna: "#5c4a8a" },
     96: { label: "Badai Petir Hujan Es", icon: "fa-cloud-bolt", warna: "#4c3a7a" },
     99: { label: "Badai Petir Lebat", icon: "fa-cloud-bolt", warna: "#3c2a6a" },
@@ -81,7 +81,7 @@
 
   function wmoInfo(code) {
     if (code === null || code === undefined || !WMO_CODE_MAP[code]) {
-      return { label: "Tidak Tersedia", icon: "fa-question", warna: "#9aa39c" };
+      return { label: "Tidak Tersedia", icon: "fa-question", warna: "#707b73" };
     }
     return WMO_CODE_MAP[code];
   }

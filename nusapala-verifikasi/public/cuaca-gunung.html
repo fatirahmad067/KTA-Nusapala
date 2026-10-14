@@ -5,33 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cuaca Gunung Live - NUSAPALA</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <link rel="icon" type="image/png" href="/Logo Nusapala.png">
 <style>
   :root {
-    --forest-950: #0a1810; --forest-900: #0f2e1a; --forest-800: #163b23; --forest-700: #1d4a2d;
-    --primary-color: #0f2e1a; --gold-600: #a9821c; --gold-500: #c9a227; --gold-300: #e3c360;
-    --cream-50: #faf8f2; --cream-100: #f4efe3; --paper: #fbf9f4; --light-bg: #f6f3ea;
-    --card-bg: #ffffff; --border-color: #e7e0cf; --line-soft: rgba(15, 46, 26, 0.10);
-    --ink-900: #1b1f1a; --text-main: #3c4238; --text-muted: #746c58;
+    --forest-950: #0b1622; --forest-900: #12212f; --forest-800: #1f3648; --forest-700: #2a475e;
+    --primary-color: #12212f; --gold-600: #86692f; --gold-500: #b3945a; --gold-300: #dcc79b;
+    --cream-50: #f8f3e7; --cream-100: #f2ebda; --paper: #fffdf7; --light-bg: #f8f3e7;
+    --card-bg: #ffffff; --border-color: #e0d5bd; --line-soft: rgba(18, 33, 47, 0.10);
+    --ink-900: #16202c; --text-main: #33404f; --text-muted: #5d6874;
     --radius-lg: 20px; --radius-md: 14px; --shadow-soft: 0 10px 30px -12px rgba(15, 30, 20, 0.14);
   }
   * { box-sizing: border-box; }
   body {
     font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: var(--text-main);
     background-image: radial-gradient(circle at 100% 0%, rgba(201,162,39,0.07), transparent 40%),
-                      radial-gradient(circle at 0% 30%, rgba(15,46,26,0.05), transparent 45%);
+                      radial-gradient(circle at 0% 30%, rgba(18,33,47,0.05), transparent 45%);
     background-attachment: fixed; overflow-x: hidden;
   }
   .font-display { font-family: 'Fraunces', serif; }
   .font-mono { font-family: 'IBM Plex Mono', monospace; }
   .text-muted-soft { color: var(--text-muted) !important; }
   
-  .landing-navbar { background: rgba(250, 248, 242, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); }
-  .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(155deg, var(--forest-900), var(--forest-700)); display:flex; align-items:center; justify-content:center; color: var(--gold-300); box-shadow: 0 6px 16px -6px rgba(15,46,26,0.5); position: relative; }
-  .brand-mark::after { content:''; position:absolute; inset:2px; border:1px solid rgba(227,195,96,0.35); border-radius: 9px; }
+  .landing-navbar { background: rgba(248, 243, 231, 0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); }
+  .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(155deg, var(--forest-900), var(--forest-700)); display:flex; align-items:center; justify-content:center; color: var(--gold-300); box-shadow: 0 6px 16px -6px rgba(18,33,47,0.5); position: relative; }
+  .brand-mark::after { content:''; position:absolute; inset:2px; border:1px solid rgba(220,199,155,0.35); border-radius: 9px; }
   .brand-org-name { font-family:'Fraunces', serif; font-weight:700; font-size:1.05rem; color: var(--ink-900); line-height:1.1; }
   .brand-org-sub { font-size:0.6rem; letter-spacing:0.08em; color: var(--text-muted); text-transform: uppercase; }
   
@@ -61,7 +61,7 @@
   .filter-panel label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text-muted); }
   
   .gunung-card { background: var(--card-bg); border: 1px solid var(--line-soft); border-radius: var(--radius-lg); box-shadow: 0 6px 20px -14px rgba(15,30,20,0.18); position: relative; overflow: hidden; cursor: pointer; transition: all 0.22s cubic-bezier(.4,0,.2,1); height: 100%; }
-  .gunung-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px -16px rgba(15,46,26,0.3); border-color: var(--gold-500); }
+  .gunung-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px -16px rgba(18,33,47,0.3); border-color: var(--gold-500); }
   .gunung-card .card-body { padding: 1.15rem 1.25rem; }
   .gunung-card .nama-gunung { font-family:'Fraunces', serif; font-weight: 700; color: var(--ink-900); font-size: 1.05rem; line-height: 1.25; }
   .gunung-card .lokasi-gunung { font-size: 0.76rem; color: var(--text-muted); }
@@ -69,9 +69,9 @@
   .gunung-card .kondisi-label { font-size: 0.78rem; font-weight: 600; color: var(--text-main); }
   .gunung-card .meta-row { font-size: 0.72rem; color: var(--text-muted); }
   .gunung-card .status-badge { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 999px; padding: 2px 9px; border: 1px solid var(--border-color); color: var(--text-muted); }
-  .gunung-card .badge-aktif { color: #a9451f; border-color: rgba(169,69,31,0.3); background: rgba(169,69,31,0.06); }
+  .gunung-card .badge-aktif { color: #a94a37; border-color: rgba(169,69,31,0.3); background: rgba(169,69,31,0.06); }
   .gunung-card .weather-icon-wrap { width: 52px; height: 52px; border-radius: 14px; background: var(--cream-100); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .gunung-card .err-state { font-size: 0.78rem; color: #a9451f; }
+  .gunung-card .err-state { font-size: 0.78rem; color: #a94a37; }
   .gunung-card .skeleton { background: linear-gradient(90deg, var(--cream-100) 25%, #efe9d8 37%, var(--cream-100) 63%); background-size: 400% 100%; animation: skeleton-loading 1.4s ease infinite; border-radius: 8px; }
   
   @keyframes skeleton-loading { 0% { background-position: 100% 50%; } 100% { background-position: 0 50%; } }
@@ -89,8 +89,11 @@
   .forecast-card:hover { transform: translateY(-2px); border-color: var(--gold-500) !important; box-shadow: var(--shadow-soft); }
 
   /* ============ Footer ============ */
+  .form-control::placeholder { color: #7d745f; opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; } }
+
   .site-footer { background: var(--forest-950); color: rgba(255,255,255,0.72); position: relative; overflow: hidden; }
-  .site-footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(227,195,96,0.5), transparent); }
+  .site-footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(220,199,155,0.5), transparent); }
   .site-footer .topo-layer { position: absolute; inset: 0; pointer-events: none; opacity: 0.06; filter: invert(1); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%230f2e1a' stroke-opacity='0.06' stroke-width='1'%3E%3Cpath d='M-20 60 Q 100 10 220 60 T 460 60'/%3E%3Cpath d='M-20 110 Q 100 60 220 110 T 460 110'/%3E%3Cpath d='M-20 160 Q 100 110 220 160 T 460 160'/%3E%3Cpath d='M-20 210 Q 100 160 220 210 T 460 210'/%3E%3Cpath d='M-20 260 Q 100 210 220 260 T 460 260'/%3E%3C/g%3E%3C/svg%3E"); background-size: 480px 480px; background-repeat: repeat; }
   .footer-heading { font-family:'Fraunces', serif; color: #fff; font-weight:600; font-size: 1rem; margin-bottom: 1rem; }
   .footer-link { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; transition: color 0.2s ease; display: block; margin-bottom: 0.55rem; }
@@ -106,6 +109,34 @@
   .forecast-container::-webkit-scrollbar-thumb { background: #d3cbb6; border-radius: 4px; }
   .forecast-container::-webkit-scrollbar-thumb:hover { background: var(--gold-500); }
 </style>
+  <!-- ===== NUSAPALA DESIGN SYSTEM (dimuat terakhir agar menang atas gaya lama) ===== -->
+  <meta name="theme-color" content="#f8f3e7">
+  <script>
+    /* Pasang tema sebelum halaman digambar supaya tidak ada kedipan warna */
+    (function () {
+      try {
+        var t = localStorage.getItem('np-theme');
+        if (!t) t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+        if (t === 'dark') {
+          document.documentElement.setAttribute('data-np-theme', 'dark');
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.setAttribute('content', '#0c1420');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/nusapala.css">
+  <script src="/assets/js/nusapala-ui.js" defer></script>
+  <script>
+    /* Jaring pengaman: bila kit UI gagal dimuat, konten tidak boleh tetap tersembunyi */
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        if (window.NusapalaUI) return;
+        document.querySelectorAll('.reveal,.np-reveal,.np-reveal-left,.np-reveal-scale,.np-stagger')
+          .forEach(function (el) { el.classList.add('is-visible'); });
+      }, 1200);
+    });
+  </script>
 </head>
 <body>
 
@@ -120,7 +151,10 @@
         <small class="brand-org-sub">Mapala Institut Bisnis Nusantara</small>
       </div>
     </a>
-    <a href="/" class="btn-back d-flex align-items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
+    <div class="d-flex align-items-center gap-2">
+      <button class="np-theme-toggle" type="button" data-np-theme-toggle aria-pressed="false" title="Ganti tema"><i class="fa-solid fa-moon np-icon-moon"></i><i class="fa-solid fa-sun np-icon-sun"></i></button>
+      <a href="/" class="btn-back d-flex align-items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
+    </div>
   </div>
 </nav>
 
@@ -138,7 +172,7 @@
             <div>
                 <h6 class="fw-bold text-dark mb-1 font-display">Pusat Data Meteorologi</h6>
                 <div class="text-muted-soft small mb-1">Data diperoleh secara otomatis dari layanan cuaca.</div>
-                <div class="small fw-semibold" id="syncStatusText" style="color: #2f7d4f;">
+                <div class="small fw-semibold" id="syncStatusText" style="color: var(--moss-700);">
                     <i class="fa-solid fa-circle-check me-1"></i>Sinkronisasi berjalan normal.
                 </div>
             </div>
@@ -177,9 +211,9 @@
   <div id="gunungGrid" class="row g-3"></div>
 
   <div id="emptyState" class="empty-state d-none">
-    <i class="fa-solid fa-magnifying-glass-location fa-2x mb-3" style="color: var(--gold-300);"></i>
+    <i class="fa-solid fa-magnifying-glass-location fa-2x mb-3" style="color: var(--gold-600);"></i>
     <div class="fw-semibold text-dark">Tidak ada gunung yang cocok</div>
-    <small>Coba ubah kata kunci pencarian atau filter.</small>
+    <small style="color:var(--text-muted);">Coba ubah kata kunci pencarian atau filter.</small>
   </div>
 </div>
 
@@ -204,6 +238,7 @@
 <!-- Footer Standard -->
 <footer class="site-footer pt-5 pb-4 mt-5">
   <div class="topo-layer"></div>
+  <div class="np-stars" aria-hidden="true"></div>
   <div class="container position-relative">
     <div class="row g-4 mb-4">
       <div class="col-12 col-lg-4">
@@ -248,7 +283,7 @@
     <div class="footer-bottom pt-3 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
       <p class="text-white-50 mb-0 small">© 2026 NUSAPALA IBN. Seluruh hak cipta dilindungi.</p>
       <div class="d-flex align-items-center gap-2">
-        <span class="footer-badge font-mono">v2.0 - Light Premium</span>
+        <span class="footer-badge font-mono">v4.0 — Parchment &amp; Teyvat</span>
         <span class="text-white-50 small">| Dirancang oleh Tim Developer Nusapala</span>
       </div>
     </div>
@@ -384,13 +419,13 @@
   function setUpdateInfo(mode, message) {
     if (mode === "loading") {
       syncStatusText.innerHTML = '<span class="spinner-border spinner-border-sm text-warning me-1"></span>Memuat data cuaca...';
-      syncStatusText.style.color = '#c9a227';
+      syncStatusText.style.color = '#b3945a';
     } else if (mode === "error") {
       syncStatusText.innerHTML = `<i class="fa-solid fa-triangle-exclamation me-1"></i>${message}`;
-      syncStatusText.style.color = '#b3462c';
+      syncStatusText.style.color = '#a94a37';
     } else {
       syncStatusText.innerHTML = '<i class="fa-solid fa-circle-check me-1"></i>Sinkronisasi berjalan normal.';
-      syncStatusText.style.color = '#2f7d4f';
+      syncStatusText.style.color = '#457f51';
       syncTimeText.innerHTML = `Terakhir diperbarui: ${formatFullDateIndo(new Date())}`;
     }
   }
@@ -463,7 +498,7 @@
     if (!cuaca || !cuaca.tersedia) {
       body.innerHTML = `
         <div class="text-center py-5">
-          <i class="fa-solid fa-cloud-exclamation fa-3x mb-3" style="color:#c98a1c;"></i>
+          <i class="fa-solid fa-cloud-exclamation fa-3x mb-3" style="color:var(--gold-700);"></i>
           <h5 class="fw-bold text-dark">Data cuaca sementara tidak tersedia</h5>
           <div class="text-muted">${(cuaca && cuaca.error) || 'Layanan API tidak merespons untuk koordinat ini.'}</div>
         </div>`;
@@ -510,15 +545,15 @@
 
     body.innerHTML = `
       <!-- Header Current Weather -->
-      <div class="p-4" style="background: linear-gradient(180deg, var(--cream-100) 0%, #fff 100%);">
+      <div class="p-4" style="background: linear-gradient(180deg, var(--cream-100) 0%, var(--surface) 100%);">
         <div class="d-flex align-items-center justify-content-between mb-4">
           <div class="d-flex align-items-center gap-3">
-            <div class="weather-icon-wrap" style="color:${cuaca.warnaIkon}; width: 70px; height: 70px; font-size: 2rem; background: #fff; box-shadow: var(--shadow-soft);">
+            <div class="weather-icon-wrap" style="color:${cuaca.warnaIkon}; width: 70px; height: 70px; font-size: 2rem; background: var(--surface); box-shadow: var(--shadow-soft);">
               <i class="fa-solid ${cuaca.ikon}"></i>
             </div>
             <div>
               <div class="suhu-besar" style="font-size: 2.8rem;">${cuaca.suhu !== null ? Math.round(cuaca.suhu) + '°C' : '-'}</div>
-              <div class="fw-semibold" style="color: var(--forest-900);">${cuaca.kondisi} • Terasa ${cuaca.suhuTerasa !== null ? Math.round(cuaca.suhuTerasa) + '°C' : '-'}</div>
+              <div class="fw-semibold" style="color: var(--pine-ink);">${cuaca.kondisi} • Terasa ${cuaca.suhuTerasa !== null ? Math.round(cuaca.suhuTerasa) + '°C' : '-'}</div>
             </div>
           </div>
         </div>
@@ -537,7 +572,7 @@
       </div>
       
       <!-- Footer Info -->
-      <div class="p-3 border-top d-flex justify-content-between align-items-center flex-wrap gap-2" style="background: var(--paper);">
+      <div class="p-3 border-top d-flex justify-content-between align-items-center flex-wrap gap-2" style="background: var(--surface);">
         <small class="text-muted-soft">
           <i class="fa-solid fa-mountain me-1"></i> Jalur: ${g.jalur || 'Belum tercatat'} | Status: ${g.status}
         </small>
