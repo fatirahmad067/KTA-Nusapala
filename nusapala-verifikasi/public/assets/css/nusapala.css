@@ -2218,3 +2218,253 @@ html.np-theme-anim .form-control, html.np-theme-anim .form-select {
   .divisi-card { outline-offset: -6px; padding: 1.4rem 1.2rem 1.25rem !important; }
   .divisi-card .divisi-icon { width: 46px; height: 46px; margin-bottom: 1.3rem; }
 }
+
+/* ==========================================================================
+   30. PENYELARASAN DUA TEMA — perbaikan kontras menyeluruh
+   Sumber masalah yang diperbaiki di sini:
+   (a) token yang tidak punya padanan gelap (--paper-0) sehingga sebagian
+       permukaan tetap putih saat tema gelap;
+   (b) peubah Bootstrap (--bs-*) yang tidak mengikuti token Nusapala;
+   (c) utilitas warna Bootstrap (bg-*, text-*) yang tidak menetapkan pasangan
+       teks/latar sehingga mewarisi warna yang tidak kontras;
+   (d) komponen dari <style> tiap halaman yang warnanya ditulis literal
+       (#fff, #a94a37, #fdf1d3, ...) sehingga tidak ikut berganti tema;
+   (e) teks berwarna redup di dalam wadah yang selalu gelap (sidebar, kepala
+       modal, footer, pita berjalan, lencana langkah, banner CTA).
+   ========================================================================== */
+
+/* ---- 30a. Token & peubah Bootstrap yang ikut tema ---------------------- */
+[data-np-theme="dark"] {
+  --paper-0: #16222f;          /* dulu tetap #fffdf7 → permukaan jadi putih */
+  --forest-850: #1d3244;
+  --bs-body-bg: var(--paper-50);
+  --bs-body-color: var(--text-main);
+  --bs-secondary-color: var(--text-muted);
+  --bs-tertiary-bg: var(--paper-100);
+  --bs-border-color: var(--border-color);
+  --bs-emphasis-color: var(--ink-900);
+}
+:root {
+  --bs-body-bg: var(--paper-50);
+  --bs-body-color: var(--text-main);
+  --bs-secondary-color: var(--text-muted);
+  --bs-tertiary-bg: var(--paper-100);
+  --bs-border-color: var(--border-color);
+  --bs-emphasis-color: var(--ink-900);
+}
+
+/* ---- 30b. Utilitas warna: latar selalu membawa teks yang kontras ------- */
+.bg-primary   { background-color: var(--forest-900) !important; color: #fff !important; }
+.bg-secondary { background-color: #5d6874 !important; color: #fff !important; }
+.bg-success   { background-color: var(--moss-700) !important; color: #fff !important; }
+.bg-danger    { background-color: var(--clay-700) !important; color: #fff !important; }
+.bg-info      { background-color: var(--river-600) !important; color: #fff !important; }
+.bg-warning   { background-color: var(--gold-500) !important; color: var(--on-brass) !important; }
+.bg-dark      { background-color: var(--forest-950) !important; color: var(--on-dark) !important; }
+.bg-light     { background-color: var(--paper-100) !important; }
+.bg-white     { background-color: var(--surface) !important; }
+.bg-light-subtle,
+.bg-body-tertiary { background-color: var(--paper-100) !important; }
+.bg-body,
+.bg-body-secondary { background-color: var(--paper-50) !important; }
+
+.text-primary   { color: var(--forest-700) !important; }
+.text-secondary { color: var(--text-muted) !important; }
+.text-success   { color: var(--moss-700) !important; }
+.text-info      { color: var(--river-700) !important; }
+.text-warning   { color: var(--gold-700) !important; }
+.text-danger    { color: var(--clay-700) !important; }
+.text-dark      { color: var(--ink-900) !important; }
+.text-body      { color: var(--text-main) !important; }
+.text-black     { color: var(--ink-900) !important; }
+
+.badge.bg-secondary { background-color: #5d6874 !important; color: #fff !important; }
+.badge.bg-success   { background-color: var(--moss-700) !important; color: #fff !important; }
+.badge.bg-danger    { background-color: var(--clay-700) !important; color: #fff !important; }
+.badge.bg-info      { background-color: var(--river-600) !important; color: #fff !important; }
+.badge.bg-warning   { background-color: var(--gold-500) !important; color: var(--on-brass) !important; }
+.badge.bg-white     { background-color: var(--surface) !important;
+                      border-color: var(--border-color) !important; }
+
+.alert-light, .alert-secondary {
+  background-color: var(--paper-100) !important; color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* ---- 30c. Permukaan & teks literal dari <style> halaman ---------------- */
+[data-np-theme="dark"] .divisi-list-item {
+  background: var(--surface) !important; border-color: var(--border-color) !important;
+  color: var(--text-main);
+}
+[data-np-theme="dark"] .divisi-list-item:hover,
+[data-np-theme="dark"] .divisi-list-item.divisi-baru { background: var(--paper-100) !important; }
+
+[data-np-theme="dark"] .searchable-dd-input,
+[data-np-theme="dark"] .searchable-dd-panel {
+  background: var(--surface) !important; border-color: var(--border-color) !important;
+  color: var(--text-main);
+}
+[data-np-theme="dark"] .searchable-dd-item { color: var(--text-main); }
+[data-np-theme="dark"] .searchable-dd-item:hover,
+[data-np-theme="dark"] .searchable-dd-item.active-hover { background: var(--paper-200) !important; }
+[data-np-theme="dark"] .searchable-dd-item.selected { color: var(--gold-200) !important; }
+[data-np-theme="dark"] .searchable-dd-empty,
+[data-np-theme="dark"] .searchable-dd-caret { color: var(--text-muted) !important; }
+
+[data-np-theme="dark"] .login-card {
+  background: rgba(19, 30, 44, 0.97) !important;
+  border-color: rgba(220, 199, 155, 0.24) !important;
+}
+[data-np-theme="dark"] .service-grid-btn { background: var(--surface); border-color: var(--border-color); }
+[data-np-theme="dark"] .service-grid-btn:hover { background: var(--paper-200) !important; }
+
+[data-np-theme="dark"] .notif-bell-btn,
+[data-np-theme="dark"] .notif-filter-tabs,
+[data-np-theme="dark"] .notif-panel { background: var(--surface) !important; }
+[data-np-theme="dark"] .notif-badge { background: var(--clay-700) !important; color: #fff !important; }
+[data-np-theme="dark"] .notif-item-time { color: #93a0ad !important; }
+[data-np-theme="dark"] .notif-item-msg,
+[data-np-theme="dark"] .notif-empty-state { color: var(--text-muted) !important; }
+[data-np-theme="dark"] .notif-delete-btn { color: var(--text-muted) !important; }
+[data-np-theme="dark"] .notif-delete-btn:hover { color: #e6a693 !important; }
+[data-np-theme="dark"] .notif-item.unread { background: rgba(220, 199, 155, 0.10) !important; }
+
+[data-np-theme="dark"] .ceklist-checkbox {
+  background-color: var(--field) !important; border-color: #4d6285 !important;
+}
+[data-np-theme="dark"] .ceklist-checkbox:checked {
+  background-color: var(--moss-700) !important; border-color: var(--moss-700) !important;
+}
+
+[data-np-theme="dark"] .bg-warning-subtle   { background-color: rgba(220, 199, 155, 0.16) !important; color: var(--gold-200) !important; }
+[data-np-theme="dark"] .bg-info-subtle      { background-color: rgba(120, 175, 205, 0.16) !important; color: #a9d4ea !important; }
+[data-np-theme="dark"] .bg-success-subtle   { background-color: rgba(102, 168, 120, 0.16) !important; color: #a3d3b1 !important; }
+[data-np-theme="dark"] .bg-danger-subtle    { background-color: rgba(190, 110, 90, 0.16) !important; color: #e6a693 !important; }
+[data-np-theme="dark"] .bg-secondary-subtle { background-color: rgba(170, 180, 191, 0.16) !important; color: #c6ced8 !important; }
+[data-np-theme="dark"] .badge.bg-warning-subtle,
+[data-np-theme="dark"] .badge.bg-info-subtle,
+[data-np-theme="dark"] .badge.bg-success-subtle,
+[data-np-theme="dark"] .badge.bg-danger-subtle,
+[data-np-theme="dark"] .badge.bg-secondary-subtle { border-color: rgba(220, 199, 155, 0.22) !important; }
+
+[data-np-theme="dark"] .table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: rgba(255, 253, 247, 0.045) !important; color: var(--text-main) !important;
+}
+[data-np-theme="dark"] .table-responsive { background-color: var(--surface) !important; }
+[data-np-theme="dark"] .progress { background-color: var(--paper-200) !important; }
+
+[data-np-theme="dark"] .ops-widget-grid .ops-value { color: var(--text-main) !important; }
+[data-np-theme="dark"] #widgetOperasional.status-berlangsung {
+  background: rgba(102, 168, 120, 0.14) !important; border-color: rgba(163, 211, 177, 0.40) !important;
+  color: #a3d3b1 !important;
+}
+[data-np-theme="dark"] #widgetOperasional.status-darurat {
+  background: rgba(190, 110, 90, 0.14) !important; border-color: rgba(230, 166, 147, 0.42) !important;
+  color: #e6a693 !important;
+}
+
+[data-np-theme="dark"] .status-pill {
+  background: rgba(220, 199, 155, 0.14) !important; color: var(--gold-200) !important;
+  border-color: rgba(220, 199, 155, 0.30) !important;
+}
+[data-np-theme="dark"] .header-logout-btn {
+  background: rgba(185, 96, 63, 0.14) !important; color: #e6a693 !important;
+  border-color: rgba(230, 166, 147, 0.32) !important;
+}
+[data-np-theme="dark"] .header-logout-btn:hover {
+  background: var(--clay-700) !important; border-color: var(--clay-700) !important; color: #fff !important;
+}
+[data-np-theme="dark"] .btn-outline-danger {
+  color: #e6a693 !important; border-color: rgba(230, 166, 147, 0.45) !important;
+}
+[data-np-theme="dark"] .btn-outline-danger:hover {
+  background-color: var(--clay-700) !important; border-color: var(--clay-700) !important; color: #fff !important;
+}
+[data-np-theme="dark"] .form-label.text-danger { color: #e6a693 !important; }
+
+[data-np-theme="dark"] .gunung-card .badge-aktif {
+  color: #e6a693 !important; background: rgba(190, 110, 90, 0.14) !important;
+  border-color: rgba(230, 166, 147, 0.34) !important;
+}
+[data-np-theme="dark"] .gunung-card .err-state { color: #e6a693 !important; }
+[data-np-theme="dark"] .detail-stat { background: var(--field); color: var(--text-main); }
+[data-np-theme="dark"] .pw-req-list li i { color: var(--gold-300) !important; }
+[data-np-theme="dark"] .landing-navbar { background: rgba(12, 20, 32, 0.92); }
+[data-np-theme="dark"] .forecast-container::-webkit-scrollbar-thumb { background: #33455e; }
+
+/* ---- 30d. Penjaga teks di wadah yang selalu gelap (kedua tema) --------- */
+.sidebar .text-muted, .sidebar .text-secondary, .sidebar .text-dark,
+.sidebar .text-body, .sidebar small, .sidebar .form-text,
+.modal-header .text-muted, .modal-header .text-secondary, .modal-header .text-dark,
+.modal-header small, .modal-header .form-text,
+.notif-panel-header .text-muted, .notif-panel-header .text-secondary,
+.notif-panel-header small,
+.site-footer .text-muted, .site-footer .text-secondary, .site-footer .text-dark,
+.site-footer small,
+.np-ticker .text-muted, .np-ticker .text-secondary,
+#fullPageLoader .text-muted, #fullPageLoader .text-secondary,
+.reg-step-badge .text-muted, .reg-step-badge .text-secondary,
+.cta-banner .text-muted, .cta-banner .text-secondary, .cta-banner .text-dark,
+.stat-icon, .login-brand-mark, .stat-icon i, .login-brand-mark i {
+  color: rgba(248, 243, 231, 0.80) !important;
+}
+.stat-icon, .login-brand-mark { color: var(--gold-200) !important; }
+.sidebar .text-muted-soft, .modal-header .text-muted-soft,
+.site-footer .text-muted-soft, .cta-banner .text-muted-soft { color: rgba(248, 243, 231, 0.72) !important; }
+
+/* ---- 30e. Perbaikan khusus mode terang -------------------------------- */
+.btn-info { background: var(--river-600) !important; border-color: var(--river-600) !important; color: #fff !important; }
+.btn-info:hover, .btn-info:focus { background: var(--river-700) !important; border-color: var(--river-700) !important; color: #fff !important; }
+.btn-outline-info { color: var(--river-700) !important; border-color: var(--river-600) !important; }
+.btn-outline-info:hover { background: var(--river-600) !important; color: #fff !important; }
+[data-np-theme="dark"] .btn-info { background: #1f5674 !important; border-color: #1f5674 !important; color: #eaf4fa !important; }
+[data-np-theme="dark"] .btn-info:hover { background: #1a4a65 !important; border-color: #1a4a65 !important; }
+
+.status-pill { background: rgba(201, 162, 39, 0.14); color: var(--gold-700) !important; }
+.pw-req-list li i { color: #8d7b52 !important; }
+.np-divisi-mini.np-div-gp { color: #eaf7ee !important; }
+.np-divisi-mini.np-div-rc { color: #fff6ea !important; }
+.np-divisi-mini.np-div-or { color: #e8f4fa !important; }
+.swal2-confirm { color: #fff !important; }
+
+/* ==========================================================================
+   31. HASIL AUDIT KONTRAS DUA TEMA — putaran kedua
+   Sisa temuan yang bersifat nyata (bukan elemen dekoratif):
+   a. teks warisan di wadah yang selalu gelap masih memakai tinta terang-tema;
+   b. teks "muted" di halaman login (latar navy di kedua tema) berwarna gelap;
+   c. ikon divisi & ikon mini bergradasi terlalu terang sehingga glifnya
+      menyatu dengan latarnya;
+   d. tombol/lencana success & danger di tema gelap sedikit di bawah 4.5:1.
+   ========================================================================== */
+
+/* a. warna teks dasar untuk wadah yang gelap di kedua tema */
+.sidebar, .modal-header, .notif-panel-header, .np-ticker,
+#fullPageLoader, .reg-step-badge, .cta-banner { color: rgba(248, 243, 231, 0.88); }
+.site-footer { color: rgba(255, 255, 255, 0.76); }
+.sidebar .p-3.border-top, .sidebar small { color: rgba(248, 243, 231, 0.72); }
+
+/* b. halaman login: latarnya navy baik di tema terang maupun gelap */
+.login-page-bg { color: rgba(248, 243, 231, 0.86); }
+.login-page-bg .text-muted { color: rgba(248, 243, 231, 0.76) !important; }
+.login-page-bg small, .login-page-bg .form-text { color: rgba(248, 243, 231, 0.70) !important; }
+.login-footer { color: rgba(248, 243, 231, 0.72); }
+
+/* c. ikon divisi: emas tua di tema terang, emas muda di tema gelap */
+.np-divisi-icon { color: var(--gold-700); }
+[data-np-theme="dark"] .np-divisi-icon { color: var(--gold-200); }
+
+/* gradasi ikon mini dipergelap supaya glifnya lolos 3:1 di kedua tema */
+.np-divisi-mini.np-div-gp { background: linear-gradient(155deg, #2f6149, #0a1c14); }
+.np-divisi-mini.np-div-rc { background: linear-gradient(155deg, #8a6a35, #1d1408); }
+.np-divisi-mini.np-div-or { background: linear-gradient(155deg, #2f6488, #0a1e2b); }
+
+/* d. tombol & lencana di tema gelap */
+[data-np-theme="dark"] .btn-success,
+[data-np-theme="dark"] .btn-success:hover { background: var(--moss-700) !important; border-color: var(--moss-700) !important; color: #fff !important; }
+[data-np-theme="dark"] .btn-danger,
+[data-np-theme="dark"] .btn-danger:hover { background: var(--clay-700) !important; border-color: var(--clay-700) !important; color: #fff !important; }
+[data-np-theme="dark"] .badge.bg-success-subtle   { background: rgba(102, 168, 120, 0.16) !important; color: #a3d3b1 !important; }
+[data-np-theme="dark"] .badge.bg-danger-subtle    { background: rgba(190, 110, 90, 0.16) !important; color: #e6a693 !important; }
+[data-np-theme="dark"] .badge.bg-info-subtle      { background: rgba(120, 175, 205, 0.16) !important; color: #a9d4ea !important; }
+[data-np-theme="dark"] .badge.bg-warning-subtle   { background: rgba(220, 199, 155, 0.16) !important; color: var(--gold-200) !important; }
+[data-np-theme="dark"] .badge.bg-secondary-subtle { background: rgba(170, 180, 191, 0.16) !important; color: #c6ced8 !important; }
